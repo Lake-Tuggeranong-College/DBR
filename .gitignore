@@ -6,6 +6,27 @@
 export.cfg
 export_presets.cfg
 
+# PNG imported file
+*.png.import
+
+# JPEG imported file
+*.jpeg.import
+
+# JPG imported file
+*.jpg.import
+
+# GLB imported file
+*.glb.import
+
+# FBX imported file
+*.fbx.import
+
+# SVG imported file
+*.svg.import
+
+# GLTF imported file
+*.gltf.import
+
 # Imported translations (automatically generated from CSV files)
 *.translation
 
@@ -14,5 +35,16 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 
-# MacOS
+# Do not ignore .md files
+!README.md
+!About.md
+!License.md
+!CHANGES.md
+
+# Do not ignore LICENSE
+!LICENSE
+
+# Do not ignore README
+!README
+
 **/.DS_Store
