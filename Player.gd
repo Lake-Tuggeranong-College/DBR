@@ -25,6 +25,7 @@ func _ready():
 	camera.current = true
 
 func _unhandled_input(event):
+	invSlotChange()
 	if not is_multiplayer_authority(): return
 	
 	if event is InputEventMouseMotion:
@@ -38,6 +39,8 @@ func _unhandled_input(event):
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+#func _process(delta):
+	
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
@@ -88,3 +91,10 @@ func receive_damage():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		anim_player.play("idle")
+
+
+func invSlotChange():
+	if Input.is_action_just_pressed("InvSlot1"):
+		Global.add_item('Glock 19')
+		
+	print(Global.inventory)
