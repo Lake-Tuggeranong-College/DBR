@@ -92,9 +92,22 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		anim_player.play("idle")
 
-
 func invSlotChange():
 	if Input.is_action_just_pressed("InvSlot1"):
-		Global.add_item('Glock 19')
-		
+		Global.select_slot(0)
+	elif Input.is_action_just_pressed("InvSlot2"):
+		Global.select_slot(1)
+	else:
+		print('No inventory slot selected')
+	
 	print(Global.inventory)
+
+#func invSlotChange():
+	#if Input.is_action_just_pressed("InvSlot1"):
+		#Global.add_item('Glock 19')
+		#Global.remove_item('RPG')
+	#elif Input.is_action_just_pressed("InvSlot2"):
+		#Global.remove_item('Glock 19')
+		#Global.add_item('RPG')
+		#
+	#print(Global.inventory)
