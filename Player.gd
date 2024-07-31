@@ -72,6 +72,13 @@ func _physics_process(delta):
 		anim_player.play("idle")
 
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		
+		if "Health" in collision.get_collider().name:
+			print("I collided with ", collision.get_collider().name)
+			collision.get_collider().queue_free()
+			
 
 @rpc("call_local")
 func play_shoot_effects():
