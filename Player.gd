@@ -8,7 +8,9 @@ signal health_changed(health_value)
 @onready var raycast = $Camera3D/RayCast3D
 
 var health = 3
+var MAX_HEALTH = 10
 
+const HEALTH_AMOUNTS = 2
 const SPEED = 10.0
 const JUMP_VELOCITY = 10.0
 
@@ -77,6 +79,7 @@ func _physics_process(delta):
 		
 		if "Health" in collision.get_collider().name:
 			print("I collided with ", collision.get_collider().name)
+			add_health(1)
 			collision.get_collider().queue_free()
 			
 
@@ -98,6 +101,16 @@ func receive_damage():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		anim_player.play("idle")
+    
+func add_health(additional_health):
+	health += additional_health
+	health_changed.emit(health)
+
+#func t_body_entered(body):
+	#if_area_is_in_group("player")
+	#print("added_Health")
+	#if body.has_method("add_health"):
+		#body.add_health(HEALTH_AMOUNTS)
 
 func invSlotChange():
 	if Input.is_action_just_pressed("InvSlot1"):
@@ -109,12 +122,3 @@ func invSlotChange():
 	
 	print(Global.inventory)
 
-#func invSlotChange():
-	#if Input.is_action_just_pressed("InvSlot1"):
-		#Global.add_item('Glock 19')
-		#Global.remove_item('RPG')
-	#elif Input.is_action_just_pressed("InvSlot2"):
-		#Global.remove_item('Glock 19')
-		#Global.add_item('RPG')
-		#
-	#print(Global.inventory)
