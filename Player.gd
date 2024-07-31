@@ -8,7 +8,9 @@ signal health_changed(health_value)
 @onready var raycast = $Camera3D/RayCast3D
 
 var health = 3
+var MAX_HEALTH = 10
 
+const HEALTH_AMOUNTS = 2
 const SPEED = 10.0
 const JUMP_VELOCITY = 10.0
 
@@ -25,6 +27,7 @@ func _ready():
 	camera.current = true
 
 func _unhandled_input(event):
+	invSlotChange()
 	if not is_multiplayer_authority(): return
 	
 	if event is InputEventMouseMotion:
@@ -38,6 +41,8 @@ func _unhandled_input(event):
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+#func _process(delta):
+	
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
@@ -69,6 +74,14 @@ func _physics_process(delta):
 		anim_player.play("idle")
 
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		
+		if "Health" in collision.get_collider().name:
+			print("I collided with ", collision.get_collider().name)
+			add_health(1)
+			collision.get_collider().queue_free()
+			
 
 @rpc("call_local")
 func play_shoot_effects():
@@ -88,3 +101,24 @@ func receive_damage():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		anim_player.play("idle")
+    
+func add_health(additional_health):
+	health += additional_health
+	health_changed.emit(health)
+
+#func t_body_entered(body):
+	#if_area_is_in_group("player")
+	#print("added_Health")
+	#if body.has_method("add_health"):
+		#body.add_health(HEALTH_AMOUNTS)
+
+func invSlotChange():
+	if Input.is_action_just_pressed("InvSlot1"):
+		Global.select_slot(0)
+	elif Input.is_action_just_pressed("InvSlot2"):
+		Global.select_slot(1)
+	else:
+		print('No inventory slot selected')
+	
+	print(Global.inventory)
+

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8oqxmm2w2wvv"]
+[gd_scene load_steps=10 format=3 uid="uid://c8oqxmm2w2wvv"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
 [ext_resource type="Texture2D" uid="uid://d1ct3rhgbldhr" path="res://HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="Texture2D" uid="uid://cpnmxmhg1cock" path="res://HealthbarOutline.png" id="5_4ssen"]
+[ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -117,6 +118,11 @@ tint_progress = Color(0.235294, 0.870588, 0.0745098, 1)
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://player.tscn")
 spawn_path = NodePath("..")
+
+[node name="Pickups" type="Node" parent="."]
+
+[node name="Health" parent="Pickups" instance=ExtResource("4_x7hoj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0498, 2.60137, 0)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
