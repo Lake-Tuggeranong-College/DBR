@@ -6,7 +6,19 @@ extends Node
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 
 
-const Player = preload("res://player.tscn")
+## Documentation about using different type of characters
+##
+## - This one down here is the original code to make that happens:
+##		const Player = preload("res://player.tscn")
+##
+## - For any new character models, inherance the 'normal_declan.tscn' file and change the 
+##   'Albedo' texture + adjust the animation in 'AnimationPlayer' node (if needed).
+##
+## - Then, preload that new model as below:
+##		const Player = preload("res://models/characters/<model-name>.tscn")
+
+
+const Player = preload("res://models/characters/normal_declan.tscn")
 const PORT = 9999
 var enet_peer = ENetMultiplayerPeer.new()
 
