@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
-[ext_resource type="Texture2D" uid="uid://dhiri58hinoy2" path="res://HealthbarInner.png" id="4_5s3we"]
+[ext_resource type="Texture2D" uid="uid://btadjwf7okg15" path="res://HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
-[ext_resource type="Texture2D" uid="uid://diyqx8c3b6fi7" path="res://HealthbarOutline.png" id="5_4ssen"]
+[ext_resource type="Texture2D" uid="uid://cv671jj8kp530" path="res://HealthbarOutline.png" id="5_4ssen"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -99,10 +99,10 @@ stretch_mode = 5
 
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer/HUD"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 14.0
-offset_right = 519.0
-offset_bottom = 60.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 513.0
+offset_bottom = 49.0
 max_value = 3.0
 step = 0.01
 value = 3.0
