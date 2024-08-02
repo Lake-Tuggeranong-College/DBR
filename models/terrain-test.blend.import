@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dcvvfclls0ge"
-path="res://.godot/imported/Pistol.blend-5bd1dbb8082ebec8b85e319b712326e5.scn"
+uid="uid://b2vh0juvkwby3"
+path="res://.godot/imported/terrain-test.blend-8db8da99bf1a162222125ec3d1c5f79f.scn"
 
 [deps]
 
-source_file="res://models/Pistol.blend"
-dest_files=["res://.godot/imported/Pistol.blend-5bd1dbb8082ebec8b85e319b712326e5.scn"]
+source_file="res://models/terrain-test.blend"
+dest_files=["res://.godot/imported/terrain-test.blend-8db8da99bf1a162222125ec3d1c5f79f.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
-nodes/root_name="Scene Root"
+nodes/root_type=""
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
@@ -30,7 +30,7 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={}
-gltf/naming_version=0
+gltf/naming_version=1
 gltf/embedded_image_handling=1
 blender/nodes/visible=0
 blender/nodes/punctual_lights=true

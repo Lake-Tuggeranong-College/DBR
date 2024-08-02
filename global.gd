@@ -1,41 +1,28 @@
 extends Node
 
-# Declare the inventory array
-var inventory = []
-var selectSlot
+# Define signals for weapon switching
+signal weapon_switched(weapon_name)
 
-# Array of available guns
-var Guns = [
-	'Knife',
-	'Glock-19',
-	'AK-47',
-	'M4A1',
-]
+# Inventory slots for guns
+var guns = ["AK-47", "Glock-19"]
 
-# Function to add an item to the inventory
-func add_item(item):
-	inventory.append(item)
-	print("Item added: ", item)
+# Add guns to the inventory
+func add_gun(gun_name):
+	if guns.size() < 2:
+		# Slow down the gun name text ouput by a bit. No rushing, you know :D
+		guns.append(gun_name)
 
-# Function to remove an item from the inventory
-func remove_item(item):
-	if item in inventory:
-		inventory.erase(item)
-		print("Item removed: ", item)
-	else:
-		print("Item not found in inventory")
+# Switch guns based on the inventory slot for each individual of it
+func switch_gun(slot):
+	# Create an emtpy array to store gun name dynacally
+	var gun_name = ""
+	
+	if slot == 1 and guns.size() > 0:
+		gun_name = guns[0]  # Example 1: Switch to "AK-47"
+	elif slot == 2 and guns.size() > 1:
+		gun_name = guns[1]  # Example 2: Switch to "Glock-19"
 
-# Function to list all items in the inventory
-func list_inventory():
-	print("Inventory: ", inventory)
+	# Auto add the gun name into it based on what guns have already been defined
+	if gun_name != "":
+		emit_signal("weapon_switched", gun_name)
 
-# Function to select an item slot
-func select_slot(slot):
-	if slot >= 0 and slot < Guns.size():
-		var item = Guns[slot]
-		remove_item(item)  # Remove the current item in the slot
-		add_item(item)  # Add the new item to the slot
-		selectSlot = slot
-		print("Selected Slot: ", selectSlot, " with item: ", item)
-	else:
-		print("Invalid slot selected")

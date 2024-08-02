@@ -17,17 +17,25 @@ const JUMP_VELOCITY = 10.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 20.0
 
+
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
+
 func _ready():
+	
+	# Connect new 'weapon_switched' signal from the Global script
+	var callable_gun_signal = Callable(self, "_on_weapon_switched")
+	Global.connect("weapon_switched", callable_gun_signal)
+	
 	if not is_multiplayer_authority(): return
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
 
+
 func _unhandled_input(event):
-	invSlotChange()
+	#invSlotChange()
 	if not is_multiplayer_authority(): return
 	
 	if event is InputEventMouseMotion:
@@ -41,8 +49,7 @@ func _unhandled_input(event):
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
-#func _process(delta):
-	
+
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
@@ -81,7 +88,15 @@ func _physics_process(delta):
 			print("I collided with ", collision.get_collider().name)
 			add_health(1)
 			collision.get_collider().queue_free()
-			
+
+
+# Get defined key inputs for switching guns correspondingly
+func _input(event):
+	if event.is_action_pressed("inventory_slot_1"):
+		Global.switch_gun(1)
+	elif event.is_action_pressed("inventory_slot_2"):
+		Global.switch_gun(2)
+
 
 @rpc("call_local")
 func play_shoot_effects():
@@ -89,6 +104,7 @@ func play_shoot_effects():
 	anim_player.play("shoot")
 	muzzle_flash.restart()
 	muzzle_flash.emitting = true
+
 
 @rpc("any_peer")
 func receive_damage():
@@ -98,13 +114,16 @@ func receive_damage():
 		position = Vector3.ZERO
 	health_changed.emit(health)
 
+
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		anim_player.play("idle")
-    
+
+
 func add_health(additional_health):
 	health += additional_health
 	health_changed.emit(health)
+
 
 #func t_body_entered(body):
 	#if_area_is_in_group("player")
@@ -112,13 +131,7 @@ func add_health(additional_health):
 	#if body.has_method("add_health"):
 		#body.add_health(HEALTH_AMOUNTS)
 
-func invSlotChange():
-	if Input.is_action_just_pressed("InvSlot1"):
-		Global.select_slot(0)
-	elif Input.is_action_just_pressed("InvSlot2"):
-		Global.select_slot(1)
-	else:
-		print('No inventory slot selected')
-	
-	print(Global.inventory)
 
+# Handle weapon switching based on the key inputs
+func _on_weapon_switched(gun_name):
+	print("Switched to gun: %s" % gun_name)
