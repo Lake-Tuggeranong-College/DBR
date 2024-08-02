@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
-[ext_resource type="Texture2D" uid="uid://d1ct3rhgbldhr" path="res://HealthbarInner.png" id="4_5s3we"]
-[ext_resource type="Texture2D" uid="uid://cpnmxmhg1cock" path="res://HealthbarOutline.png" id="5_4ssen"]
+[ext_resource type="Texture2D" uid="uid://dhiri58hinoy2" path="res://HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
+[ext_resource type="Texture2D" uid="uid://diyqx8c3b6fi7" path="res://HealthbarOutline.png" id="5_4ssen"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
