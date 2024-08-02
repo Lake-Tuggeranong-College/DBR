@@ -117,7 +117,7 @@ tint_under = Color(0.94902, 0.0509804, 0.0980392, 1)
 tint_progress = Color(0.235294, 0.870588, 0.0745098, 1)
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://player.tscn")
+_spawnable_scenes = PackedStringArray("res://player.tscn", "res://models/characters/normal_declan.tscn")
 spawn_path = NodePath("..")
 
 [node name="Pickups" type="Node" parent="."]
