@@ -3,16 +3,10 @@
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
-
-[ext_resource type="Texture2D" uid="uid://gvatarv8uora" path="res://HealthbarInner.png" id="4_5s3we"]
+[ext_resource type="Texture2D" uid="uid://b7lcli4a80o3k" path="res://HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
-[ext_resource type="Texture2D" uid="uid://df48ug47m7c1y" path="res://HealthbarOutline.png" id="5_4ssen"]
-[ext_resource type="PackedScene" uid="uid://dbpuldaet3y7p" path="res://models/pickups/AmmoPickup.tscn" id="7_1iyd3"]
-=======
-[ext_resource type="Texture2D" uid="uid://btadjwf7okg15" path="res://HealthbarInner.png" id="4_5s3we"]
-[ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
-[ext_resource type="Texture2D" uid="uid://cv671jj8kp530" path="res://HealthbarOutline.png" id="5_4ssen"]
-
+[ext_resource type="Texture2D" uid="uid://cpj6s3w8earu0" path="res://HealthbarOutline.png" id="5_4ssen"]
+[ext_resource type="PackedScene" uid="uid://v876mwum5xu" path="res://models/pickups/AmmoBox.tscn" id="7_1iyd3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -123,7 +117,7 @@ tint_under = Color(0.94902, 0.0509804, 0.0980392, 1)
 tint_progress = Color(0.235294, 0.870588, 0.0745098, 1)
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://player.tscn")
+_spawnable_scenes = PackedStringArray("res://player.tscn", "res://models/characters/normal_declan.tscn")
 spawn_path = NodePath("..")
 
 [node name="Pickups" type="Node" parent="."]
@@ -131,8 +125,8 @@ spawn_path = NodePath("..")
 [node name="Health" parent="Pickups" instance=ExtResource("4_x7hoj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0498, 2.60137, 0)
 
-[node name="Root Scene" parent="." instance=ExtResource("7_1iyd3")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -13.9876, 1.69739, 7.9042)
+[node name="AmmoBox" parent="Pickups" instance=ExtResource("7_1iyd3")]
+transform = Transform3D(4.88148, 1.0822, 0, -1.0822, 4.88148, 0, 0, 0, 5, -14, 0.85, 12.1)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]

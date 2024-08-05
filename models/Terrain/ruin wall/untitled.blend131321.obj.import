@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cokn2ww2gymq1"
+path="res://.godot/imported/untitled.blend131321.obj-57ca197aea2e5521d7934f191cef53fb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/untitled.blend131321.obj-57ca197aea2e5521d7934f191cef53fb.mesh"]
+
+source_file="res://models/Terrain/ruin wall/untitled.blend131321.obj"
+dest_files=["res://.godot/imported/untitled.blend131321.obj-57ca197aea2e5521d7934f191cef53fb.mesh", "res://.godot/imported/untitled.blend131321.obj-57ca197aea2e5521d7934f191cef53fb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

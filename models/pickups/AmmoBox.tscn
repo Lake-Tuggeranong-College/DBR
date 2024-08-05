@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://v876mwum5xu"]
+
+[ext_resource type="PackedScene" uid="uid://buu5gpsx03b8b" path="res://models/pickups/AmmoBox.glb" id="1_81yn6"]
+[ext_resource type="Texture2D" uid="uid://bisq7r3stxm71" path="res://images/textures/ammo/Tex_0009_1.jpg" id="2_8gfg8"]
+[ext_resource type="Texture2D" uid="uid://bs53j8lnth8r7" path="res://images/textures/ammo/Tex_0010_1.jpg" id="3_aj31t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6msnx"]
+albedo_texture = ExtResource("2_8gfg8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxmsg"]
+albedo_color = Color(0.372549, 0.294118, 0.0627451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0pin"]
+albedo_texture = ExtResource("3_aj31t")
+
+[node name="AmmoBox" instance=ExtResource("1_81yn6")]
+
+[node name="Mesh_0009" parent="Ноль_объект" index="0"]
+material_override = SubResource("StandardMaterial3D_6msnx")
+
+[node name="Mesh_0010" parent="Ноль_объект" index="1"]
+material_override = SubResource("StandardMaterial3D_yxmsg")
+
+[node name="Mesh_0011" parent="Ноль_объект" index="2"]
+material_override = SubResource("StandardMaterial3D_h0pin")
