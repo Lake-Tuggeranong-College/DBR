@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8oqxmm2w2wvv"]
+[gd_scene load_steps=11 format=3 uid="uid://c8oqxmm2w2wvv"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
@@ -99,10 +99,10 @@ stretch_mode = 5
 
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer/HUD"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 14.0
-offset_right = 519.0
-offset_bottom = 60.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 513.0
+offset_bottom = 49.0
 max_value = 3.0
 step = 0.01
 value = 3.0
@@ -123,6 +123,9 @@ spawn_path = NodePath("..")
 
 [node name="Health" parent="Pickups" instance=ExtResource("4_x7hoj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0498, 2.60137, 0)
+
+[node name="Root Scene" parent="." instance=ExtResource("7_1iyd3")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -13.9876, 1.69739, 7.9042)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]

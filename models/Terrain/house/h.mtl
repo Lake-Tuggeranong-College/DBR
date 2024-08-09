@@ -1,0 +1,70 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Fencing_Weathered
+Ka 0.000000 0.000000 0.000000
+Kd 0.435294 0.411765 0.376471
+Ks 0.330000 0.330000 0.330000
+map_Kd h/Fencing_Weathered.jpg
+
+newmtl _Fencing_Wood_Old_1
+Ka 0.000000 0.000000 0.000000
+Kd 0.517647 0.501961 0.494118
+Ks 0.330000 0.330000 0.330000
+map_Kd h/_Fencing_Wood_Old_1.jpg
+
+newmtl Stone_Vein_Gray
+Ka 0.000000 0.000000 0.000000
+Kd 0.650980 0.647059 0.647059
+Ks 0.330000 0.330000 0.330000
+map_Kd h/Stone_Vein_Gray.jpg
+
+newmtl Metal_Panel
+Ka 0.000000 0.000000 0.000000
+Kd 0.560784 0.615686 0.619608
+Ks 0.330000 0.330000 0.330000
+map_Kd h/Metal_Panel.jpg
+
+newmtl Brick_Rough_Dark
+Ka 0.000000 0.000000 0.000000
+Kd 0.368627 0.301961 0.207843
+Ks 0.330000 0.330000 0.330000
+map_Kd h/Brick_Rough_Dark.jpg
+
+newmtl Metal_Seamed
+Ka 0.000000 0.000000 0.000000
+Kd 0.462745 0.466667 0.450980
+Ks 0.330000 0.330000 0.330000
+map_Kd h/Metal_Seamed.jpg
+
+newmtl Cladding_Stucco_White
+Ka 0.000000 0.000000 0.000000
+Kd 0.784314 0.784314 0.784314
+Ks 0.330000 0.330000 0.330000
+map_Kd h/Cladding_Stucco_White.jpg
+
+newmtl Fencing_Wood_Old
+Ka 0.000000 0.000000 0.000000
+Kd 0.513725 0.501961 0.490196
+Ks 0.330000 0.330000 0.330000
+map_Kd h/Fencing_Wood_Old.jpg
+
+newmtl Vegetation_Blur3
+Ka 0.000000 0.000000 0.000000
+Kd 0.372549 0.529412 0.341176
+Ks 0.330000 0.330000 0.330000
+map_Kd h/Vegetation_Blur3.jpg
+
+newmtl Stone_Marble
+Ka 0.000000 0.000000 0.000000
+Kd 0.560784 0.541176 0.533333
+Ks 0.330000 0.330000 0.330000
+map_Kd h/Stone_Marble.jpg
+
+newmtl Metal_Aluminum_Anodized
+Ka 0.000000 0.000000 0.000000
+Kd 0.792157 0.819608 0.858824
+Ks 0.330000 0.330000 0.330000
+map_Kd h/Metal_Aluminum_Anodized.jpg
+
