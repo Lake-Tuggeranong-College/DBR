@@ -10,7 +10,6 @@ enum DynamicCameraViewToggleAction {
 
 # First Player View (FPP)
 @onready var fpp_camera: Camera3D = $FPPCamera
-@onready var fpp_pistol: Node3D = $FPPCamera/FPPPistol
 @onready var fpp_muzzle_flash: GPUParticles3D = $FPPCamera/FPPPistol/MuzzleFlash
 @onready var fpp_raycast: RayCast3D = $FPPCamera/FPPRayCast3D
 

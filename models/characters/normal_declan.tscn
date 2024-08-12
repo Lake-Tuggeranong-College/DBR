@@ -10,7 +10,6 @@
 albedo_texture = ExtResource("3_rtgxh")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efq5s"]
-size = Vector3(0.96524, 1, 1)
 
 [sub_resource type="Gradient" id="Gradient_q5cnu"]
 offsets = PackedFloat32Array(0, 0.141221, 1)
@@ -69,7 +68,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("FPPCamera/FPPPistol:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -81,7 +80,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("FPPCamera/FPPPistol:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
