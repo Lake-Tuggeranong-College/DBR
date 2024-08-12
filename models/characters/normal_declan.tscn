@@ -243,7 +243,7 @@ properties/2/path = NodePath("FPPCamera:rotation")
 properties/2/spawn = true
 properties/2/replication_mode = 1
 properties/3/path = NodePath("TPPCamera:rotation")
-properties/3/spawn = true
+properties/3/spawn = false
 properties/3/replication_mode = 1
 
 [node name="Player" type="CharacterBody3D"]
@@ -282,6 +282,7 @@ collision_mask = 2
 
 [node name="TPPCamera" type="Camera3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 1.80517, 0.861022, 0, -0.861022, 1.80517, 0, 5.525, 5)
+visible = false
 
 [node name="TPPPistol" parent="TPPCamera" instance=ExtResource("3_w7dyo")]
 transform = Transform3D(1, 0, 0, 0, 0.622514, -0.782608, 0, 0.782608, 0.622514, 0.499933, -0.0734346, -3.35847)
