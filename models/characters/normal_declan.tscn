@@ -258,7 +258,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -2.
 material_override = SubResource("StandardMaterial3D_6l0xm")
 
 [node name="HitBoxDeclan" type="CollisionShape3D" parent="."]
-transform = Transform3D(27.0465, 0, 0, 0, 93.6033, 0, 0, 0, 26.174, 0, 1.88, 0)
+transform = Transform3D(1.085, 0, 0, 0, 3.755, 0, 0, 0, 1.05, 0, 1.88, 0)
 shape = SubResource("BoxShape3D_efq5s")
 
 [node name="FPPCamera" type="Camera3D" parent="."]
