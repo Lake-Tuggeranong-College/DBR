@@ -4,7 +4,7 @@ extends Node
 signal weapon_switched(weapon_name)
 
 # Inventory slots for guns
-var guns = ["AK-47", "Glock-19"]
+var guns = ["Glock-19", "AK-47"]
 
 # Add guns to the inventory
 func add_gun(gun_name):

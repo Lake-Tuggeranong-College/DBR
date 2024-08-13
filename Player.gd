@@ -110,7 +110,7 @@ func _unhandled_input(event):
 
 
 func _physics_process(delta):
-	print(health)
+	#print(health)
 	if not is_multiplayer_authority(): return
 	
 	# Add the gravity.
