@@ -34,7 +34,7 @@ const SPEED = 10.0
 const JUMP_VELOCITY = 10.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 20.0
+var gravity = 25.0
 
 # Track different state of camera node to toggle either FPP or TPP.
 var is_fpp: bool = true
