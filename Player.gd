@@ -85,14 +85,17 @@ func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
 
 	if event is InputEventMouseMotion:
+		#camera
+		#first person
 		if is_fpp:
 			rotate_y(-event.relative.x * .005)
 			fpp_camera.rotate_x(-event.relative.y * .005)
 			fpp_camera.rotation.x = clamp(fpp_camera.rotation.x, -PI/2, PI/2)
-		else:
-			rotate_y(-event.relative.x * .005)
-			tpp_camera.rotate_x(-event.relative.y * .005)
-			tpp_camera.rotation.x = clamp(tpp_camera.rotation.x, -PI/2, PI/2)
+			#third person
+		#else:
+			#rotate_y(-event.relative.x * .005)
+			#tpp_camera.rotate_x(-event.relative.y * .005)
+			#tpp_camera.rotation.x = clamp(tpp_camera.rotation.x, -PI/2, PI/2)
 
 	if Input.is_action_just_pressed("shoot") \
 			and anim_player.current_animation != "shoot":
@@ -107,6 +110,7 @@ func _unhandled_input(event):
 
 
 func _physics_process(delta):
+	print(health)
 	if not is_multiplayer_authority(): return
 	
 	# Add the gravity.
@@ -138,7 +142,7 @@ func _physics_process(delta):
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		
+		#weird if ngl
 		if "Health" in collision.get_collider().name:
 			print("I collided with ", collision.get_collider().name)
 			add_health(1)
@@ -190,7 +194,7 @@ func add_health(additional_health):
 
 
 #func t_body_entered(body):
-	#if_area_is_in_group("player")
+	##if_area_is_in_group("player")
 	#print("added_Health")
 	#if body.has_method("add_health"):
 		#body.add_health(HEALTH_AMOUNTS)
