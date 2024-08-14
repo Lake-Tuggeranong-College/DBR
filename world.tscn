@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
-[ext_resource type="Texture2D" uid="uid://dpy0lr5dptjpa" path="res://HealthbarInner.png" id="4_5s3we"]
+[ext_resource type="Texture2D" uid="uid://dreb8i5vfmjrp" path="res://HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
-[ext_resource type="Texture2D" uid="uid://bsyb4jlg0ilak" path="res://HealthbarOutline.png" id="5_4ssen"]
+[ext_resource type="Texture2D" uid="uid://bjsokucgf1x8o" path="res://HealthbarOutline.png" id="5_4ssen"]
 [ext_resource type="PackedScene" uid="uid://v876mwum5xu" path="res://models/pickups/AmmoBox.tscn" id="7_1iyd3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]

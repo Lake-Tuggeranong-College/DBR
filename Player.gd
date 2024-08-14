@@ -104,13 +104,13 @@ func _unhandled_input(event):
 			var hit_player = fpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
-		elif tpp_raycast.is_colliding():
-			var hit_player = tpp_raycast.get_collider()
-			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+#		elif tpp_raycast.is_colliding():
+#			var hit_player = tpp_raycast.get_collider()
+#			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
 
 func _physics_process(delta):
-	print(health)
+	#print(health)
 	if not is_multiplayer_authority(): return
 	
 	# Add the gravity.
@@ -178,9 +178,15 @@ func play_shoot_effects():
 func receive_damage():
 	health -= 1
 	if health <= 0:
+		print("Game Over!")
+		# Reset the player's health and position
 		health = 3
 		position = Vector3.ZERO
-	health_changed.emit(health)
+		# Emit the health_changed signal with the reset health value
+		health_changed.emit(health)
+	else:
+		# Emit the health_changed signal with the updated health value
+		health_changed.emit(health)
 
 
 func _on_animation_player_animation_finished(anim_name):
