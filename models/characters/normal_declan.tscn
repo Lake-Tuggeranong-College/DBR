@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://Player.gd" id="1_ksfbt"]
 [ext_resource type="PackedScene" uid="uid://bb2efhbry4wcn" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
 [ext_resource type="Texture2D" uid="uid://cjj3vrp0v1dqp" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
+[ext_resource type="PackedScene" uid="uid://bbdqecxy6f4da" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
+[ext_resource type="Texture2D" uid="uid://cj83kj6cxopsd" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
 [ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://models/Pistol.glb" id="3_w7dyo"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="4_8wo5q"]
 
@@ -248,7 +250,6 @@ properties/3/replication_mode = 1
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-collision_layer = 2
 script = ExtResource("1_ksfbt")
 
 [node name="NormalDeclan" parent="." instance=ExtResource("2_u05fy")]
