@@ -54,59 +54,35 @@ func _ready():
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	# Check if player was set FPP as default in editor
-	if camera_player_state == DynamicCameraViewToggleAction.FIRST_PERSON_VIEW:
-		# Indicate that FPP mode is enable
-		is_fpp = true
-		
-		# Ensure FPP camera is active as intially when first load the player
-		fpp_camera.current = true
-		tpp_camera.current = false
-	
-		# Ensure FPP guns are the only one can be see when first load the player
-		fpp_pistol.visible = true
-		tpp_pistol.visible = false
-
-	# If not, then check if player was set TPP as default in editor
-	elif camera_player_state == DynamicCameraViewToggleAction.THIRD_PERSON_VIEW:
-		# Indicate that FPP mode is not enable
-		is_fpp = false
-
-		# Ensure TPP camera is active as intially when first load the player
-		fpp_camera.current = false
-		tpp_camera.current = true
-	
-		# Ensure TPP guns are the only one can be see when first load the player
-		fpp_pistol.visible = false
-		tpp_pistol.visible = true
+	# Initialize camera and gun visibility based on the editor setting
+	update_camera_visibility()
+	update_gun_model_visibility()
 
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
 
 	if event is InputEventMouseMotion:
-		#camera
-		#first person
+		# FPP camera
 		if is_fpp:
 			rotate_y(-event.relative.x * .005)
 			fpp_camera.rotate_x(-event.relative.y * .005)
 			fpp_camera.rotation.x = clamp(fpp_camera.rotation.x, -PI/2, PI/2)
-			#third person
-		#else:
-			#rotate_y(-event.relative.x * .005)
-			#tpp_camera.rotate_x(-event.relative.y * .005)
-			#tpp_camera.rotation.x = clamp(tpp_camera.rotation.x, -PI/2, PI/2)
+		# TPP camera
+		else:
+			rotate_y(-event.relative.x * .005)
+			tpp_camera.rotate_x(-event.relative.y * .005)
+			tpp_camera.rotation.x = clamp(tpp_camera.rotation.x, -PI/2, PI/2)
 
-	if Input.is_action_just_pressed("shoot") \
-			and anim_player.current_animation != "shoot":
+	if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot":
 		play_shoot_effects.rpc()
-		if fpp_raycast.is_colliding():
+		if is_fpp and fpp_raycast.is_colliding():
 			var hit_player = fpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
-#		elif tpp_raycast.is_colliding():
-#			var hit_player = tpp_raycast.get_collider()
-#			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+		elif not is_fpp and tpp_raycast.is_colliding():
+			var hit_player = tpp_raycast.get_collider()
+			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
 
 func _physics_process(delta):
@@ -220,11 +196,13 @@ func toggle_different_camera_state():
 
 # Update player's camera view when player pressed the pre-defined key input
 func update_camera_visibility(): 
-	fpp_camera.current = is_fpp
-	tpp_camera.current = not is_fpp
+	if is_multiplayer_authority():
+		fpp_camera.current = is_fpp
+		tpp_camera.current = not is_fpp
 
 
 # Update the visibility of guns when player changed the camera view based on their preferrance
 func update_gun_model_visibility():
-	fpp_pistol.visible = is_fpp
-	tpp_pistol.visible = not is_fpp
+	if is_multiplayer_authority():
+		fpp_pistol.visible = is_fpp
+		tpp_pistol.visible = not is_fpp
