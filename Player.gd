@@ -20,6 +20,9 @@ enum DynamicCameraViewToggleAction {
 @onready var tpp_muzzle_flash: GPUParticles3D = $TPPCamera/TPPPistol/MuzzleFlash
 @onready var tpp_raycast: RayCast3D = $TPPCamera/TPPRayCast3D
 
+# Multiplayer Synchronizer
+@onready var multiplayer_sync: MultiplayerSynchronizer = $MultiplayerSynchronizer
+
 # Animations
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
@@ -203,6 +206,13 @@ func update_camera_visibility():
 
 # Update the visibility of guns when player changed the camera view based on their preferrance
 func update_gun_model_visibility():
+	# For multiplayer (TODO: not worked yet but I'll just leave it here first)
 	if is_multiplayer_authority():
+		fpp_pistol.visible = is_fpp
+		tpp_pistol.visible = not is_fpp
+		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), is_fpp)
+		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), not is_fpp)
+	# For local
+	else:
 		fpp_pistol.visible = is_fpp
 		tpp_pistol.visible = not is_fpp
