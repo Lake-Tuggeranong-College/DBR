@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
-[ext_resource type="Texture2D" uid="uid://dpy0lr5dptjpa" path="res://HealthbarInner.png" id="4_5s3we"]
+[ext_resource type="Texture2D" uid="uid://d1ct3rhgbldhr" path="res://HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
-[ext_resource type="Texture2D" uid="uid://bsyb4jlg0ilak" path="res://HealthbarOutline.png" id="5_4ssen"]
-[ext_resource type="Texture2D" uid="uid://uwf3ah0lyr03" path="res://AK-47.jpg" id="6_2ka3t"]
+[ext_resource type="Texture2D" uid="uid://cpnmxmhg1cock" path="res://HealthbarOutline.png" id="5_4ssen"]
 [ext_resource type="PackedScene" uid="uid://v876mwum5xu" path="res://models/pickups/AmmoBox.tscn" id="7_1iyd3"]
-[ext_resource type="Texture2D" uid="uid://salvet15mbd5" path="res://Glock-19.jpg" id="7_71wwp"]
+[ext_resource type="Texture2D" uid="uid://ccmc0xr24ypwa" path="res://Ak47.png" id="10_yvvrp"]
+[ext_resource type="Texture2D" uid="uid://dnpuict0vl73m" path="res://Glock.png" id="11_ulqyl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -119,6 +119,7 @@ tint_under = Color(0.94902, 0.0509804, 0.0980392, 1)
 tint_progress = Color(0.235294, 0.870588, 0.0745098, 1)
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/HUD"]
+visible = false
 layout_mode = 0
 offset_top = 483.52
 offset_right = 1066.0
@@ -126,13 +127,15 @@ offset_bottom = 1033.52
 scale = Vector2(0.3, 0.3)
 columns = 2
 
-[node name="Glock-19" type="TextureRect" parent="CanvasLayer/HUD/GridContainer"]
-layout_mode = 2
-texture = ExtResource("7_71wwp")
+[node name="Ak47" type="Sprite2D" parent="CanvasLayer/HUD"]
+position = Vector2(206, 573)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_yvvrp")
 
-[node name="AK-47" type="TextureRect" parent="CanvasLayer/HUD/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_2ka3t")
+[node name="Glock" type="Sprite2D" parent="CanvasLayer/HUD"]
+position = Vector2(73, 573)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_ulqyl")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://player.tscn", "res://models/characters/normal_declan.tscn")
