@@ -248,6 +248,7 @@ properties/3/replication_mode = 1
 
 [node name="Player2" type="CharacterBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 2
 script = ExtResource("1_ksfbt")
 
 [node name="NormalDeclan" parent="." instance=ExtResource("2_u05fy")]

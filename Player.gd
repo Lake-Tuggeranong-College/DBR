@@ -31,7 +31,7 @@ enum DynamicCameraViewToggleAction {
 
 var health = 3
 var MAX_HEALTH = 10
-var Ammo_Weapon = 3
+var Ammo_Weapon = 10
 
 const Ammo_In_Weapon = 3
 const HEALTH_AMOUNTS = 2
