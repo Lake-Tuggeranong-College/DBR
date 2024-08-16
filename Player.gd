@@ -128,11 +128,18 @@ func _physics_process(delta):
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		#weird if ngl
-		if "Health" in collision.get_collider().name:
-			print("I collided with ", collision.get_collider().name)
-			add_health(1)
-			collision.get_collider().queue_free()
+		if collision.get_collider().is_in_group("pickup"):
+			print("pickup collided.")
+			if "AmmoBox" in collision.get_collider().name:
+				
+				# Add to Ammo instead.
+				print("I collided with ", collision.get_collider().name)
+				add_health(1)
+				collision.get_collider().queue_free()
+			if "Health" in collision.get_collider().name:
+				print("I collided with ", collision.get_collider().name)
+				add_health(1)
+				collision.get_collider().queue_free()
 
 
 # Get defined key inputs
