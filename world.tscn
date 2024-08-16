@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ccmc0xr24ypwa" path="res://Ak47.png" id="10_yvvrp"]
 [ext_resource type="Texture2D" uid="uid://dnpuict0vl73m" path="res://Glock.png" id="11_ulqyl"]
 
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
