@@ -24,8 +24,6 @@ sky = SubResource("Sky_w2qqb")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="LabelSettings" id="LabelSettings_wj0j3"]
-font = ExtResource("8_2m5cb")
 
 [node name="World" type="Node"]
 script = ExtResource("1_6tkge")
