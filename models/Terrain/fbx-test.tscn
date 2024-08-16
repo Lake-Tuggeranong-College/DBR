@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqw0ymamxegpx"]
+
+[ext_resource type="PackedScene" uid="uid://btmb7xcud6jkm" path="res://models/Terrain/test-terrain02.fbx" id="1_o38i1"]
+
+[node name="Root Scene" instance=ExtResource("1_o38i1")]
