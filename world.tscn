@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8oqxmm2w2wvv"]
+[gd_scene load_steps=13 format=3 uid="uid://c8oqxmm2w2wvv"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
-
 [ext_resource type="Texture2D" uid="uid://b7aqwtut887jl" path="res://HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
 [ext_resource type="Texture2D" uid="uid://d4a5yb03ammnh" path="res://HealthbarOutline.png" id="5_4ssen"]
@@ -23,9 +22,6 @@ background_mode = 2
 sky = SubResource("Sky_w2qqb")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="LabelSettings" id="LabelSettings_wj0j3"]
-font = ExtResource("8_2m5cb")
 
 [node name="World" type="Node"]
 script = ExtResource("1_6tkge")
@@ -83,6 +79,7 @@ placeholder_text = "Enter Address to Join Here"
 alignment = 1
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,6 +119,7 @@ tint_under = Color(0.94902, 0.0509804, 0.0980392, 1)
 tint_progress = Color(0.235294, 0.870588, 0.0745098, 1)
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/HUD"]
+visible = false
 layout_mode = 0
 offset_top = 483.52
 offset_right = 1066.0
@@ -129,25 +127,15 @@ offset_bottom = 1033.52
 scale = Vector2(0.3, 0.3)
 columns = 2
 
-[node name="Ak47" type="Sprite2D" parent="CanvasLayer/HUD/GridContainer"]
-position = Vector2(686.667, 298.267)
+[node name="Ak47" type="Sprite2D" parent="CanvasLayer/HUD"]
+position = Vector2(206, 573)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("10_yvvrp")
 
-[node name="Glock" type="Sprite2D" parent="CanvasLayer/HUD/GridContainer"]
-position = Vector2(243.333, 298.267)
+[node name="Glock" type="Sprite2D" parent="CanvasLayer/HUD"]
+position = Vector2(73, 573)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("11_ulqyl")
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD"]
-layout_mode = 0
-offset_left = 953.0
-offset_top = 598.0
-offset_right = 1049.0
-offset_bottom = 647.0
-scale = Vector2(2, 2)
-text = "star wars
-"
-label_settings = SubResource("LabelSettings_wj0j3")
-uppercase = true
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://player.tscn", "res://models/characters/normal_declan.tscn")
