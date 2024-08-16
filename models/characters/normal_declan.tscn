@@ -1,8 +1,9 @@
 [gd_scene load_steps=19 format=3 uid="uid://c6xxkytlbq8q2"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ksfbt"]
-[ext_resource type="PackedScene" uid="uid://c3csm3g325yx2" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
-[ext_resource type="Texture2D" uid="uid://cjfscqn33x60x" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
+[ext_resource type="PackedScene" uid="uid://quf3uq4l4ikj" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
+[ext_resource type="Texture2D" uid="uid://bt63ehw4laoax" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
+
 [ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://models/Pistol.glb" id="3_w7dyo"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="4_8wo5q"]
 
