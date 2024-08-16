@@ -31,7 +31,9 @@ enum DynamicCameraViewToggleAction {
 
 var health = 3
 var MAX_HEALTH = 10
+var Ammo_Weapon = 3
 
+const Ammo_In_Weapon = 3
 const HEALTH_AMOUNTS = 2
 const SPEED = 10.0
 const JUMP_VELOCITY = 10.0
@@ -78,6 +80,11 @@ func _unhandled_input(event):
 			tpp_camera.rotation.x = clamp(tpp_camera.rotation.x, -PI/2, PI/2)
 
 	if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot":
+		Ammo_Weapon -= 1 
+		if Ammo_Weapon < 0:
+			print("empty")
+			print("failure")
+			return
 		play_shoot_effects.rpc()
 		if is_fpp and fpp_raycast.is_colliding():
 			var hit_player = fpp_raycast.get_collider()
