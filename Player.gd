@@ -20,6 +20,9 @@ enum DynamicCameraViewToggleAction {
 @onready var tpp_muzzle_flash: GPUParticles3D = $TPPCamera/TPPPistol/MuzzleFlash
 @onready var tpp_raycast: RayCast3D = $TPPCamera/TPPRayCast3D
 
+# Multiplayer Synchronizer
+@onready var multiplayer_sync: MultiplayerSynchronizer = $MultiplayerSynchronizer
+
 # Animations
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
@@ -28,13 +31,15 @@ enum DynamicCameraViewToggleAction {
 
 var health = 3
 var MAX_HEALTH = 10
+var Ammo_Weapon = 10
 
+const Ammo_In_Weapon = 3
 const HEALTH_AMOUNTS = 2
 const SPEED = 10.0
 const JUMP_VELOCITY = 10.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 20.0
+var gravity = 25.0
 
 # Track different state of camera node to toggle either FPP or TPP.
 var is_fpp: bool = true
@@ -54,59 +59,44 @@ func _ready():
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	# Check if player was set FPP as default in editor
-	if camera_player_state == DynamicCameraViewToggleAction.FIRST_PERSON_VIEW:
-		# Indicate that FPP mode is enable
-		is_fpp = true
-		
-		# Ensure FPP camera is active as intially when first load the player
-		fpp_camera.current = true
-		tpp_camera.current = false
-	
-		# Ensure FPP guns are the only one can be see when first load the player
-		fpp_pistol.visible = true
-		tpp_pistol.visible = false
-
-	# If not, then check if player was set TPP as default in editor
-	elif camera_player_state == DynamicCameraViewToggleAction.THIRD_PERSON_VIEW:
-		# Indicate that FPP mode is not enable
-		is_fpp = false
-
-		# Ensure TPP camera is active as intially when first load the player
-		fpp_camera.current = false
-		tpp_camera.current = true
-	
-		# Ensure TPP guns are the only one can be see when first load the player
-		fpp_pistol.visible = false
-		tpp_pistol.visible = true
+	# Initialize camera and gun visibility based on the editor setting
+	update_camera_visibility()
+	update_gun_model_visibility()
 
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
 
 	if event is InputEventMouseMotion:
+		# FPP camera
 		if is_fpp:
 			rotate_y(-event.relative.x * .005)
 			fpp_camera.rotate_x(-event.relative.y * .005)
 			fpp_camera.rotation.x = clamp(fpp_camera.rotation.x, -PI/2, PI/2)
+		# TPP camera
 		else:
 			rotate_y(-event.relative.x * .005)
 			tpp_camera.rotate_x(-event.relative.y * .005)
 			tpp_camera.rotation.x = clamp(tpp_camera.rotation.x, -PI/2, PI/2)
 
-	if Input.is_action_just_pressed("shoot") \
-			and anim_player.current_animation != "shoot":
+	if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot":
+		Ammo_Weapon -= 1 
+		if Ammo_Weapon < 0:
+			print("empty")
+			print("failure")
+			return
 		play_shoot_effects.rpc()
-		if fpp_raycast.is_colliding():
+		if is_fpp and fpp_raycast.is_colliding():
 			var hit_player = fpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
-		elif tpp_raycast.is_colliding():
+		elif not is_fpp and tpp_raycast.is_colliding():
 			var hit_player = tpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
 
 func _physics_process(delta):
+	#print(health)
 	if not is_multiplayer_authority(): return
 	
 	# Add the gravity.
@@ -138,11 +128,18 @@ func _physics_process(delta):
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		
-		if "Health" in collision.get_collider().name:
-			print("I collided with ", collision.get_collider().name)
-			add_health(1)
-			collision.get_collider().queue_free()
+		if collision.get_collider().is_in_group("pickup"):
+			print("pickup collided.")
+			if "AmmoBox" in collision.get_collider().name:
+				
+				# Add to Ammo instead.
+				print("I collided with ", collision.get_collider().name)
+				add_health(1)
+				collision.get_collider().queue_free()
+			if "Health" in collision.get_collider().name:
+				print("I collided with ", collision.get_collider().name)
+				add_health(1)
+				collision.get_collider().queue_free()
 
 
 # Get defined key inputs
@@ -174,9 +171,15 @@ func play_shoot_effects():
 func receive_damage():
 	health -= 1
 	if health <= 0:
+		print("Game Over!")
+		# Reset the player's health and position
 		health = 3
 		position = Vector3.ZERO
-	health_changed.emit(health)
+		# Emit the health_changed signal with the reset health value
+		health_changed.emit(health)
+	else:
+		# Emit the health_changed signal with the updated health value
+		health_changed.emit(health)
 
 
 func _on_animation_player_animation_finished(anim_name):
@@ -190,7 +193,7 @@ func add_health(additional_health):
 
 
 #func t_body_entered(body):
-	#if_area_is_in_group("player")
+	##if_area_is_in_group("player")
 	#print("added_Health")
 	#if body.has_method("add_health"):
 		#body.add_health(HEALTH_AMOUNTS)
@@ -210,11 +213,20 @@ func toggle_different_camera_state():
 
 # Update player's camera view when player pressed the pre-defined key input
 func update_camera_visibility(): 
-	fpp_camera.current = is_fpp
-	tpp_camera.current = not is_fpp
+	if is_multiplayer_authority():
+		fpp_camera.current = is_fpp
+		tpp_camera.current = not is_fpp
 
 
 # Update the visibility of guns when player changed the camera view based on their preferrance
 func update_gun_model_visibility():
-	fpp_pistol.visible = is_fpp
-	tpp_pistol.visible = not is_fpp
+	# For multiplayer (TODO: not worked yet but I'll just leave it here first)
+	if is_multiplayer_authority():
+		fpp_pistol.visible = is_fpp
+		tpp_pistol.visible = not is_fpp
+		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), is_fpp)
+		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), not is_fpp)
+	# For local
+	else:
+		fpp_pistol.visible = is_fpp
+		tpp_pistol.visible = not is_fpp

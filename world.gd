@@ -22,6 +22,24 @@ const Player = preload("res://models/characters/normal_declan.tscn")
 const PORT = 9999
 var enet_peer = ENetMultiplayerPeer.new()
 
+#func _on_weapon_switched(gun_name):
+	
+
+
+func _on_weapon_switched(gun_name):
+	if(gun_name == 'AK-47'):
+		get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47-Active.png')
+		get_node('CanvasLayer/HUD/Glock-19').texture = load('res://Glock-19.png')
+	elif(gun_name == 'Glock-19'):
+		get_node('CanvasLayer/HUD/Glock-19').texture = load('res://Glock-19-Active.png')
+		get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47.png')
+	#print("Switched to gun: %s" % gun_name)
+
+func _ready():
+	var callable_gun_signal = Callable(self, "_on_weapon_switched")
+	Global.connect("weapon_switched", callable_gun_signal)
+	#print(callable_gun_signal)
+
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()

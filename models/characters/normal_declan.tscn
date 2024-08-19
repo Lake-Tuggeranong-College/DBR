@@ -1,8 +1,10 @@
 [gd_scene load_steps=19 format=3 uid="uid://c6xxkytlbq8q2"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ksfbt"]
-[ext_resource type="PackedScene" uid="uid://c3csm3g325yx2" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
-[ext_resource type="Texture2D" uid="uid://cjfscqn33x60x" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
+[ext_resource type="PackedScene" uid="uid://cvey477smqw71" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
+[ext_resource type="Texture2D" uid="uid://c06olyt7bapq1" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
+[ext_resource type="PackedScene" uid="uid://cmg2v5irkh6py" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
+[ext_resource type="Texture2D" uid="uid://m2flmhy4nkuu" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
 [ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://models/Pistol.glb" id="3_w7dyo"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="4_8wo5q"]
 
@@ -10,7 +12,6 @@
 albedo_texture = ExtResource("3_rtgxh")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efq5s"]
-size = Vector3(0.96524, 1, 1)
 
 [sub_resource type="Gradient" id="Gradient_q5cnu"]
 offsets = PackedFloat32Array(0, 0.141221, 1)
@@ -246,8 +247,9 @@ properties/3/path = NodePath("TPPCamera:rotation")
 properties/3/spawn = true
 properties/3/replication_mode = 1
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player2" type="CharacterBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 2
 script = ExtResource("1_ksfbt")
 
 [node name="NormalDeclan" parent="." instance=ExtResource("2_u05fy")]
