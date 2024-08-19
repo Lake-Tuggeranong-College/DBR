@@ -3,13 +3,12 @@
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
-[ext_resource type="Texture2D" uid="uid://ci17sapp2foyt" path="res://HealthbarInner.png" id="4_5s3we"]
+[ext_resource type="Texture2D" uid="uid://dpy0lr5dptjpa" path="res://HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
-[ext_resource type="Texture2D" uid="uid://dutfrofuwhwwo" path="res://HealthbarOutline.png" id="5_4ssen"]
+[ext_resource type="Texture2D" uid="uid://bsyb4jlg0ilak" path="res://HealthbarOutline.png" id="5_4ssen"]
+[ext_resource type="Texture2D" uid="uid://du4m677ynrfkk" path="res://AK-47.png" id="6_wlqcf"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="7_1iyd3"]
-[ext_resource type="Texture2D" uid="uid://duoxhknvn7vim" path="res://AK-47-Active.png" id="10_yvvrp"]
-[ext_resource type="Texture2D" uid="uid://kx787w1obg4f" path="res://Glock-19-Active.png" id="11_ulqyl"]
-
+[ext_resource type="Texture2D" uid="uid://e2nvjjyk5k1c" path="res://Glock-19-Active.png" id="11_ulqyl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -128,12 +127,12 @@ offset_bottom = 1033.52
 scale = Vector2(0.3, 0.3)
 columns = 2
 
-[node name="Ak47" type="Sprite2D" parent="CanvasLayer/HUD"]
+[node name="AK-47" type="Sprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(206, 573)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("10_yvvrp")
+texture = ExtResource("6_wlqcf")
 
-[node name="Glock" type="Sprite2D" parent="CanvasLayer/HUD"]
+[node name="Glock-19" type="Sprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(73, 573)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("11_ulqyl")
