@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
+
 [ext_resource type="Texture2D" uid="uid://b7aqwtut887jl" path="res://HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
 [ext_resource type="Texture2D" uid="uid://d4a5yb03ammnh" path="res://HealthbarOutline.png" id="5_4ssen"]
@@ -127,12 +128,12 @@ offset_bottom = 1033.52
 scale = Vector2(0.3, 0.3)
 columns = 2
 
-[node name="Ak47" type="Sprite2D" parent="CanvasLayer/HUD"]
+[node name="AK-47" type="Sprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(206, 573)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("10_yvvrp")
+texture = ExtResource("6_wlqcf")
 
-[node name="Glock" type="Sprite2D" parent="CanvasLayer/HUD"]
+[node name="Glock-19" type="Sprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(73, 573)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("11_ulqyl")
