@@ -40,6 +40,11 @@ func _ready():
 	Global.connect("weapon_switched", callable_gun_signal)
 	#print(callable_gun_signal)
 
+	if OS.get_name()=="macOS":
+		DisplayServer.window_set_size(Vector2i(1920, 1080))
+
+
+
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
