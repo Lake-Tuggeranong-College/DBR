@@ -131,7 +131,7 @@ columns = 2
 [node name="AK-47" type="Sprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(206, 573)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_wlqcf")
+texture = ExtResource("10_yvvrp")
 
 [node name="Glock-19" type="Sprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(73, 573)
