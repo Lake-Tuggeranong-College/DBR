@@ -26,7 +26,6 @@ var enet_peer = ENetMultiplayerPeer.new()
 #func _on_weapon_switched(gun_name):
 	
 
-
 func _on_weapon_switched(gun_name):
 	if(gun_name == 'AK-47'):
 		get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47-Active.png')
