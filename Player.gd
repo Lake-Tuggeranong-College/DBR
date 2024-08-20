@@ -205,7 +205,7 @@ func add_health(additional_health):
 func _on_weapon_switched(gun_name):
 	print("Switched to gun: %s" % gun_name)
 	if(gun_name == 'AK-47'):
-		preload("res://models/pickups/AmmoBox.glb")
+		preload("res://models/Pistol.glb")
 		#get_node('CanvasLayer/HUD/AK-47') = preload('res://AK-47-Active.png')
 		#get_node('CanvasLayer/HUD/Glock-19') = preload('res://Glock-19.png')
 	elif(gun_name == 'Glock-19'):
