@@ -32,8 +32,10 @@ enum DynamicCameraViewToggleAction {
 var health = 3
 var MAX_HEALTH = 10
 var Ammo_Weapon = 10
+var Fully_Loaded_Weapon = 10 
+var spare_ammo = 10
 
-const Ammo_In_Weapon = 3
+var Ammo_In_Weapon = 3
 const HEALTH_AMOUNTS = 2
 const SPEED = 10.0
 const JUMP_VELOCITY = 10.0
@@ -93,6 +95,12 @@ func _unhandled_input(event):
 		elif not is_fpp and tpp_raycast.is_colliding():
 			var hit_player = tpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+
+func Reload():
+	var ammo_needed = Fully_Loaded_Weapon - Ammo_In_Weapon
+	if Input.is_action_just_pressed("reload"):
+		spare_ammo -= ammo_needed
+		Ammo_In_Weapon = Fully_Loaded_Weapon
 
 
 func _physics_process(delta):
