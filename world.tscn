@@ -64,7 +64,7 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Label2" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Declan Battle Royale"
 label_settings = SubResource("LabelSettings_au6no")
@@ -85,7 +85,6 @@ placeholder_text = "Enter Address to Join Here"
 alignment = 1
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,13 +142,13 @@ position = Vector2(73, 573)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("11_ulqyl")
 
-[node name="Label" type="Label" parent="CanvasLayer/HUD"]
+[node name="Ammo" type="Label" parent="CanvasLayer/HUD"]
 layout_mode = 0
 offset_left = 961.0
 offset_top = 584.0
 offset_right = 1141.0
 offset_bottom = 633.0
-text = "STAR WARS"
+text = "50"
 label_settings = SubResource("LabelSettings_au6no")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
