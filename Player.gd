@@ -190,7 +190,7 @@ func _on_animation_player_animation_finished(anim_name):
 func add_health(additional_health):
 	health += additional_health
 	health_changed.emit(health)
-
+	
 
 #func t_body_entered(body):
 	##if_area_is_in_group("player")
@@ -200,9 +200,18 @@ func add_health(additional_health):
 
 
 # Handle weapon switching based on the key inputs
+#func _on_weapon_switched(gun_name):
+	#print("Switched to gun: %s" % gun_name)
 func _on_weapon_switched(gun_name):
 	print("Switched to gun: %s" % gun_name)
-	
+	if(gun_name == 'AK-47'):
+		preload("res://models/Pistol.glb")
+		#get_node('CanvasLayer/HUD/AK-47') = preload('res://AK-47-Active.png')
+		#get_node('CanvasLayer/HUD/Glock-19') = preload('res://Glock-19.png')
+	elif(gun_name == 'Glock-19'):
+		preload("res://models/Pistol.glb")
+		#get_node('CanvasLayer/HUD/Glock-19').texture = load('res://Glock-19-Active.png')
+		#get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47.png')
 
 # Handle diffrent state of player's camera view
 func toggle_different_camera_state():
