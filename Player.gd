@@ -87,7 +87,7 @@ func _unhandled_input(event):
 			print("empty")
 			print("failure")
 			return
-		play_shoot_effects.rpc()
+		#play_shoot_effects.rpc()
 		if is_fpp and fpp_raycast.is_colliding():
 			var hit_player = fpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
@@ -163,16 +163,16 @@ func _input(event):
 		toggle_different_camera_state();
 
 
-@rpc("call_local")
-func play_shoot_effects():
-	anim_player.stop()
-	anim_player.play("shoot")
-	if is_fpp:
-		fpp_muzzle_flash.restart()
-		fpp_muzzle_flash.emitting = true
-	else:
-		tpp_muzzle_flash.restart()
-		tpp_muzzle_flash.emitting = true
+#@rpc("call_local")
+#func play_shoot_effects():
+	#anim_player.stop()
+	#anim_player.play("shoot")
+	#if is_fpp:
+		#fpp_muzzle_flash.restart()
+		#fpp_muzzle_flash.emitting = true
+	#else:
+		#tpp_muzzle_flash.restart()
+		#tpp_muzzle_flash.emitting = true
 
 
 @rpc("any_peer")
