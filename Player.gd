@@ -32,8 +32,10 @@ enum DynamicCameraViewToggleAction {
 var health = 3
 var MAX_HEALTH = 10
 var Ammo_Weapon = 10
+var Fully_Loaded_Weapon = 10 
+var spare_ammo = 10
 
-const Ammo_In_Weapon = 3
+var Ammo_In_Weapon = 3
 const HEALTH_AMOUNTS = 2
 const SPEED = 10.0
 const JUMP_VELOCITY = 10.0
@@ -93,6 +95,12 @@ func _unhandled_input(event):
 		elif not is_fpp and tpp_raycast.is_colliding():
 			var hit_player = tpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+
+func Reload():
+	var ammo_needed = Fully_Loaded_Weapon - Ammo_In_Weapon
+	if Input.is_action_just_pressed("reload"):
+		spare_ammo -= ammo_needed
+		Ammo_In_Weapon = Fully_Loaded_Weapon
 
 
 func _physics_process(delta):
@@ -200,18 +208,33 @@ func add_health(additional_health):
 
 
 # Handle weapon switching based on the key inputs
-#func _on_weapon_switched(gun_name):
-	#print("Switched to gun: %s" % gun_name)
 func _on_weapon_switched(gun_name):
 	print("Switched to gun: %s" % gun_name)
-	if(gun_name == 'AK-47'):
-		preload("res://models/Pistol.glb")
-		#get_node('CanvasLayer/HUD/AK-47') = preload('res://AK-47-Active.png')
-		#get_node('CanvasLayer/HUD/Glock-19') = preload('res://Glock-19.png')
-	elif(gun_name == 'Glock-19'):
-		preload("res://models/Pistol.glb")
-		#get_node('CanvasLayer/HUD/Glock-19').texture = load('res://Glock-19-Active.png')
-		#get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47.png')
+	var weapon_node = get_node("FPPCamera/FPPPistol")
+	
+	# Remove existing children
+	var children = weapon_node.get_children()
+	if children.size() > 0:
+		for child in children:
+			#print(children)
+			weapon_node.remove_child(child)
+			child.queue_free()
+	
+	# Add new model based on gun_name
+	if gun_name == 'AK-47':
+		var ak_model = preload("res://models/AK/ak47.tscn").instantiate()
+		weapon_node.add_child(ak_model)
+	elif gun_name == 'Glock-19':
+		var glock_model = preload("res://models/Pistol.glb").instantiate()
+		weapon_node.add_child(glock_model)
+
+
+#func _on_weapon_switched(gun_name):
+	#print("Switched to gun: %s" % gun_name)
+	#if(gun_name == 'AK-47'):
+		#get_node("TPPCamera/TPPPistol") = preload("res://models/AK/akm.fbx")
+	#elif(gun_name == 'Glock-19'):
+		#preload("res://models/Pistol.glb")
 
 # Handle diffrent state of player's camera view
 func toggle_different_camera_state():

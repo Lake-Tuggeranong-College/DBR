@@ -3,12 +3,22 @@
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
+
+[ext_resource type="Texture2D" uid="uid://chvqoghskv6rf" path="res://HealthbarInner.png" id="4_5s3we"]
+[ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
+[ext_resource type="Texture2D" uid="uid://rio5ple64nnj" path="res://HealthbarOutline.png" id="5_4ssen"]
+[ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="7_1iyd3"]
+[ext_resource type="FontFile" uid="uid://bfdxoj3c567ro" path="res://star_jedi/starjedi/Starjedi.ttf" id="8_186ih"]
+[ext_resource type="Texture2D" uid="uid://dmpdt2p3ubrpw" path="res://AK-47-Active.png" id="10_yvvrp"]
+[ext_resource type="Texture2D" uid="uid://kf1y2uo8tg8u" path="res://Glock-19-Active.png" id="11_ulqyl"]
+
 [ext_resource type="Texture2D" uid="uid://dpy0lr5dptjpa" path="res://HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
 [ext_resource type="Texture2D" uid="uid://bsyb4jlg0ilak" path="res://HealthbarOutline.png" id="5_4ssen"]
 [ext_resource type="Texture2D" uid="uid://du4m677ynrfkk" path="res://AK-47.png" id="6_i3kt7"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="7_1iyd3"]
 [ext_resource type="Texture2D" uid="uid://e2nvjjyk5k1c" path="res://Glock-19-Active.png" id="11_ulqyl"]
+
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
