@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://5dx348xfaquf"]
+
+[ext_resource type="PackedScene" uid="uid://c1qxptp1rs7xu" path="res://models/AK/akm.fbx" id="1_w5s8f"]
+
+[node name="AK47" instance=ExtResource("1_w5s8f")]
+
+[node name="ak" parent="RootNode" index="0"]
+transform = Transform3D(-8.74228e-07, -20, -8.74228e-07, 0, -8.74228e-07, 20, -20, 8.74228e-07, 3.82137e-14, 0, 0, 0)

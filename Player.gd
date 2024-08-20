@@ -200,18 +200,33 @@ func add_health(additional_health):
 
 
 # Handle weapon switching based on the key inputs
-#func _on_weapon_switched(gun_name):
-	#print("Switched to gun: %s" % gun_name)
 func _on_weapon_switched(gun_name):
 	print("Switched to gun: %s" % gun_name)
-	if(gun_name == 'AK-47'):
-		preload("res://models/Pistol.glb")
-		#get_node('CanvasLayer/HUD/AK-47') = preload('res://AK-47-Active.png')
-		#get_node('CanvasLayer/HUD/Glock-19') = preload('res://Glock-19.png')
-	elif(gun_name == 'Glock-19'):
-		preload("res://models/Pistol.glb")
-		#get_node('CanvasLayer/HUD/Glock-19').texture = load('res://Glock-19-Active.png')
-		#get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47.png')
+	var weapon_node = get_node("FPPCamera/FPPPistol")
+	
+	# Remove existing children
+	var children = weapon_node.get_children()
+	if children.size() > 0:
+		for child in children:
+			#print(children)
+			weapon_node.remove_child(child)
+			child.queue_free()
+	
+	# Add new model based on gun_name
+	if gun_name == 'AK-47':
+		var ak_model = preload("res://models/AK/ak47.tscn").instantiate()
+		weapon_node.add_child(ak_model)
+	elif gun_name == 'Glock-19':
+		var glock_model = preload("res://models/Pistol.glb").instantiate()
+		weapon_node.add_child(glock_model)
+
+
+#func _on_weapon_switched(gun_name):
+	#print("Switched to gun: %s" % gun_name)
+	#if(gun_name == 'AK-47'):
+		#get_node("TPPCamera/TPPPistol") = preload("res://models/AK/akm.fbx")
+	#elif(gun_name == 'Glock-19'):
+		#preload("res://models/Pistol.glb")
 
 # Handle diffrent state of player's camera view
 func toggle_different_camera_state():
