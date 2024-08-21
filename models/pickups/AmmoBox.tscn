@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://qruaik0d22gq"]
 
-[ext_resource type="Texture2D" uid="uid://85wp000nxrcd" path="res://images/textures/ammo/Tex_0009_1.jpg" id="2_8gfg8"]
-[ext_resource type="Texture2D" uid="uid://qw8ljnl0ffx2" path="res://images/textures/ammo/Tex_0010_1.jpg" id="3_aj31t"]
+[ext_resource type="Texture2D" uid="uid://d36an6rdvib0s" path="res://images/textures/ammo/Tex_0009_1.jpg" id="2_8gfg8"]
+[ext_resource type="Texture2D" uid="uid://d3oaxb5aa58f2" path="res://images/textures/ammo/Tex_0010_1.jpg" id="3_aj31t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6msnx"]
 albedo_texture = ExtResource("2_8gfg8")
@@ -129,6 +129,7 @@ shadow_mesh = SubResource("ArrayMesh_uowng")
 [sub_resource type="BoxShape3D" id="BoxShape3D_cbbaa"]
 
 [node name="AmmoBox" type="StaticBody3D" groups=["pickup"]]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
 [node name="Ноль_объект" type="CSGCombiner3D" parent="."]
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0.120483, 0)
