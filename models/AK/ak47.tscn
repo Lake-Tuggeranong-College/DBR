@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://5dx348xfaquf"]
 
-[ext_resource type="PackedScene" uid="uid://c1qxptp1rs7xu" path="res://models/AK/akm.fbx" id="1_w5s8f"]
+[ext_resource type="PackedScene" uid="uid://64m22rm34iiu" path="res://models/AK/akm.fbx" id="1_w5s8f"]
 
 [node name="AK47" instance=ExtResource("1_w5s8f")]
 

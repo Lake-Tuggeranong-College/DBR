@@ -4,11 +4,11 @@ extends Node
 signal weapon_switched(weapon_name)
 
 # Inventory slots for guns
-var guns = ["Glock-19", "AK-47"]
+var guns = ["Glock-19", "AK-47", "Knife"]
 
 # Add guns to the inventory
 func add_gun(gun_name):
-	if guns.size() < 2:
+	if guns.size() < 3:
 		# Slow down the gun name text ouput by a bit. No rushing, you know :D
 		guns.append(gun_name)
 
@@ -21,6 +21,8 @@ func switch_gun(slot):
 		gun_name = guns[0]  # Example 1: Switch to "AK-47"
 	elif slot == 2 and guns.size() > 1:
 		gun_name = guns[1]  # Example 2: Switch to "Glock-19"
+	elif slot == 3 and guns.size() > 2:
+		gun_name = guns[2]  # Example 3: Switch to "Knife"
 
 	# Auto add the gun name into it based on what guns have already been defined
 	if gun_name != "":
