@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://qruaik0d22gq"]
 
-[ext_resource type="Texture2D" uid="uid://dfl25ruktindk" path="res://images/textures/ammo/Tex_0009_1.jpg" id="2_8gfg8"]
-[ext_resource type="Texture2D" uid="uid://408ytdjp8dtv" path="res://images/textures/ammo/Tex_0010_1.jpg" id="3_aj31t"]
+[ext_resource type="Texture2D" uid="uid://85wp000nxrcd" path="res://images/textures/ammo/Tex_0009_1.jpg" id="2_8gfg8"]
+[ext_resource type="Texture2D" uid="uid://qw8ljnl0ffx2" path="res://images/textures/ammo/Tex_0010_1.jpg" id="3_aj31t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6msnx"]
 albedo_texture = ExtResource("2_8gfg8")

@@ -1,49 +1,40 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8oqxmm2w2wvv"]
+[gd_scene load_steps=13 format=3 uid="uid://bdn5gj57p8e1o"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
-[ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
-[ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
+[ext_resource type="Script" path="res://world.gd" id="1_cveli"]
+[ext_resource type="PackedScene" uid="uid://b847hvea63af1" path="res://models/Environment/gib Files (mesh only)/Painted osc_V1.glb" id="2_t8dh2"]
+[ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_qxeon"]
+[ext_resource type="Texture2D" uid="uid://cwb0c4ec7742x" path="res://HealthbarInner.png" id="4_kqlcj"]
+[ext_resource type="Texture2D" uid="uid://8wcr2h43kxp3" path="res://HealthbarOutline.png" id="5_tpprc"]
+[ext_resource type="Texture2D" uid="uid://cg2j14k02wp8b" path="res://AK-47.png" id="6_n5iwn"]
+[ext_resource type="Texture2D" uid="uid://bfjmtvjxg8nv8" path="res://Glock-19-Active.png" id="7_om2bf"]
+[ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="8_3fra7"]
+[ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="9_buoau"]
 
-[ext_resource type="Texture2D" uid="uid://chvqoghskv6rf" path="res://HealthbarInner.png" id="4_5s3we"]
-[ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
-[ext_resource type="Texture2D" uid="uid://rio5ple64nnj" path="res://HealthbarOutline.png" id="5_4ssen"]
-[ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="7_1iyd3"]
-[ext_resource type="FontFile" uid="uid://bfdxoj3c567ro" path="res://star_jedi/starjedi/Starjedi.ttf" id="8_186ih"]
-[ext_resource type="Texture2D" uid="uid://dmpdt2p3ubrpw" path="res://AK-47-Active.png" id="10_yvvrp"]
-[ext_resource type="Texture2D" uid="uid://kf1y2uo8tg8u" path="res://Glock-19-Active.png" id="11_ulqyl"]
-
-[ext_resource type="Texture2D" uid="uid://dpy0lr5dptjpa" path="res://HealthbarInner.png" id="4_5s3we"]
-[ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
-[ext_resource type="Texture2D" uid="uid://bsyb4jlg0ilak" path="res://HealthbarOutline.png" id="5_4ssen"]
-[ext_resource type="Texture2D" uid="uid://du4m677ynrfkk" path="res://AK-47.png" id="6_i3kt7"]
-[ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="7_1iyd3"]
-[ext_resource type="Texture2D" uid="uid://e2nvjjyk5k1c" path="res://Glock-19-Active.png" id="11_ulqyl"]
-
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0d57v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_w2qqb"]
-sky_material = SubResource("ProceduralSkyMaterial_u5pdl")
+[sub_resource type="Sky" id="Sky_yh0m0"]
+sky_material = SubResource("ProceduralSkyMaterial_0d57v")
 
-[sub_resource type="Environment" id="Environment_6knbf"]
+[sub_resource type="Environment" id="Environment_urwws"]
 background_mode = 2
-sky = SubResource("Sky_w2qqb")
+sky = SubResource("Sky_yh0m0")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="World" type="Node"]
-script = ExtResource("1_6tkge")
+[node name="terrain-island" type="Node"]
+script = ExtResource("1_cveli")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6knbf")
+environment = SubResource("Environment_urwws")
 
-[node name="Environment" parent="." instance=ExtResource("1_iktak")]
+[node name="Painted osc_V1" parent="." instance=ExtResource("2_t8dh2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.8296, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -107,7 +98,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.03, 0.03)
 pivot_offset = Vector2(576, 324)
-texture = ExtResource("3_ehmxv")
+texture = ExtResource("3_qxeon")
 stretch_mode = 5
 
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer/HUD"]
@@ -122,9 +113,9 @@ value = 3.0
 nine_patch_stretch = true
 stretch_margin_left = 16
 stretch_margin_right = 16
-texture_under = ExtResource("4_5s3we")
-texture_over = ExtResource("5_4ssen")
-texture_progress = ExtResource("4_5s3we")
+texture_under = ExtResource("4_kqlcj")
+texture_over = ExtResource("5_tpprc")
+texture_progress = ExtResource("4_kqlcj")
 tint_under = Color(0.94902, 0.0509804, 0.0980392, 1)
 tint_progress = Color(0.235294, 0.870588, 0.0745098, 1)
 
@@ -140,12 +131,12 @@ columns = 2
 [node name="AK-47" type="Sprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(206, 573)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_i3kt7")
+texture = ExtResource("6_n5iwn")
 
 [node name="Glock-19" type="Sprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(73, 573)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("11_ulqyl")
+texture = ExtResource("7_om2bf")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://player.tscn", "res://models/characters/normal_declan.tscn")
@@ -153,10 +144,10 @@ spawn_path = NodePath("..")
 
 [node name="Pickups" type="Node" parent="."]
 
-[node name="Health" parent="Pickups" instance=ExtResource("4_x7hoj")]
+[node name="Health" parent="Pickups" instance=ExtResource("8_3fra7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0498, 2.60137, 0)
 
-[node name="AmmoBox" parent="Pickups" instance=ExtResource("7_1iyd3")]
+[node name="AmmoBox" parent="Pickups" instance=ExtResource("9_buoau")]
 transform = Transform3D(4.88148, 1.0822, 0, -1.0822, 4.88148, 0, 0, 0, 5, -14, 0.85, 12.1)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
