@@ -181,11 +181,11 @@ func _physics_process(delta):
 func _input(event):
 # Switch guns in inventory slot according to the key inputs set for it
 	if event.is_action_pressed("inventory_slot_1"):
-		Global.switch_gun(1)
+		Global.switch_weapon(1)
 	elif event.is_action_pressed("inventory_slot_2"):
-		Global.switch_gun(2)
+		Global.switch_weapon(2)
 	elif event.is_action_pressed("inventory_slot_3"):
-		Global.switch_gun(3)
+		Global.switch_weapon(3)
 
 # Switch player's camera view according to the key inputs set for it
 	if event.is_action_pressed("dynamic_camera_view"):
