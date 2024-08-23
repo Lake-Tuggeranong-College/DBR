@@ -1,12 +1,12 @@
 [gd_scene load_steps=21 format=3 uid="uid://c6xxkytlbq8q2"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ksfbt"]
-[ext_resource type="PackedScene" uid="uid://cmg2v5irkh6py" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
-[ext_resource type="Texture2D" uid="uid://m2flmhy4nkuu" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
+[ext_resource type="PackedScene" uid="uid://rge2rmqaquqm" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
+[ext_resource type="Texture2D" uid="uid://qna0vv6te2xs" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
 [ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://models/Pistol.glb" id="3_w7dyo"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="4_8wo5q"]
 [ext_resource type="PackedScene" uid="uid://5dx348xfaquf" path="res://models/AK/ak47.tscn" id="6_5fiyx"]
-[ext_resource type="PackedScene" uid="uid://ylsxgunwguqe" path="res://models/Knife/m9bayo2.fbx" id="7_f3j7s"]
+[ext_resource type="PackedScene" uid="uid://dmkvoq1t3x3co" path="res://models/Knife/m9bayo2.fbx" id="7_f3j7s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6l0xm"]
 albedo_texture = ExtResource("3_rtgxh")
@@ -287,7 +287,7 @@ target_position = Vector3(0, 0, -50)
 collision_mask = 2
 
 [node name="Knife" parent="FPPCamera" instance=ExtResource("7_f3j7s")]
-transform = Transform3D(0.022064, -0.0324677, 0.0579571, 0.0634825, -0.0076897, -0.0284753, 0.0195743, 0.0615363, 0.0270209, 0.316559, -0.325936, -0.613832)
+transform = Transform3D(0.025216, -0.037106, 0.0662367, 0.0725514, -0.00878825, -0.0325432, 0.0223706, 0.0703272, 0.0308811, 0.316559, -0.325936, -0.613832)
 visible = false
 
 [node name="TPPCamera" type="Camera3D" parent="."]
