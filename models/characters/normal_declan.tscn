@@ -1,14 +1,13 @@
 [gd_scene load_steps=22 format=3 uid="uid://c6xxkytlbq8q2"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ksfbt"]
-[ext_resource type="PackedScene" uid="uid://quf3uq4l4ikj" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
-[ext_resource type="Texture2D" uid="uid://bt63ehw4laoax" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
+[ext_resource type="PackedScene" uid="uid://cvey477smqw71" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
+[ext_resource type="Texture2D" uid="uid://c06olyt7bapq1" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
 [ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://models/Pistol.glb" id="3_w7dyo"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="4_8wo5q"]
 [ext_resource type="Script" path="res://models/characters/FPPCamera.gd" id="4_huefa"]
-[ext_resource type="PackedScene" uid="uid://5dx348xfaquf" path="res://models/AK/ak47.tscn" id="6_5fiyx"]
-[ext_resource type="PackedScene" uid="uid://bytvycmg1kink" path="res://models/Knife/m9bayo2.fbx" id="7_f3j7s"]
-
+[ext_resource type="PackedScene" uid="uid://ctdhwjuqvh51r" path="res://models/weapons/guns/ak47/ak47.tscn" id="7_pq2a5"]
+[ext_resource type="PackedScene" uid="uid://cky0t1cuuuo5y" path="res://models/weapons/knifes/knife.tscn" id="8_qsa7b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6l0xm"]
 albedo_texture = ExtResource("3_rtgxh")
@@ -270,6 +269,7 @@ script = ExtResource("4_huefa")
 
 [node name="FPPPistol" parent="FPPCamera" instance=ExtResource("3_w7dyo")]
 transform = Transform3D(1, 0, 0, 0, 0.898633, -0.4387, 0, 0.4387, 0.898633, 0.5, -0.25, -0.5)
+visible = false
 
 [node name="MuzzleFlash" type="GPUParticles3D" parent="FPPCamera/FPPPistol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0588368, -0.313209)
@@ -281,23 +281,23 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_yy8r8")
 draw_pass_1 = SubResource("PlaneMesh_hkkgb")
 
-[node name="AK47" parent="FPPCamera" instance=ExtResource("6_5fiyx")]
-transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 0.5, -0.25, -0.5)
+[node name="FPPAK47" parent="FPPCamera" instance=ExtResource("7_pq2a5")]
+visible = false
+
+[node name="FPPKnife" parent="FPPCamera" instance=ExtResource("8_qsa7b")]
+transform = Transform3D(0.076727, -0.0459946, 0.0446929, 0.064132, 0.0547739, -0.05373, 0.000232849, 0.0698879, 0.0715237, 0.495, -0.465, -0.665)
 visible = false
 
 [node name="FPPRayCast3D" type="RayCast3D" parent="FPPCamera"]
 target_position = Vector3(0, 0, -50)
 collision_mask = 2
 
-[node name="Knife" parent="FPPCamera" instance=ExtResource("7_f3j7s")]
-transform = Transform3D(0.025216, -0.037106, 0.0662367, 0.0725514, -0.00878825, -0.0325432, 0.0223706, 0.0703272, 0.0308811, 0.316559, -0.325936, -0.613832)
-visible = false
-
 [node name="TPPCamera" type="Camera3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 1.80517, 0.861022, 0, -0.861022, 1.80517, 0, 5.525, 5)
 
 [node name="TPPPistol" parent="TPPCamera" instance=ExtResource("3_w7dyo")]
 transform = Transform3D(1, 0, 0, 0, 0.622514, -0.782608, 0, 0.782608, 0.622514, 0.499933, -0.0734346, -3.35847)
+visible = false
 
 [node name="MuzzleFlash" type="GPUParticles3D" parent="TPPCamera/TPPPistol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0588368, -0.313209)
@@ -308,6 +308,13 @@ one_shot = true
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_yy8r8")
 draw_pass_1 = SubResource("PlaneMesh_hkkgb")
+
+[node name="TPPAK47" parent="TPPCamera" instance=ExtResource("7_pq2a5")]
+visible = false
+
+[node name="TPPKnife" parent="TPPCamera" instance=ExtResource("8_qsa7b")]
+transform = Transform3D(0.076727, -0.0459946, 0.0446929, 0.064132, 0.0547739, -0.05373, 0.000232847, 0.0698879, 0.0715237, 0.495, -0.465, -0.665)
+visible = false
 
 [node name="TPPRayCast3D" type="RayCast3D" parent="TPPCamera"]
 target_position = Vector3(0, 0, -50)
