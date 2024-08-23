@@ -94,8 +94,7 @@ func _unhandled_input(event):
 				return #is needed otherwise can shoot without Ammo 
 #play_shoot_effects.rpc()
 
-	if Input.is_action_just_pressed("reload"):
-		reload()
+	
 
 		if is_fpp and fpp_raycast.is_colliding():
 			var hit_player = fpp_raycast.get_collider()
@@ -104,13 +103,12 @@ func _unhandled_input(event):
 		elif not is_fpp and tpp_raycast.is_colliding():
 			var hit_player = tpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
-
+	
 
 
 
 
 func reload():
-	
 	var is_reloading = true 
 	print("Reloading...")
 	await get_tree().create_timer(reload_time).timeout
@@ -183,6 +181,9 @@ func _input(event):
 # Switch player's camera view according to the key inputs set for it
 	if event.is_action_pressed("dynamic_camera_view"):
 		toggle_different_camera_state();
+	
+	if Input.is_action_just_pressed("reload"):
+		reload()
 
 	# Check if the left mouse button is pressed
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
