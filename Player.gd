@@ -281,6 +281,7 @@ func update_weapon_model_visibility():
 			tpp_knife.visible = true
 
 	# Synchronize visibility for multiplayer
+	# TODO: Not worked yet. DOn't touch it for now. I will fix it (Binh)
 	if is_multiplayer_authority():
 		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), fpp_pistol.visible)
 		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), fpp_ak47.visible)
