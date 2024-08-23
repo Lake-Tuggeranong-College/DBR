@@ -167,6 +167,7 @@ func _physics_process(delta):
 				collision.get_collider().queue_free()
 
 
+
 # Get defined key inputs
 func _input(event):
 # Switch guns in inventory slot according to the key inputs set for it
@@ -183,6 +184,12 @@ func _input(event):
 	
 	if Input.is_action_just_pressed("reload"):
 		reload()
+
+	# Check if the left mouse button is pressed
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		# Play the animation
+		anim_player.play("shoot")
+   
 
 
 @rpc("call_local")
