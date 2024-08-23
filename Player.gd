@@ -157,22 +157,24 @@ func _input(event):
 		Global.switch_gun(1)
 	elif event.is_action_pressed("inventory_slot_2"):
 		Global.switch_gun(2)
+	elif event.is_action_pressed("inventory_slot_3"):
+		Global.switch_gun(3)
 
 # Switch player's camera view according to the key inputs set for it
 	if event.is_action_pressed("dynamic_camera_view"):
 		toggle_different_camera_state();
 
 
-#@rpc("call_local")
-#func play_shoot_effects():
-	#anim_player.stop()
-	#anim_player.play("shoot")
-	#if is_fpp:
-		#fpp_muzzle_flash.restart()
-		#fpp_muzzle_flash.emitting = true
-	#else:
-		#tpp_muzzle_flash.restart()
-		#tpp_muzzle_flash.emitting = true
+@rpc("call_local")
+func play_shoot_effects():
+	anim_player.stop()
+	anim_player.play("shoot")
+	if is_fpp:
+		fpp_muzzle_flash.restart()
+		fpp_muzzle_flash.emitting = true
+	else:
+		tpp_muzzle_flash.restart()
+		tpp_muzzle_flash.emitting = true
 
 
 @rpc("any_peer")
@@ -227,6 +229,9 @@ func _on_weapon_switched(gun_name):
 	elif gun_name == 'Glock-19':
 		var glock_model = preload("res://models/Pistol.glb").instantiate()
 		weapon_node.add_child(glock_model)
+	elif gun_name == 'Knife':
+		var knife_model = preload("res://models/Knife/knife.tscn").instantiate()
+		weapon_node.add_child(knife_model)
 
 
 #func _on_weapon_switched(gun_name):

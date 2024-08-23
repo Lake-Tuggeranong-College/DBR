@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://47j7214g0d37"]
+
+[ext_resource type="PackedScene" uid="uid://ylsxgunwguqe" path="res://models/Knife/m9bayo2.fbx" id="1_bgnw0"]
+
+[node name="Knife" instance=ExtResource("1_bgnw0")]
+transform = Transform3D(0.0252149, -0.0371075, 0.0662363, 0.0725543, -0.00878004, -0.0325389, 0.0223624, 0.0703274, 0.0308865, -0.25, -0.1, 0)
+
+[node name="Point_001" parent="RootNode" index="0"]
+light_color = Color(0.270588, 0.670588, 0.513726, 1)
+light_energy = 0.75
+
+[node name="Point" parent="RootNode" index="1"]
+light_color = Color(1, 1, 1, 1)
+light_energy = 0.0
+
+[node name="Lamp" parent="RootNode" index="3"]
+light_energy = 0.0
