@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyvwah7w0k7in"]
+[gd_scene load_steps=5 format=3 uid="uid://dyvwah7w0k7in"]
 
 [ext_resource type="Script" path="res://home-menu.gd" id="1_mimik"]
+[ext_resource type="FontFile" uid="uid://0cdxflkd3ynj" path="res://star_jedi/stjelogo/Strjmono.ttf" id="2_jwbhb"]
+[ext_resource type="FontFile" uid="uid://dd3p861ljnqr0" path="res://star_jedi/starjedi/Starjhol.ttf" id="3_nf841"]
+[ext_resource type="Texture2D" uid="uid://dxc5h5iufrdcg" path="res://IMG_4098.jpg" id="4_4n1mk"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_mimik")
@@ -10,44 +13,59 @@ offset_left = 1.0
 offset_right = 1155.0
 offset_bottom = 648.0
 
-[node name="PanelContainer2" type="PanelContainer" parent="."]
-offset_left = 57.0
-offset_top = 75.0
-offset_right = 97.0
-offset_bottom = 115.0
-scale = Vector2(5.56473, 6.0497)
-
-[node name="PanelContainer3" type="PanelContainer" parent="."]
-offset_left = 352.0
-offset_top = 79.0
-offset_right = 392.0
-offset_bottom = 119.0
-scale = Vector2(5.56473, 6.0497)
-
-[node name="Label" type="Label" parent="."]
+[node name="Select map" type="Label" parent="."]
 offset_left = 1.0
 offset_top = 12.0
 offset_right = 1155.0
 offset_bottom = 35.0
-text = "Select Map"
+theme_override_fonts/font = ExtResource("2_jwbhb")
+theme_override_font_sizes/font_size = 60
+text = "6Se5lect M6ap5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Island" type="Button" parent="."]
-offset_left = 365.0
-offset_top = 246.0
-offset_right = 420.0
-offset_bottom = 277.0
+offset_left = 678.0
+offset_top = 142.0
+offset_right = 786.0
+offset_bottom = 350.0
 scale = Vector2(3.647, 1.96)
-text = "Island"
 
 [node name="main" type="Button" parent="."]
-offset_left = 65.0
-offset_top = 245.0
-offset_right = 120.0
-offset_bottom = 276.0
+offset_left = 105.0
+offset_top = 142.0
+offset_right = 214.0
+offset_bottom = 351.0
 scale = Vector2(3.647, 1.96)
-text = "main"
+
+[node name="Island lable" type="Label" parent="."]
+offset_left = 767.0
+offset_top = 443.0
+offset_right = 1017.0
+offset_bottom = 539.0
+theme_override_fonts/font = ExtResource("3_nf841")
+theme_override_font_sizes/font_size = 60
+text = "is<>>l>>a>n>d"
+
+[node name="main label" type="Label" parent="."]
+offset_left = 219.0
+offset_top = 446.0
+offset_right = 372.0
+offset_bottom = 542.0
+theme_override_fonts/font = ExtResource("3_nf841")
+theme_override_font_sizes/font_size = 60
+text = ">M>a>i>n"
+
+[node name="main image" type="Sprite2D" parent="."]
+position = Vector2(301, 317)
+scale = Vector2(0.0883131, 0.0509454)
+texture = ExtResource("4_4n1mk")
+flip_h = true
+
+[node name="island image" type="Sprite2D" parent="."]
+position = Vector2(879, 309)
+scale = Vector2(0.0883131, 0.0509454)
+texture = ExtResource("4_4n1mk")
 
 [connection signal="pressed" from="Island" to="." method="_on_island_pressed"]
 [connection signal="pressed" from="main" to="." method="_on_main_pressed"]
