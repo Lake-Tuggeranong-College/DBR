@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://5dx348xfaquf" path="res://models/AK/ak47.tscn" id="6_5fiyx"]
 [ext_resource type="PackedScene" uid="uid://bytvycmg1kink" path="res://models/Knife/m9bayo2.fbx" id="7_f3j7s"]
 
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6l0xm"]
 albedo_texture = ExtResource("3_rtgxh")
 
@@ -287,7 +288,7 @@ target_position = Vector3(0, 0, -50)
 collision_mask = 2
 
 [node name="Knife" parent="FPPCamera" instance=ExtResource("7_f3j7s")]
-transform = Transform3D(0.022064, -0.0324677, 0.0579571, 0.0634825, -0.0076897, -0.0284753, 0.0195743, 0.0615363, 0.0270209, 0.316559, -0.325936, -0.613832)
+transform = Transform3D(0.025216, -0.037106, 0.0662367, 0.0725514, -0.00878825, -0.0325432, 0.0223706, 0.0703272, 0.0308811, 0.316559, -0.325936, -0.613832)
 visible = false
 
 [node name="TPPCamera" type="Camera3D" parent="."]
