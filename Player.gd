@@ -31,11 +31,12 @@ enum DynamicCameraViewToggleAction {
 
 var health = 3
 var MAX_HEALTH = 10
-var Ammo_Weapon = 10
-var Fully_Loaded_Weapon = 10 
-var spare_ammo = 10
+var max_ammo = 30
+var current_ammo = max_ammo
+var is_reloading = false
+var reload_time = 2.0  # Time in seconds to reload
 
-var Ammo_In_Weapon = 3
+
 const HEALTH_AMOUNTS = 2
 const SPEED = 10.0
 const JUMP_VELOCITY = 10.0
@@ -64,6 +65,8 @@ func _ready():
 	# Initialize camera and gun visibility based on the editor setting
 	update_camera_visibility()
 	update_gun_model_visibility()
+	print("Gun ready with ", current_ammo, " bullets.")
+
 
 
 func _unhandled_input(event):
@@ -82,12 +85,18 @@ func _unhandled_input(event):
 			tpp_camera.rotation.x = clamp(tpp_camera.rotation.x, -PI/2, PI/2)
 
 	if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot":
-		Ammo_Weapon -= 1 
-		if Ammo_Weapon < 0:
-			print("empty")
-			print("failure")
-			return
-		#play_shoot_effects.rpc()
+		current_ammo -= 1 
+		print("Bang! Ammo left: ", current_ammo)
+		if is_reloading: 
+			return 
+			if current_ammo < 0:
+				print("Out of ammo! Reload needed.")
+				return #is needed otherwise can shoot without Ammo 
+#play_shoot_effects.rpc()
+
+	if Input.is_action_just_pressed("reload"):
+		reload()
+
 		if is_fpp and fpp_raycast.is_colliding():
 			var hit_player = fpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
@@ -96,11 +105,21 @@ func _unhandled_input(event):
 			var hit_player = tpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
-func Reload():
-	var ammo_needed = Fully_Loaded_Weapon - Ammo_In_Weapon
-	if Input.is_action_just_pressed("reload"):
-		spare_ammo -= ammo_needed
-		Ammo_In_Weapon = Fully_Loaded_Weapon
+
+
+
+
+func reload():
+	
+	var is_reloading = true 
+	print("Reloading...")
+	await get_tree().create_timer(reload_time).timeout
+	current_ammo = max_ammo
+	is_reloading = false
+	print("Reloaded! Ammo refilled to: ", current_ammo)
+
+
+
 
 
 func _physics_process(delta):
