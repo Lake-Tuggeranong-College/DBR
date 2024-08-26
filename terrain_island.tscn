@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://bdn5gj57p8e1o"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_cveli"]
-[ext_resource type="PackedScene" uid="uid://d03jxmgiqtgok" path="res://models/Terrain/island Versions/Oscar Versions/Base_Terrain + Trees with Coloistion  osc_V1.glb" id="2_q5mve"]
+[ext_resource type="PackedScene" uid="uid://d3pe4vll00p4s" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_qxeon"]
-[ext_resource type="Texture2D" uid="uid://chvqoghskv6rf" path="res://HealthbarInner.png" id="4_kqlcj"]
-[ext_resource type="Texture2D" uid="uid://rio5ple64nnj" path="res://HealthbarOutline.png" id="5_tpprc"]
-[ext_resource type="Texture2D" uid="uid://dxk6ftwrhr3pe" path="res://AK-47.png" id="6_n5iwn"]
-[ext_resource type="Texture2D" uid="uid://kf1y2uo8tg8u" path="res://Glock-19-Active.png" id="7_om2bf"]
+[ext_resource type="Texture2D" uid="uid://ci17sapp2foyt" path="res://HealthbarInner.png" id="4_kqlcj"]
+[ext_resource type="Texture2D" uid="uid://dutfrofuwhwwo" path="res://HealthbarOutline.png" id="5_tpprc"]
+[ext_resource type="Texture2D" uid="uid://ccasslw2ha4ug" path="res://AK-47.png" id="6_n5iwn"]
+[ext_resource type="Texture2D" uid="uid://kx787w1obg4f" path="res://Glock-19-Active.png" id="7_om2bf"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="8_3fra7"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="9_buoau"]
 
@@ -34,7 +34,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_urwws")
 
-[node name="Base_Terrain + Trees with Coloistion  osc_V1" parent="." instance=ExtResource("2_q5mve")]
+[node name="Base_terrain + Colur Trees with Coloistion osc_V2" parent="." instance=ExtResource("2_2ohk6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.9795, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
