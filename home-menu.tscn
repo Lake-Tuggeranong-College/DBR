@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyvwah7w0k7in"]
+[gd_scene load_steps=6 format=3 uid="uid://dyvwah7w0k7in"]
 
 [ext_resource type="Script" path="res://home-menu.gd" id="1_mimik"]
 [ext_resource type="FontFile" uid="uid://0cdxflkd3ynj" path="res://star_jedi/stjelogo/Strjmono.ttf" id="2_jwbhb"]
 [ext_resource type="FontFile" uid="uid://dd3p861ljnqr0" path="res://star_jedi/starjedi/Starjhol.ttf" id="3_nf841"]
-[ext_resource type="Texture2D" uid="uid://dxc5h5iufrdcg" path="res://IMG_4098.jpg" id="4_4n1mk"]
+[ext_resource type="Texture2D" uid="uid://kt0yv273uytf" path="res://images/main-photo.jpg" id="4_nbire"]
+[ext_resource type="Texture2D" uid="uid://b2l5s3tfd6577" path="res://images/island-image.jpg" id="5_x3ugr"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_mimik")
@@ -57,15 +58,15 @@ theme_override_font_sizes/font_size = 60
 text = ">M>a>i>n"
 
 [node name="main image" type="Sprite2D" parent="."]
-position = Vector2(301, 317)
-scale = Vector2(0.0883131, 0.0509454)
-texture = ExtResource("4_4n1mk")
+position = Vector2(303, 318)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_nbire")
 flip_h = true
 
 [node name="island image" type="Sprite2D" parent="."]
-position = Vector2(879, 309)
-scale = Vector2(0.0883131, 0.0509454)
-texture = ExtResource("4_4n1mk")
+position = Vector2(875, 318)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_x3ugr")
 
 [connection signal="pressed" from="Island" to="." method="_on_island_pressed"]
 [connection signal="pressed" from="main" to="." method="_on_main_pressed"]
