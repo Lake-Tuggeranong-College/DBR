@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://strokjs3bel8"]
 
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="2_ppdly"]
-[ext_resource type="Texture2D" uid="uid://4xxf2sv4slgm" path="res://HealthbarInner.png" id="3_d5l0l"]
-[ext_resource type="Texture2D" uid="uid://cb5chor7xr0v" path="res://HealthbarOutline.png" id="4_8lql4"]
-[ext_resource type="Texture2D" uid="uid://ctwud5lta5ra7" path="res://AK-47-Active.png" id="5_84eee"]
-[ext_resource type="Texture2D" uid="uid://cgbnehsmbbxst" path="res://Glock-19-Active.png" id="6_aqmfa"]
+[ext_resource type="Texture2D" uid="uid://ci17sapp2foyt" path="res://HealthbarInner.png" id="3_d5l0l"]
+[ext_resource type="Texture2D" uid="uid://dutfrofuwhwwo" path="res://HealthbarOutline.png" id="4_8lql4"]
+[ext_resource type="Texture2D" uid="uid://duoxhknvn7vim" path="res://AK-47-Active.png" id="5_84eee"]
+[ext_resource type="Texture2D" uid="uid://kx787w1obg4f" path="res://Glock-19-Active.png" id="6_aqmfa"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="7_17q30"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="8_4t1d4"]
-[ext_resource type="PackedScene" uid="uid://20xx3f7lh3ml" path="res://models/Terrain/island Versions/Oscar Versions/Base_Terrain + Trees with Coloistion  osc_V1.glb" id="8_ygsa0"]
+[ext_resource type="PackedScene" uid="uid://c0gmo7d3c84mv" path="res://models/Terrain/island Versions/Oscar Versions/Base_Terrain + Trees with Coloistion  osc_V1.glb" id="8_ygsa0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
