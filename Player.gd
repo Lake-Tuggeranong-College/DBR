@@ -43,7 +43,7 @@ var is_reloading = false
 var reload_time = 2.0  # Time in seconds to reload
 
 const HEALTH_AMOUNTS = 2
-const SPEED = 10.0
+const SPEED = 13.0
 const JUMP_VELOCITY = 10.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -108,7 +108,8 @@ func _unhandled_input(event):
 			tpp_camera.rotate_x(-event.relative.y * .005)
 			tpp_camera.rotation.x = clamp(tpp_camera.rotation.x, -PI/2, PI/2)
 
-	if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot":
+	if Input.is_action_just_pressed("shoot"):
+		print("shoot")
 		current_ammo -= 1 
 		print("Bang! Ammo left: ", current_ammo)
 		if is_reloading: 
@@ -217,6 +218,7 @@ func play_shoot_effects():
 @rpc("any_peer")
 func receive_damage():
 	health -= 1
+	print("damage taken")
 	if health <= 0:
 		print("Game Over!")
 		# Reset the player's health and position
