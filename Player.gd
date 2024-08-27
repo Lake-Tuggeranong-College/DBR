@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 signal health_changed(health_value)
+signal ammo_changed(current_ammo)
 
 # Set enumuration values reflect player's current camera view state
 enum DynamicCameraViewToggleAction {
@@ -112,6 +113,7 @@ func _unhandled_input(event):
 		print("shoot")
 		current_ammo -= 1 
 		print("Bang! Ammo left: ", current_ammo)
+		ammo_changed.emit(current_ammo)
 		if is_reloading: 
 			return 
 			if current_ammo < 0:
@@ -170,7 +172,7 @@ func _physics_process(delta):
 		if collision.get_collider().is_in_group("pickup"):
 			print("pickup collided.")
 			if "AmmoBox" in collision.get_collider().name:
-				#add_ammo
+				add_ammo(10)
 				# Add to Ammo instead.
 				print("I collided with ", collision.get_collider().name)
 				add_health(1)
@@ -231,6 +233,7 @@ func receive_damage():
 		health_changed.emit(health)
 
 
+
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		anim_player.play("idle")
@@ -239,7 +242,11 @@ func _on_animation_player_animation_finished(anim_name):
 func add_health(additional_health):
 	health += additional_health
 	health_changed.emit(health)
-	
+
+func add_ammo(additional_ammo):
+	current_ammo += additional_ammo
+	ammo_changed.emit(current_ammo)
+
 
 #func t_body_entered(body):
 	##if_area_is_in_group("player")
