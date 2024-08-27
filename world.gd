@@ -29,9 +29,15 @@ func _on_weapon_switched(gun_name):
 	if(gun_name == 'AK-47'):
 		get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47-Active.png')
 		get_node('CanvasLayer/HUD/Glock-19').texture = load('res://Glock-19.png')
+		get_node('CanvasLayer/HUD/CombatKnife').texture = load('res://CombatKnife.png')
 	elif(gun_name == 'Glock-19'):
 		get_node('CanvasLayer/HUD/Glock-19').texture = load('res://Glock-19-Active.png')
 		get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47.png')
+		get_node('CanvasLayer/HUD/CombatKnife').texture = load('res://CombatKnife.png')
+	elif(gun_name == 'Knife'):
+		get_node('CanvasLayer/HUD/Glock-19').texture = load('res://Glock-19.png')
+		get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47.png')
+		get_node('CanvasLayer/HUD/CombatKnife').texture = load('res://CombatKnife-Active.png')
 	#print("Switched to gun: %s" % gun_name)
 
 func _ready():
