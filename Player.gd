@@ -108,7 +108,8 @@ func _unhandled_input(event):
 			tpp_camera.rotate_x(-event.relative.y * .005)
 			tpp_camera.rotation.x = clamp(tpp_camera.rotation.x, -PI/2, PI/2)
 
-	if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot":
+	if Input.is_action_just_pressed("shoot"):
+		print("shoot")
 		current_ammo -= 1 
 		print("Bang! Ammo left: ", current_ammo)
 		if is_reloading: 
@@ -217,6 +218,7 @@ func play_shoot_effects():
 @rpc("any_peer")
 func receive_damage():
 	health -= 1
+	print("damage taken")
 	if health <= 0:
 		print("Game Over!")
 		# Reset the player's health and position
