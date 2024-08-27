@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bdn5gj57p8e1o"]
+[gd_scene load_steps=27 format=3 uid="uid://bdn5gj57p8e1o"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_cveli"]
 [ext_resource type="PackedScene" uid="uid://cugdmlcxhdp6" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://kf1y2uo8tg8u" path="res://Glock-19-Active.png" id="7_om2bf"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="8_3fra7"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="9_buoau"]
+[ext_resource type="Texture2D" uid="uid://ou1i07v37iqv" path="res://CombatKnife.png" id="9_llsdb"]
+[ext_resource type="Texture2D" uid="uid://dcrqojojojl53" path="res://AmmoBox.png" id="10_meggo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0d57v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -159,6 +161,12 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vj4uv")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3i2m6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yibrn"]
+font_size = 34
+font_color = Color(0.758192, 0.758192, 0.758192, 1)
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
 
 [node name="terrain-island" type="Node"]
 script = ExtResource("1_cveli")
@@ -335,6 +343,24 @@ texture = ExtResource("6_n5iwn")
 position = Vector2(73, 573)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_om2bf")
+
+[node name="CombatKnife" type="Sprite2D" parent="CanvasLayer/HUD"]
+position = Vector2(340, 573)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_llsdb")
+
+[node name="AmmoBox" type="Sprite2D" parent="CanvasLayer/HUD"]
+position = Vector2(1057, 595.8)
+scale = Vector2(0.4, 0.17)
+texture = ExtResource("10_meggo")
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD"]
+offset_left = 1038.0
+offset_top = 572.0
+offset_right = 1076.0
+offset_bottom = 619.0
+text = "50"
+label_settings = SubResource("LabelSettings_yibrn")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://player.tscn", "res://models/characters/normal_declan.tscn")
