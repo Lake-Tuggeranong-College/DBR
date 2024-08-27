@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=3 uid="uid://c6xxkytlbq8q2"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ksfbt"]
-[ext_resource type="PackedScene" uid="uid://bbdqecxy6f4da" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
-[ext_resource type="Texture2D" uid="uid://cj83kj6cxopsd" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
+[ext_resource type="PackedScene" uid="uid://rge2rmqaquqm" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
+[ext_resource type="Texture2D" uid="uid://qna0vv6te2xs" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
 [ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://models/Pistol.glb" id="3_w7dyo"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="4_8wo5q"]
 [ext_resource type="Script" path="res://models/characters/FPPCamera.gd" id="4_huefa"]
@@ -285,7 +285,7 @@ draw_pass_1 = SubResource("PlaneMesh_hkkgb")
 visible = false
 
 [node name="FPPKnife" parent="FPPCamera" instance=ExtResource("8_qsa7b")]
-transform = Transform3D(0.076727, -0.0459946, 0.0446929, 0.064132, 0.0547739, -0.05373, 0.000232849, 0.0698879, 0.0715237, 0.495, -0.465, -0.665)
+transform = Transform3D(0.0216144, -0.0396902, 0.0892048, 0.0878449, -0.0319729, -0.0355107, 0.0426157, 0.0860373, 0.0279551, 0.23, -0.465, -0.6)
 visible = false
 
 [node name="FPPRayCast3D" type="RayCast3D" parent="FPPCamera"]
@@ -313,7 +313,7 @@ draw_pass_1 = SubResource("PlaneMesh_hkkgb")
 visible = false
 
 [node name="TPPKnife" parent="TPPCamera" instance=ExtResource("8_qsa7b")]
-transform = Transform3D(0.076727, -0.0459946, 0.0446929, 0.064132, 0.0547739, -0.05373, 0.000232847, 0.0698879, 0.0715237, 0.495, -0.465, -0.665)
+transform = Transform3D(0.076727, -0.0459946, 0.044693, 0.064132, 0.0547739, -0.05373, 0.000232849, 0.0698879, 0.0715236, 0.495, -0.465, -0.665)
 visible = false
 
 [node name="TPPRayCast3D" type="RayCast3D" parent="TPPCamera"]

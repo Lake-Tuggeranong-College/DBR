@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://cky0t1cuuuo5y"]
 
-[ext_resource type="PackedScene" uid="uid://cpko1fdo4qae3" path="res://models/weapons/knifes/knife.fbx" id="1_iq8mw"]
-[ext_resource type="Texture2D" uid="uid://dlv15y4645b44" path="res://models/weapons/knifes/texture_knife.png" id="2_yopom"]
+[ext_resource type="PackedScene" uid="uid://dwsvwn47sqrn0" path="res://models/weapons/knifes/knife.fbx" id="1_iq8mw"]
+[ext_resource type="Texture2D" uid="uid://docdwch4ul82p" path="res://models/weapons/knifes/texture_knife.png" id="2_yopom"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kj5sd"]
 albedo_texture = ExtResource("2_yopom")
 albedo_texture_force_srgb = true
 
 [node name="Knife" instance=ExtResource("1_iq8mw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Cylinder" parent="RootNode" index="2"]
 material_override = SubResource("StandardMaterial3D_kj5sd")
