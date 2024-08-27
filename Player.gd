@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 signal health_changed(health_value)
+signal ammo_changed(current_ammo)
 
 # Set enumuration values reflect player's current camera view state
 enum DynamicCameraViewToggleAction {
@@ -10,15 +11,21 @@ enum DynamicCameraViewToggleAction {
 
 # First Player View (FPP)
 @onready var fpp_camera: Camera3D = $FPPCamera
-@onready var fpp_pistol: Node3D = $FPPCamera/FPPPistol
 @onready var fpp_muzzle_flash: GPUParticles3D = $FPPCamera/FPPPistol/MuzzleFlash
 @onready var fpp_raycast: RayCast3D = $FPPCamera/FPPRayCast3D
 
+@onready var fpp_pistol: Node3D = $FPPCamera/FPPPistol
+@onready var fpp_ak47: Node3D = $FPPCamera/FPPAK47
+@onready var fpp_knife: Node3D = $FPPCamera/FPPKnife
+
 # Third Player View (TPP)
 @onready var tpp_camera: Camera3D = $TPPCamera
-@onready var tpp_pistol: Node3D = $TPPCamera/TPPPistol
 @onready var tpp_muzzle_flash: GPUParticles3D = $TPPCamera/TPPPistol/MuzzleFlash
 @onready var tpp_raycast: RayCast3D = $TPPCamera/TPPRayCast3D
+
+@onready var tpp_pistol: Node3D = $TPPCamera/TPPPistol
+@onready var tpp_ak47: Node3D = $TPPCamera/TPPAK47
+@onready var tpp_knife: Node3D = $TPPCamera/TPPKnife
 
 # Multiplayer Synchronizer
 @onready var multiplayer_sync: MultiplayerSynchronizer = $MultiplayerSynchronizer
@@ -36,9 +43,8 @@ var current_ammo = max_ammo
 var is_reloading = false
 var reload_time = 2.0  # Time in seconds to reload
 
-
 const HEALTH_AMOUNTS = 2
-const SPEED = 10.0
+const SPEED = 13.0
 const JUMP_VELOCITY = 10.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -46,6 +52,18 @@ var gravity = 25.0
 
 # Track different state of camera node to toggle either FPP or TPP.
 var is_fpp: bool = true
+
+# Track the current weapon
+var current_weapon: String = ""
+
+# Store initial visibility states
+var initial_fpp_pistol_visible: bool = false
+var initial_fpp_ak47_visible: bool = false
+var initial_fpp_knife_visible: bool = false
+
+var initial_tpp_pistol_visible: bool = false
+var initial_tpp_ak47_visible: bool = false
+var initial_tpp_knife_visible: bool = false
 
 
 func _enter_tree():
@@ -62,11 +80,18 @@ func _ready():
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
+		# Store initial visibility states
+	initial_fpp_pistol_visible = fpp_pistol.visible
+	initial_fpp_ak47_visible = fpp_ak47.visible
+	initial_fpp_knife_visible = fpp_knife.visible
+
+	initial_tpp_pistol_visible = tpp_pistol.visible
+	initial_tpp_ak47_visible = tpp_ak47.visible
+	initial_tpp_knife_visible = tpp_knife.visible
+	
 	# Initialize camera and gun visibility based on the editor setting
 	update_camera_visibility()
-	update_gun_model_visibility()
-	print("Gun ready with ", current_ammo, " bullets.")
-
+	update_weapon_model_visibility()
 
 
 func _unhandled_input(event):
@@ -84,18 +109,17 @@ func _unhandled_input(event):
 			tpp_camera.rotate_x(-event.relative.y * .005)
 			tpp_camera.rotation.x = clamp(tpp_camera.rotation.x, -PI/2, PI/2)
 
-	if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot":
+	if Input.is_action_just_pressed("shoot"):
+		print("shoot")
 		current_ammo -= 1 
 		print("Bang! Ammo left: ", current_ammo)
+		ammo_changed.emit(current_ammo)
 		if is_reloading: 
 			return 
 			if current_ammo < 0:
 				print("Out of ammo! Reload needed.")
 				return #is needed otherwise can shoot without Ammo 
-#play_shoot_effects.rpc()
-
-	
-
+		#play_shoot_effects.rpc()
 		if is_fpp and fpp_raycast.is_colliding():
 			var hit_player = fpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
@@ -103,10 +127,6 @@ func _unhandled_input(event):
 		elif not is_fpp and tpp_raycast.is_colliding():
 			var hit_player = tpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
-	
-
-
-
 
 func reload():
 	var is_reloading = true 
@@ -115,10 +135,6 @@ func reload():
 	current_ammo = max_ammo
 	is_reloading = false
 	print("Reloaded! Ammo refilled to: ", current_ammo)
-
-
-
-
 
 func _physics_process(delta):
 	#print(health)
@@ -156,7 +172,7 @@ func _physics_process(delta):
 		if collision.get_collider().is_in_group("pickup"):
 			print("pickup collided.")
 			if "AmmoBox" in collision.get_collider().name:
-				
+				add_ammo(10)
 				# Add to Ammo instead.
 				print("I collided with ", collision.get_collider().name)
 				add_health(1)
@@ -167,21 +183,20 @@ func _physics_process(delta):
 				collision.get_collider().queue_free()
 
 
-
 # Get defined key inputs
 func _input(event):
 # Switch guns in inventory slot according to the key inputs set for it
 	if event.is_action_pressed("inventory_slot_1"):
-		Global.switch_gun(1)
+		Global.switch_weapon(1)
 	elif event.is_action_pressed("inventory_slot_2"):
-		Global.switch_gun(2)
+		Global.switch_weapon(2)
 	elif event.is_action_pressed("inventory_slot_3"):
-		Global.switch_gun(3)
+		Global.switch_weapon(3)
 
 # Switch player's camera view according to the key inputs set for it
 	if event.is_action_pressed("dynamic_camera_view"):
 		toggle_different_camera_state();
-	
+
 	if Input.is_action_just_pressed("reload"):
 		reload()
 
@@ -189,8 +204,6 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		# Play the animation
 		anim_player.play("shoot")
-   
-
 
 @rpc("call_local")
 func play_shoot_effects():
@@ -207,6 +220,7 @@ func play_shoot_effects():
 @rpc("any_peer")
 func receive_damage():
 	health -= 1
+	print("damage taken")
 	if health <= 0:
 		print("Game Over!")
 		# Reset the player's health and position
@@ -219,6 +233,7 @@ func receive_damage():
 		health_changed.emit(health)
 
 
+
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		anim_player.play("idle")
@@ -227,7 +242,11 @@ func _on_animation_player_animation_finished(anim_name):
 func add_health(additional_health):
 	health += additional_health
 	health_changed.emit(health)
-	
+
+func add_ammo(additional_ammo):
+	current_ammo += additional_ammo
+	ammo_changed.emit(current_ammo)
+
 
 #func t_body_entered(body):
 	##if_area_is_in_group("player")
@@ -237,60 +256,55 @@ func add_health(additional_health):
 
 
 # Handle weapon switching based on the key inputs
-func _on_weapon_switched(gun_name):
-	print("Switched to gun: %s" % gun_name)
-	var weapon_node = get_node("FPPCamera/FPPPistol")
-	
-	# Remove existing children
-	var children = weapon_node.get_children()
-	if children.size() > 0:
-		for child in children:
-			#print(children)
-			weapon_node.remove_child(child)
-			child.queue_free()
-	
-	# Add new model based on gun_name
-	if gun_name == 'AK-47':
-		var ak_model = preload("res://models/AK/ak47.tscn").instantiate()
-		weapon_node.add_child(ak_model)
-	elif gun_name == 'Glock-19':
-		var glock_model = preload("res://models/Pistol.glb").instantiate()
-		weapon_node.add_child(glock_model)
-	elif gun_name == 'Knife':
-		var knife_model = preload("res://models/Knife/knife.tscn").instantiate()
-		weapon_node.add_child(knife_model)
-
-
-#func _on_weapon_switched(gun_name):
-	#print("Switched to gun: %s" % gun_name)
-	#if(gun_name == 'AK-47'):
-		#get_node("TPPCamera/TPPPistol") = preload("res://models/AK/akm.fbx")
-	#elif(gun_name == 'Glock-19'):
-		#preload("res://models/Pistol.glb")
+func _on_weapon_switched(weapon_name):
+	print("Switched to weapon: %s" % weapon_name)
+	current_weapon = weapon_name
+	update_weapon_model_visibility()
 
 # Handle diffrent state of player's camera view
 func toggle_different_camera_state():
 	is_fpp = not is_fpp
 	update_camera_visibility()
-	update_gun_model_visibility()
-
+	update_weapon_model_visibility()
 
 # Update player's camera view when player pressed the pre-defined key input
-func update_camera_visibility(): 
+func update_camera_visibility():
 	if is_multiplayer_authority():
 		fpp_camera.current = is_fpp
 		tpp_camera.current = not is_fpp
 
-
 # Update the visibility of guns when player changed the camera view based on their preferrance
-func update_gun_model_visibility():
-	# For multiplayer (TODO: not worked yet but I'll just leave it here first)
-	if is_multiplayer_authority():
-		fpp_pistol.visible = is_fpp
-		tpp_pistol.visible = not is_fpp
-		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), is_fpp)
-		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), not is_fpp)
-	# For local
+func update_weapon_model_visibility():
+	# Hide all weapons first
+	fpp_pistol.visible = initial_fpp_pistol_visible
+	fpp_ak47.visible = initial_fpp_ak47_visible
+	fpp_knife.visible = initial_fpp_knife_visible
+	tpp_pistol.visible = initial_tpp_pistol_visible
+	tpp_ak47.visible = initial_tpp_ak47_visible
+	tpp_knife.visible = initial_tpp_knife_visible
+
+	# Show the correct weapon based on the current weapon and camera view state
+	if is_fpp:
+		if current_weapon == "Glock-19":
+			fpp_pistol.visible = true
+		elif current_weapon == "AK-47":
+			fpp_ak47.visible = true
+		elif current_weapon == "Knife":
+			fpp_knife.visible = true
 	else:
-		fpp_pistol.visible = is_fpp
-		tpp_pistol.visible = not is_fpp
+		if current_weapon == "Glock-19":
+			tpp_pistol.visible = true
+		elif current_weapon == "AK-47":
+			tpp_ak47.visible = true
+		elif current_weapon == "Knife":
+			tpp_knife.visible = true
+
+	# Synchronize visibility for multiplayer
+	# TODO: Not worked yet. DOn't touch it for now. I will fix it (Binh)
+	if is_multiplayer_authority():
+		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), fpp_pistol.visible)
+		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), fpp_ak47.visible)
+		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), fpp_knife.visible)
+		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), tpp_pistol.visible)
+		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), tpp_ak47.visible)
+		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), tpp_knife.visible)

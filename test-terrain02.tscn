@@ -1,6 +1,5 @@
 [gd_scene load_steps=4 format=3 uid="uid://b3bw0sq48heh7"]
 
-
 [ext_resource type="PackedScene" uid="uid://dn23dvlyu8h6l" path="res://models/test-terrain02.glb" id="1_e6sje"]
 [ext_resource type="PackedScene" uid="uid://hqyhjg5ku77m" path="res://models/Terrain/debris/debris.dae" id="2_ska67"]
 [ext_resource type="PackedScene" uid="uid://cmxepm1lnb1lp" path="res://models/Terrain/house/h.dae" id="3_rrcjg"]
