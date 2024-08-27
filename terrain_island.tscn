@@ -1,13 +1,13 @@
 [gd_scene load_steps=24 format=3 uid="uid://bdn5gj57p8e1o"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_cveli"]
-[ext_resource type="PackedScene" uid="uid://bl3s3ujvbkj24" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
-[ext_resource type="Texture2D" uid="uid://cypc20k8u211f" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2_Tree_Texture.png" id="3_13kr4"]
+[ext_resource type="PackedScene" uid="uid://cugdmlcxhdp6" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
+[ext_resource type="Texture2D" uid="uid://dw15521imxwth" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2_Tree_Texture.png" id="3_13kr4"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_qxeon"]
-[ext_resource type="Texture2D" uid="uid://cwb0c4ec7742x" path="res://HealthbarInner.png" id="4_kqlcj"]
-[ext_resource type="Texture2D" uid="uid://8wcr2h43kxp3" path="res://HealthbarOutline.png" id="5_tpprc"]
-[ext_resource type="Texture2D" uid="uid://cg2j14k02wp8b" path="res://AK-47.png" id="6_n5iwn"]
-[ext_resource type="Texture2D" uid="uid://bfjmtvjxg8nv8" path="res://Glock-19-Active.png" id="7_om2bf"]
+[ext_resource type="Texture2D" uid="uid://chvqoghskv6rf" path="res://HealthbarInner.png" id="4_kqlcj"]
+[ext_resource type="Texture2D" uid="uid://rio5ple64nnj" path="res://HealthbarOutline.png" id="5_tpprc"]
+[ext_resource type="Texture2D" uid="uid://dxk6ftwrhr3pe" path="res://AK-47.png" id="6_n5iwn"]
+[ext_resource type="Texture2D" uid="uid://kf1y2uo8tg8u" path="res://Glock-19-Active.png" id="7_om2bf"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="8_3fra7"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="9_buoau"]
 
@@ -189,6 +189,9 @@ transform = Transform3D(0.187303, 0, -0.463592, 0, 0.5, 0, 0.463592, 0, 0.187303
 [node name="Tree_004" parent="Base_terrain + Colur Trees with Coloistion osc_V2" index="5"]
 transform = Transform3D(-0.187303, 0, 0.463592, 0, 0.5, 0, -0.463592, 0, -0.187303, -40.5399, 9.79627, 56.857)
 
+[node name="Tree_005" parent="Base_terrain + Colur Trees with Coloistion osc_V2" index="6"]
+transform = Transform3D(-0.469846, 0, 0.17101, 0, 0.5, 0, -0.17101, 0, -0.469846, 28.2626, 13.7318, 28.5532)
+
 [node name="Tree_006" type="MeshInstance3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2"]
 transform = Transform3D(-0.187303, 0, 0.463592, 0, 0.5, 0, -0.463592, 0, -0.187303, -55.3721, 15.8203, 18.361)
 mesh = SubResource("ArrayMesh_g6kk5")
@@ -198,9 +201,6 @@ skeleton = NodePath("")
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -2.86102e-06, 9.53674e-06)
 mesh = SubResource("ArrayMesh_lmc44")
 skeleton = NodePath("")
-
-[node name="Tree_005" parent="Base_terrain + Colur Trees with Coloistion osc_V2" index="7"]
-transform = Transform3D(-0.469846, 0, 0.17101, 0, 0.5, 0, -0.17101, 0, -0.469846, 28.2626, 13.7318, 28.5532)
 
 [node name="Tree_007" type="MeshInstance3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2"]
 transform = Transform3D(-0.422556, 0, -0.267294, 0, 0.5, 0, 0.267294, 0, -0.422556, -35.7305, 13.4363, 44.3218)
@@ -343,10 +343,34 @@ spawn_path = NodePath("..")
 [node name="Pickups" type="Node" parent="."]
 
 [node name="Health" parent="Pickups" instance=ExtResource("8_3fra7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0498, 2.60137, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.1811, 2.60137, 20.6422)
+
+[node name="Health2" parent="Pickups" instance=ExtResource("8_3fra7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.8639, 37.7878, -92.4561)
+
+[node name="Health3" parent="Pickups" instance=ExtResource("8_3fra7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43235, -0.422542, 96.1933)
+
+[node name="Health4" parent="Pickups" instance=ExtResource("8_3fra7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2972, 2.60137, -33.1182)
+
+[node name="Health5" parent="Pickups" instance=ExtResource("8_3fra7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.78428, 2.60137, 0)
 
 [node name="AmmoBox" parent="Pickups" instance=ExtResource("9_buoau")]
-transform = Transform3D(4.88148, 1.0822, 0, -1.0822, 4.88148, 0, 0, 0, 5, -14, 0.85, 12.1)
+transform = Transform3D(1.69574, 0.0742176, -0.0643413, -0.0647485, 1.68129, 0.232899, 0.0738627, -0.230056, 1.68131, -81.5446, 33.0776, -70.9553)
+
+[node name="AmmoBox2" parent="Pickups" instance=ExtResource("9_buoau")]
+transform = Transform3D(1.69574, 0.0742176, -0.0643413, -0.0647485, 1.68129, 0.232899, 0.0738627, -0.230056, 1.68131, -112.534, -9.01752, 169.956)
+
+[node name="AmmoBox3" parent="Pickups" instance=ExtResource("9_buoau")]
+transform = Transform3D(1.69574, 0.0742176, -0.0643413, -0.0647485, 1.68129, 0.232899, 0.0738627, -0.230056, 1.68131, 26.8111, -0.946184, -70.9553)
+
+[node name="AmmoBox4" parent="Pickups" instance=ExtResource("9_buoau")]
+transform = Transform3D(1.69574, 0.0742176, -0.0643413, -0.0647485, 1.68129, 0.232899, 0.0738627, -0.230056, 1.68131, -82.392, -0.156979, 76.3993)
+
+[node name="AmmoBox5" parent="Pickups" instance=ExtResource("9_buoau")]
+transform = Transform3D(1.69574, 0.0742176, -0.0643413, -0.0647485, 1.68129, 0.232899, 0.0738627, -0.230056, 1.68131, -76.069, 1.72064, -5.88392)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
