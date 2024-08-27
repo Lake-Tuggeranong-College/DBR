@@ -43,7 +43,7 @@ var is_reloading = false
 var reload_time = 2.0  # Time in seconds to reload
 
 const HEALTH_AMOUNTS = 2
-const SPEED = 10.0
+const SPEED = 13.0
 const JUMP_VELOCITY = 10.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
