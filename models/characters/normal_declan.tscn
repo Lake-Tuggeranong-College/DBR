@@ -225,6 +225,54 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector3(0.898845, 0, 0), Vector3(0.445059, 0, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FPPCamera/FPPAK47:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0.289, -0.144, -0.339), Vector3(0.289, -0.144, -0.389)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FPPCamera/FPPAK47:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0.0872665), Vector3(0, 1.5708, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FPPCamera/FPPKnife:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0.23, -0.465, -0.63), Vector3(0.23, -0.465, -0.6)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FPPCamera/FPPKnife:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0.312414, 1.03323, 1.76627), Vector3(0.363028, 1.26711, 1.91986)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p6wdk"]
 _data = {
@@ -282,6 +330,7 @@ process_material = SubResource("ParticleProcessMaterial_yy8r8")
 draw_pass_1 = SubResource("PlaneMesh_hkkgb")
 
 [node name="FPPAK47" parent="FPPCamera" instance=ExtResource("7_pq2a5")]
+transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0.289, -0.144, -0.389)
 visible = false
 
 [node name="FPPKnife" parent="FPPCamera" instance=ExtResource("8_qsa7b")]
