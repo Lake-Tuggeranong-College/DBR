@@ -253,6 +253,45 @@ func update_camera_visibility():
 		fpp_camera.current = is_fpp
 		tpp_camera.current = not is_fpp
 
+
+##################################################################################################################
+######      Documentation about synchronising weapon models into multiplayer game in a correct way          ######
+##################################################################################################################
+
+## - To prevent the bug where let's say you have 2 player in the multiplayer room, 'Player 1' clicked the key 
+##   bind '1' --> that weapon model shows on both 'Player 1' and 'Player 2' character model, but not for the 
+##   'Player 2's screen, STRICTLY follow the instruction below to not letting that happens again (I have already 
+##   fix it):
+##
+##		+ Add new weapon models into the 'Player Scene Tree' (the thing on your left if you don't know the term 
+##		  for it) under each of the view mode: TPP and FPP (remember to re-name them as how the naming is written 
+##		  inside each view mode). 
+##
+##		  **If you unsure on how to add new weapon models into the 'Player Scene Tree', have a look at the 
+##		  'world.gd' file and read the documentation in there. It's very detailise and it should help you to be 
+##		  able to achieve this action (although it's not related to the weapon models, but it should be similar 
+##		  about the node setup).**
+##
+##		+ Then, click on the 'MultiplayerSynchronizer' Node (at the end of the 'Player Scene Tree') or click on 
+##		  the 'Replication' section (right at the bottom of your eye view if you don't see it)
+##
+##		+ After that, click on the 'Add property to sync...' button (It's the big ass '+' symbol if you don't see 
+##		  it).
+##
+##		+ After you clicked the button, it'll pop-up and show you the 'Player Scene Tree'. Don't be panic about 
+##		  all of the stuff in there yet, this documentation is where your life'll be easier. Clicks on your new 
+##		  weapon model (both TPP and FPP view mode, do it one by one because Godot won't let you to be a 'I'm ##		  fast as fuck boiz').
+##
+##		+ After you clicked the new weapon model respectively, it'll pop-up and show you all the options that you ##		  can choose to synchronise across all player. It's alright if you don't get wtf it's happening in 
+##		  there, just mindlessly follow this upcoming step to have a happy dev life (you can test out the other ##		  options on your own if you wanted to). Clicks on the 'visible' property (it's under the 'Node3D' 
+##		  section if you don't see it), and do the same for your new weapon models in both view mode.
+##
+##		+ You have officially made it if you followed the step correctly up to this point. Hooray!
+
+##################################################################################################################
+######             End of the Documentation. You may freely to continue working on this now!                ######
+##################################################################################################################
+
 # Update the visibility of guns when player changed the camera view based on their preferrance
 func update_weapon_model_visibility():
 	#print("Updating weapon model visibility")
