@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bdn5gj57p8e1o"]
+[gd_scene load_steps=29 format=3 uid="uid://bdn5gj57p8e1o"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_cveli"]
 [ext_resource type="PackedScene" uid="uid://bl3s3ujvbkj24" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ou1i07v37iqv" path="res://CombatKnife.png" id="9_llsdb"]
 [ext_resource type="Texture2D" uid="uid://dcrqojojojl53" path="res://AmmoBox.png" id="10_meggo"]
 [ext_resource type="PackedScene" uid="uid://c4b470588ussr" path="res://models/sun/death_star_-_star_wars.glb" id="13_bx7yv"]
+[ext_resource type="PackedScene" uid="uid://dys08r5wqxsbs" path="res://models/characters/templateCharaterModel.glb" id="13_evf2j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0d57v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -400,8 +401,26 @@ transform = Transform3D(1.69574, 0.0742176, -0.0643413, -0.0647485, 1.68129, 0.2
 [node name="AmmoBox5" parent="Pickups" instance=ExtResource("9_buoau")]
 transform = Transform3D(1.69574, 0.0742176, -0.0643413, -0.0647485, 1.68129, 0.232899, 0.0738627, -0.230056, 1.68131, -76.069, 1.72064, -5.88392)
 
+[node name="spawn-point" type="Node" parent="."]
+
+[node name="templateCharaterModel" parent="spawn-point" instance=ExtResource("13_evf2j")]
+transform = Transform3D(0.756002, 0, 0, 0, 0.756002, 0, 0, 0, 0.756002, -89.0407, 36.1591, -85.3853)
+
+[node name="templateCharaterModel3" parent="spawn-point" instance=ExtResource("13_evf2j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.2562, -17.6075, -84.3514)
+
+[node name="templateCharaterModel2" parent="spawn-point" instance=ExtResource("13_evf2j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.9861, -0.377142, 70.8394)
+
+[node name="templateCharaterModel4" parent="spawn-point" instance=ExtResource("13_evf2j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.4029, -1.379, 41.7532)
+
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("13_bx7yv")]
 transform = Transform3D(2.68552, -4.21372, -0.180332, 0.510625, 0.537054, -4.94478, 4.18655, 2.63744, 0.71878, 357.16, 988.207, -437.246)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.240415, -0.942001, -0.234169, -0.225929, 0.180313, -0.95731, 0.944011, 0.283057, -0.169475, 275.349, 764.292, -348.257)
+light_color = Color(0.341176, 1, 0, 1)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
