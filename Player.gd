@@ -27,9 +27,6 @@ enum DynamicCameraViewToggleAction {
 @onready var tpp_ak47: Node3D = $TPPCamera/TPPAK47
 @onready var tpp_knife: Node3D = $TPPCamera/TPPKnife
 
-# Multiplayer Synchronizer
-@onready var multiplayer_sync: MultiplayerSynchronizer = $MultiplayerSynchronizer
-
 # Animations
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
@@ -56,15 +53,6 @@ var is_fpp: bool = true
 # Track the current weapon
 var current_weapon: String = ""
 
-# Store initial visibility states
-var initial_fpp_pistol_visible: bool = false
-var initial_fpp_ak47_visible: bool = false
-var initial_fpp_knife_visible: bool = false
-
-var initial_tpp_pistol_visible: bool = false
-var initial_tpp_ak47_visible: bool = false
-var initial_tpp_knife_visible: bool = false
-
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -79,15 +67,6 @@ func _ready():
 	if not is_multiplayer_authority(): return
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
-		# Store initial visibility states
-	initial_fpp_pistol_visible = fpp_pistol.visible
-	initial_fpp_ak47_visible = fpp_ak47.visible
-	initial_fpp_knife_visible = fpp_knife.visible
-
-	initial_tpp_pistol_visible = tpp_pistol.visible
-	initial_tpp_ak47_visible = tpp_ak47.visible
-	initial_tpp_knife_visible = tpp_knife.visible
 	
 	# Initialize camera and gun visibility based on the editor setting
 	update_camera_visibility()
@@ -233,7 +212,6 @@ func receive_damage():
 		health_changed.emit(health)
 
 
-
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		anim_player.play("idle")
@@ -242,6 +220,7 @@ func _on_animation_player_animation_finished(anim_name):
 func add_health(additional_health):
 	health += additional_health
 	health_changed.emit(health)
+
 
 func add_ammo(additional_ammo):
 	current_ammo += additional_ammo
@@ -255,7 +234,7 @@ func add_ammo(additional_ammo):
 		#body.add_health(HEALTH_AMOUNTS)
 
 
-# Handle weapon switching based on the key inputs
+# Handle weapon switching bas	ed on the key inputs
 func _on_weapon_switched(weapon_name):
 	print("Switched to weapon: %s" % weapon_name)
 	current_weapon = weapon_name
@@ -275,37 +254,39 @@ func update_camera_visibility():
 
 # Update the visibility of guns when player changed the camera view based on their preferrance
 func update_weapon_model_visibility():
-	# Hide all weapons first
-	fpp_pistol.visible = initial_fpp_pistol_visible
-	fpp_ak47.visible = initial_fpp_ak47_visible
-	fpp_knife.visible = initial_fpp_knife_visible
-	tpp_pistol.visible = initial_tpp_pistol_visible
-	tpp_ak47.visible = initial_tpp_ak47_visible
-	tpp_knife.visible = initial_tpp_knife_visible
+	print("Updating weapon model visibility")
 
-	# Show the correct weapon based on the current weapon and camera view state
-	if is_fpp:
-		if current_weapon == "Glock-19":
-			fpp_pistol.visible = true
-		elif current_weapon == "AK-47":
-			fpp_ak47.visible = true
-		elif current_weapon == "Knife":
-			fpp_knife.visible = true
-	else:
-		if current_weapon == "Glock-19":
-			tpp_pistol.visible = true
-		elif current_weapon == "AK-47":
-			tpp_ak47.visible = true
-		elif current_weapon == "Knife":
-			tpp_knife.visible = true
+	# Hide all weapon models
+	fpp_pistol.visible = false
+	fpp_ak47.visible = false
+	fpp_knife.visible = false
+	tpp_pistol.visible = false
+	tpp_ak47.visible = false
+	tpp_knife.visible = false
 
-	# Synchronize visibility for multiplayer
-	# TODO: Not worked yet. DOn't touch it for now. I will fix it (Binh)
+	# Show the weapon model that corresponds to the currently selected weapon and is owned by the current player
 	if is_multiplayer_authority():
-		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), fpp_pistol.visible)
-		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), fpp_ak47.visible)
-		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), fpp_knife.visible)
-		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), tpp_pistol.visible)
-		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), tpp_ak47.visible)
-		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), tpp_knife.visible)
-		
+		match current_weapon:
+			"Glock-19":
+				if is_fpp:
+					fpp_pistol.visible = true
+				else:
+					tpp_pistol.visible = true
+			"AK-47":
+				if is_fpp:
+					fpp_ak47.visible = true
+				else:
+					tpp_ak47.visible = true
+			"Knife":
+				if is_fpp:
+					fpp_knife.visible = true
+				else:
+					tpp_knife.visible = true
+
+	print("FPP Pistol Visible: ", fpp_pistol.visible)
+	print("FPP AK47 Visible: ", fpp_ak47.visible)
+	print("FPP Knife Visible: ", fpp_knife.visible)
+
+	print("TPP Pistol Visible: ", tpp_pistol.visible)
+	print("TPP AK47 Visible: ", tpp_ak47.visible)
+	print("TPP Knife Visible: ", tpp_knife.visible)
