@@ -6,8 +6,9 @@ signal weapon_switched(weapon_name)
 # Inventory slots
 var guns = ["Glock-19", "AK-47"]
 var melees = ["Knife"]
+var ammo
 
-
+var player
 # Add weapons to the inventory
 func add_weapon(weapon_name, weapon_type):
 	if weapon_type == "gun" and guns.size() < 3:
