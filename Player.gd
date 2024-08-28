@@ -106,6 +106,7 @@ func _unhandled_input(event):
 			var hit_player = tpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
+
 func reload():
 	var is_reloading = true 
 	print("Reloading...")
@@ -113,6 +114,7 @@ func reload():
 	current_ammo = max_ammo
 	is_reloading = false
 	print("Reloaded! Ammo refilled to: ", current_ammo)
+
 
 func _physics_process(delta):
 	#print(health)
@@ -280,10 +282,13 @@ func update_camera_visibility():
 ##
 ##		+ After you clicked the button, it'll pop-up and show you the 'Player Scene Tree'. Don't be panic about 
 ##		  all of the stuff in there yet, this documentation is where your life'll be easier. Clicks on your new 
-##		  weapon model (both TPP and FPP view mode, do it one by one because Godot won't let you to be a 'I'm ##		  fast as fuck boiz').
+##		  weapon model (both TPP and FPP view mode, do it one by one because Godot won't let you to be a 'I'm 
+##		  fast as fuck boiz').
 ##
-##		+ After you clicked the new weapon model respectively, it'll pop-up and show you all the options that you ##		  can choose to synchronise across all player. It's alright if you don't get wtf it's happening in 
-##		  there, just mindlessly follow this upcoming step to have a happy dev life (you can test out the other ##		  options on your own if you wanted to). Clicks on the 'visible' property (it's under the 'Node3D' 
+##		+ After you clicked the new weapon model respectively, it'll pop-up and show you all the options that you 
+##		  can choose to synchronise across all player. It's alright if you don't get wtf it's happening in 
+##		  there, just mindlessly follow this upcoming step to have a happy dev life (you can test out the other 
+##		  options on your own if you wanted to). Clicks on the 'visible' property (it's under the 'Node3D' 
 ##		  section if you don't see it), and do the same for your new weapon models in both view mode.
 ##
 ##		+ You have officially made it if you followed the step correctly up to this point. Hooray!
