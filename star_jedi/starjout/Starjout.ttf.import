@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/Starjout.ttf-8a07c6004a1f3c92dec002bd33eb3c5c
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
