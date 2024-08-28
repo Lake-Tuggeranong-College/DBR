@@ -30,9 +30,10 @@ glow_enabled = true
 font = ExtResource("3_32xhs")
 
 [sub_resource type="LabelSettings" id="LabelSettings_w3qcc"]
-font_size = 34
+line_spacing = 0.0
+font_size = 200
 font_color = Color(0.758192, 0.758192, 0.758192, 1)
-outline_size = 14
+outline_size = 50
 outline_color = Color(0, 0, 0, 1)
 
 [node name="World" type="Node"]
@@ -156,16 +157,15 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("10_wolt1")
 
 [node name="AmmoBox" type="Sprite2D" parent="CanvasLayer/HUD"]
-position = Vector2(1057, 595.8)
-scale = Vector2(0.4, 0.169)
+position = Vector2(1056, 595)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("11_onbcg")
 
-[node name="Label" type="Label" parent="CanvasLayer/HUD"]
-layout_mode = 0
-offset_left = 1038.0
-offset_top = 570.0
-offset_right = 1076.0
-offset_bottom = 617.0
+[node name="Label" type="Label" parent="CanvasLayer/HUD/AmmoBox"]
+offset_left = -117.0
+offset_top = -141.0
+offset_right = 111.0
+offset_bottom = 132.0
 text = "50"
 label_settings = SubResource("LabelSettings_w3qcc")
 

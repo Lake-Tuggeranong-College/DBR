@@ -308,3 +308,4 @@ func update_weapon_model_visibility():
 		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), tpp_pistol.visible)
 		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), tpp_ak47.visible)
 		multiplayer_sync.set_visibility_for(multiplayer.get_unique_id(), tpp_knife.visible)
+		
