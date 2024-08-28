@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bdn5gj57p8e1o"]
+[gd_scene load_steps=28 format=3 uid="uid://bdn5gj57p8e1o"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_cveli"]
 [ext_resource type="PackedScene" uid="uid://bl3s3ujvbkj24" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="9_buoau"]
 [ext_resource type="Texture2D" uid="uid://ou1i07v37iqv" path="res://CombatKnife.png" id="9_llsdb"]
 [ext_resource type="Texture2D" uid="uid://dcrqojojojl53" path="res://AmmoBox.png" id="10_meggo"]
+[ext_resource type="PackedScene" uid="uid://c4b470588ussr" path="res://models/sun/death_star_-_star_wars.glb" id="13_bx7yv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0d57v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -354,7 +355,8 @@ position = Vector2(1057, 595.8)
 scale = Vector2(0.4, 0.17)
 texture = ExtResource("10_meggo")
 
-[node name="Label" type="Label" parent="CanvasLayer/HUD"]
+[node name="Ammo" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 0
 offset_left = 1038.0
 offset_top = 572.0
 offset_right = 1076.0
@@ -369,10 +371,37 @@ spawn_path = NodePath("..")
 [node name="Pickups" type="Node" parent="."]
 
 [node name="Health" parent="Pickups" instance=ExtResource("8_3fra7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0498, 2.60137, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.1811, -1.18482, 20.6422)
+
+[node name="Health2" parent="Pickups" instance=ExtResource("8_3fra7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.8639, 37.7878, -92.4561)
+
+[node name="Health3" parent="Pickups" instance=ExtResource("8_3fra7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43235, -1.56856, 96.1933)
+
+[node name="Health4" parent="Pickups" instance=ExtResource("8_3fra7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2972, -0.711077, -33.1182)
+
+[node name="Health5" parent="Pickups" instance=ExtResource("8_3fra7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.78428, -0.513133, 0)
 
 [node name="AmmoBox" parent="Pickups" instance=ExtResource("9_buoau")]
-transform = Transform3D(4.88148, 1.0822, 0, -1.0822, 4.88148, 0, 0, 0, 5, -14, 0.85, 12.1)
+transform = Transform3D(1.69574, 0.0742176, -0.0643413, -0.0647485, 1.68129, 0.232899, 0.0738627, -0.230056, 1.68131, -81.5446, 33.0776, -70.9553)
+
+[node name="AmmoBox2" parent="Pickups" instance=ExtResource("9_buoau")]
+transform = Transform3D(1.69574, 0.0742176, -0.0643413, -0.0647485, 1.68129, 0.232899, 0.0738627, -0.230056, 1.68131, -112.534, -27.8655, 169.956)
+
+[node name="AmmoBox3" parent="Pickups" instance=ExtResource("9_buoau")]
+transform = Transform3D(1.69574, 0.0742176, -0.0643413, -0.0647485, 1.68129, 0.232899, 0.0738627, -0.230056, 1.68131, 26.8111, -0.946184, -70.9553)
+
+[node name="AmmoBox4" parent="Pickups" instance=ExtResource("9_buoau")]
+transform = Transform3D(1.69574, 0.0742176, -0.0643413, -0.0647485, 1.68129, 0.232899, 0.0738627, -0.230056, 1.68131, -82.392, -0.156979, 76.3993)
+
+[node name="AmmoBox5" parent="Pickups" instance=ExtResource("9_buoau")]
+transform = Transform3D(1.69574, 0.0742176, -0.0643413, -0.0647485, 1.68129, 0.232899, 0.0738627, -0.230056, 1.68131, -76.069, 1.72064, -5.88392)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("13_bx7yv")]
+transform = Transform3D(2.68552, -4.21372, -0.180332, 0.510625, 0.537054, -4.94478, 4.18655, 2.63744, 0.71878, 357.16, 988.207, -437.246)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
