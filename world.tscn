@@ -28,6 +28,7 @@ glow_enabled = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_sp4x1"]
 font = ExtResource("3_32xhs")
+font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_w3qcc"]
 line_spacing = 0.0
@@ -74,7 +75,7 @@ theme_override_constants/separation = 15
 
 [node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Main Menu"
+text = "Declan Battle Royale"
 label_settings = SubResource("LabelSettings_sp4x1")
 horizontal_alignment = 1
 vertical_alignment = 1
