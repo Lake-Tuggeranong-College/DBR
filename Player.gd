@@ -254,7 +254,7 @@ func update_camera_visibility():
 
 # Update the visibility of guns when player changed the camera view based on their preferrance
 func update_weapon_model_visibility():
-	print("Updating weapon model visibility")
+	#print("Updating weapon model visibility")
 
 	# Hide all weapon models
 	fpp_pistol.visible = false
@@ -283,10 +283,10 @@ func update_weapon_model_visibility():
 				else:
 					tpp_knife.visible = true
 
-	print("FPP Pistol Visible: ", fpp_pistol.visible)
-	print("FPP AK47 Visible: ", fpp_ak47.visible)
-	print("FPP Knife Visible: ", fpp_knife.visible)
-
-	print("TPP Pistol Visible: ", tpp_pistol.visible)
-	print("TPP AK47 Visible: ", tpp_ak47.visible)
-	print("TPP Knife Visible: ", tpp_knife.visible)
+	#print("FPP Pistol Visible: ", fpp_pistol.visible)
+	#print("FPP AK47 Visible: ", fpp_ak47.visible)
+	#print("FPP Knife Visible: ", fpp_knife.visible)
+#
+	#print("TPP Pistol Visible: ", tpp_pistol.visible)
+	#print("TPP AK47 Visible: ", tpp_ak47.visible)
+	#print("TPP Knife Visible: ", tpp_knife.visible)
