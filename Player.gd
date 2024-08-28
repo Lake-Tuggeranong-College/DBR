@@ -32,7 +32,6 @@ enum DynamicCameraViewToggleAction {
 
 # Set player's current camera view state in the editor
 @export var camera_player_state: DynamicCameraViewToggleAction = DynamicCameraViewToggleAction.FIRST_PERSON_VIEW
-
 var health = 3
 var MAX_HEALTH = 10
 var max_ammo = 30
@@ -59,7 +58,7 @@ func _enter_tree():
 
 
 func _ready():
-	
+	#Global.player = self
 	# Connect new 'weapon_switched' signal from the Global script
 	var callable_gun_signal = Callable(self, "_on_weapon_switched")
 	Global.connect("weapon_switched", callable_gun_signal)
@@ -117,6 +116,8 @@ func reload():
 
 func _physics_process(delta):
 	#print(health)
+	Global.ammo = max_ammo
+	
 	if not is_multiplayer_authority(): return
 	
 	# Add the gravity.
