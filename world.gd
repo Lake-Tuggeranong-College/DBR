@@ -25,6 +25,12 @@ var enet_peer = ENetMultiplayerPeer.new()
 #func _on_weapon_switched(gun_name):
 	
 
+func _physics_process(delta):
+	# Assuming Global.ammo is a valid global variable
+	var ammo_label = get_node("CanvasLayer/HUD/AmmoBox/Label")
+	ammo_label.text = str(Global.ammo)  # Convert to string if needed
+
+
 func _on_weapon_switched(gun_name):
 	if(gun_name == 'AK-47'):
 		get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47-Active.png')
