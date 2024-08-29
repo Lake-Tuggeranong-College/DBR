@@ -32,6 +32,11 @@ enum DynamicCameraViewToggleAction {
 
 # Set player's current camera view state in the editor
 @export var camera_player_state: DynamicCameraViewToggleAction = DynamicCameraViewToggleAction.FIRST_PERSON_VIEW
+
+# Set positon for the camera when zoomed in or out
+@export var zoom_in_position: Vector3 = Vector3(0, 3, -8)
+@export var zoom_out_position: Vector3 = Vector3(0, 3, 0)
+
 var health = 3
 var MAX_HEALTH = 10
 var max_ammo = 30
@@ -179,8 +184,17 @@ func _input(event):
 	if event.is_action_pressed("dynamic_camera_view"):
 		toggle_different_camera_state();
 
-	if Input.is_action_just_pressed("reload"):
+# Reload weapon's ammo according to the key inputs set for it 
+	if event.is_action_pressed("reload"):
 		reload()
+
+# Change player's camera positon according to the key inputs set for it 
+	if event.is_action_pressed("zoom"):
+		#print("Zoom key clicked")
+		fpp_camera.position = zoom_in_position
+	elif event.is_action_released("zoom"):
+		#print("Zoom key released")
+		fpp_camera.position = zoom_out_position
 
 	# Check if the left mouse button is pressed
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
