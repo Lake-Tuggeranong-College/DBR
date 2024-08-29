@@ -22,12 +22,14 @@ enum DynamicCameraViewToggleAction {
 
 # Third Player View (TPP)
 @onready var tpp_camera: Camera3D = $TPPCamera
-@onready var tpp_muzzle_flash: GPUParticles3D = $TPPCamera/TPPPistol/MuzzleFlash
 @onready var tpp_raycast: RayCast3D = $TPPCamera/TPPRayCast3D
 
 @onready var tpp_pistol: Node3D = $TPPCamera/TPPPistol
 @onready var tpp_ak47: Node3D = $TPPCamera/TPPAK47
 @onready var tpp_knife: Node3D = $TPPCamera/TPPKnife
+
+@onready var tpp_pistol_muzzle_flash: GPUParticles3D = $TPPCamera/TPPPistol/MuzzleFlash
+@onready var tpp_ak47_muzzle_flash: GPUParticles3D = $TPPCamera/TPPAK47/MuzzleFlash
 
 # Animations
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
@@ -215,8 +217,12 @@ func play_shoot_effects():
 			fpp_ak47_muzzle_flash.restart()
 			fpp_ak47_muzzle_flash.emitting = true
 	else:
-		tpp_muzzle_flash.restart()
-		tpp_muzzle_flash.emitting = true
+		if current_weapon == "Glock-19":
+			tpp_pistol_muzzle_flash.restart()
+			tpp_pistol_muzzle_flash.emitting = true
+		elif current_weapon == "AK-47":
+			tpp_ak47_muzzle_flash.restart()
+			tpp_ak47_muzzle_flash.emitting = true
 
 
 @rpc("any_peer")
