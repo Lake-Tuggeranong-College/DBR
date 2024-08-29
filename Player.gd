@@ -11,12 +11,14 @@ enum DynamicCameraViewToggleAction {
 
 # First Player View (FPP)
 @onready var fpp_camera: Camera3D = $FPPCamera
-@onready var fpp_muzzle_flash: GPUParticles3D = $FPPCamera/FPPPistol/MuzzleFlash
 @onready var fpp_raycast: RayCast3D = $FPPCamera/FPPRayCast3D
 
 @onready var fpp_pistol: Node3D = $FPPCamera/FPPPistol
 @onready var fpp_ak47: Node3D = $FPPCamera/FPPAK47
 @onready var fpp_knife: Node3D = $FPPCamera/FPPKnife
+
+@onready var fpp_pistol_muzzle_flash: GPUParticles3D = $FPPCamera/FPPPistol/MuzzleFlash
+@onready var fpp_ak47_muzzle_flash: GPUParticles3D = $FPPCamera/FPPAK47/MuzzleFlash
 
 # Third Player View (TPP)
 @onready var tpp_camera: Camera3D = $TPPCamera
@@ -102,7 +104,7 @@ func _unhandled_input(event):
 			if current_ammo < 0:
 				print("Out of ammo! Reload needed.")
 				return #is needed otherwise can shoot without Ammo 
-		#play_shoot_effects.rpc()
+		play_shoot_effects.rpc()
 		if is_fpp and fpp_raycast.is_colliding():
 			var hit_player = fpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
@@ -206,8 +208,12 @@ func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
 	if is_fpp:
-		fpp_muzzle_flash.restart()
-		fpp_muzzle_flash.emitting = true
+		if current_weapon == "Glock-19":
+			fpp_pistol_muzzle_flash.restart()
+			fpp_pistol_muzzle_flash.emitting = true
+		elif current_weapon == "AK-47":
+			fpp_ak47_muzzle_flash.restart()
+			fpp_ak47_muzzle_flash.emitting = true
 	else:
 		tpp_muzzle_flash.restart()
 		tpp_muzzle_flash.emitting = true
