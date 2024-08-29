@@ -139,7 +139,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.000225456, 1.57032, 0.445058)]
+"values": [Vector3(0, 1.5708, 0.584685)]
 }
 
 [sub_resource type="Animation" id="Animation_knepc"]
@@ -217,6 +217,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector3(0, 1.5708, 0), Vector3(0, 1.5708, -0.122173)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TPPCamera/TPPAK47:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.289596, -0.0251141, -3.21415), Vector3(0.289596, -0.0251141, -3.21415)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TPPCamera/TPPAK47:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0.445059), Vector3(0, 1.5708, 0.322886)]
+}
 
 [sub_resource type="Animation" id="Animation_qcgne"]
 resource_name = "move"
@@ -256,6 +280,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(0.5, 2, 0.5, 2, 0.5),
 "update": 0,
 "values": [Vector3(0.289, -0.144, -0.389), Vector3(0.245, -0.1, -0.389), Vector3(0.289, -0.144, -0.389), Vector3(0.345, -0.11, -0.389), Vector3(0.289, -0.144, -0.389)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TPPCamera/TPPAK47:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(0.5, -2, 0.5, -2, 0.5),
+"update": 0,
+"values": [Vector3(0.289596, -0.0251141, -3.21415), Vector3(0.246, 0.025, -3.214), Vector3(0.289596, -0.0251141, -3.21415), Vector3(0.346, 0.015, -3.214), Vector3(0.289596, -0.0251141, -3.21415)]
 }
 
 [sub_resource type="Animation" id="Animation_efeb8"]
@@ -357,6 +393,30 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector3(0.312414, 1.03323, 1.76627), Vector3(0.363028, 1.26711, 1.91986)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TPPCamera/TPPAK47:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0.29, -0.025, -3.164), Vector3(0.29, -0.025, -3.214)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TPPCamera/TPPAK47:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0.532325), Vector3(0, 1.5708, 0.445059)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p6wdk"]
 _data = {
@@ -419,6 +479,7 @@ script = ExtResource("4_huefa")
 
 [node name="FPPPistol" parent="FPPCamera" instance=ExtResource("3_w7dyo")]
 transform = Transform3D(1, 0, 0, 0, 0.898633, -0.4387, 0, 0.4387, 0.898633, 0.5, -0.25, -0.5)
+visible = false
 
 [node name="MuzzleFlash" type="GPUParticles3D" parent="FPPCamera/FPPPistol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0588368, -0.313209)
@@ -432,6 +493,7 @@ draw_pass_1 = SubResource("PlaneMesh_hkkgb")
 
 [node name="FPPAK47" parent="FPPCamera" instance=ExtResource("7_pq2a5")]
 transform = Transform3D(-5.37713e-07, 7.55705e-08, 0.15, 0.0208759, 0.14854, 0, -0.14854, 0.0208759, -5.42999e-07, 0.289, -0.144, -0.389)
+visible = false
 
 [node name="MuzzleFlash" type="GPUParticles3D" parent="FPPCamera/FPPAK47"]
 transform = Transform3D(1, 0, -3.90799e-14, 0, 1, 0, 3.90799e-14, 0, 1, 3.35, 0.019, 0.002)
@@ -469,8 +531,7 @@ process_material = SubResource("ParticleProcessMaterial_yy8r8")
 draw_pass_1 = SubResource("PlaneMesh_hkkgb")
 
 [node name="TPPAK47" parent="TPPCamera" instance=ExtResource("7_pq2a5")]
-transform = Transform3D(7.90467e-05, -2.34875e-07, 0.15, 0.0645766, 0.135388, -3.38184e-05, -0.135388, 0.0645766, 7.14475e-05, 0.289596, -0.0251141, -3.21415)
-visible = false
+transform = Transform3D(-5.46755e-09, 3.61889e-09, 0.15, 0.0827907, 0.125083, 0, -0.125083, 0.0827906, -6.55671e-09, 0.289596, -0.0251141, -3.21415)
 
 [node name="MuzzleFlash" type="GPUParticles3D" parent="TPPCamera/TPPAK47"]
 transform = Transform3D(1, 0, -3.90799e-14, 0, 1, 0, 3.90799e-14, 0, 1, 3.35, 0.019, 0.002)
