@@ -401,8 +401,7 @@ process_material = SubResource("ParticleProcessMaterial_yy8r8")
 draw_pass_1 = SubResource("PlaneMesh_hkkgb")
 
 [node name="TPPKnife" parent="TPPCamera" instance=ExtResource("8_qsa7b")]
-transform = Transform3D(0.076727, -0.0459946, 0.044693, 0.064132, 0.0547739, -0.05373, 0.000232849, 0.0698879, 0.0715236, 0.495, -0.465, -0.665)
-visible = false
+transform = Transform3D(0.0295864, -0.0332169, 0.0895616, 0.0657414, -0.0609411, -0.0443194, 0.0693014, 0.0719917, 0.00380704, 0.214506, -0.228649, -3.51426)
 
 [node name="TPPRayCast3D" type="RayCast3D" parent="TPPCamera"]
 target_position = Vector3(0, 0, -50)
