@@ -101,9 +101,9 @@ func _unhandled_input(event):
 		current_ammo -= 1 
 		print("Bang! Ammo left: ", current_ammo)
 		ammo_changed.emit(current_ammo)
-		if is_reloading: 
-			return 
-			if current_ammo < 0:
+		if is_reloading:
+			return
+			if current_ammo <= 0:
 				print("Out of ammo! Reload needed.")
 				return #is needed otherwise can shoot without Ammo 
 		play_shoot_effects.rpc()
@@ -194,16 +194,60 @@ func _input(event):
 
 # Change player's camera positon according to the key inputs set for it 
 	if event.is_action_pressed("zoom"):
-		#print("Zoom key clicked")
-		fpp_camera.position = zoom_in_position
+		if is_multiplayer_authority():
+			#print("Zoom key clicked")
+			fpp_camera.position = zoom_in_position
+			
+			# Hide weapon models when zoomed in based on what view mode is choosen
+			if is_fpp:
+				match current_weapon:
+					"Glock-19":
+						fpp_pistol.visible = false
+					"AK-47":
+						fpp_ak47.visible = false
+					"Knife":
+						fpp_knife.visible = false
+		
+			## Just leave it here 'cause we don't do zoom in in TPP. Might need in future anyways.
+			#else:
+				#match current_weapon:
+					#"Glock-19":
+						#tpp_pistol.visible = false
+					#"AK-47":
+						#tpp_ak47.visible = false
+					#"Knife":
+						#tpp_knife.visible = false
+			
 	elif event.is_action_released("zoom"):
-		#print("Zoom key released")
-		fpp_camera.position = zoom_out_position
+		if is_multiplayer_authority():
+			#print("Zoom key released")
+			fpp_camera.position = zoom_out_position
+			
+			# Show weapon models when zoomed out based on what view mode is choosen	
+			if is_fpp:
+				match current_weapon:
+					"Glock-19":
+						fpp_pistol.visible = true
+					"AK-47":
+						fpp_ak47.visible = true
+					"Knife":
+						fpp_knife.visible = true
+		
+			## Just leave it here 'cause we don't do zoom out in TPP. Might need in future anyways.
+			#else:
+				#match current_weapon:
+					#"Glock-19":
+						#tpp_pistol.visible = true
+					#"AK-47":
+						#tpp_ak47.visible = true
+					#"Knife":
+						#tpp_knife.visible = true
 
 	# Check if the left mouse button is pressed
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		# Play the animation
 		anim_player.play("shoot")
+
 
 @rpc("call_local")
 func play_shoot_effects():
