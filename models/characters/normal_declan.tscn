@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://c6xxkytlbq8q2"]
+[gd_scene load_steps=21 format=3 uid="uid://c6xxkytlbq8q2"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ksfbt"]
 [ext_resource type="PackedScene" uid="uid://bjm31xolmq028" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
 [ext_resource type="Texture2D" uid="uid://bjwqt58v7cun0" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
 [ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://models/Pistol.glb" id="3_w7dyo"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="4_8wo5q"]
-[ext_resource type="Script" path="res://models/characters/FPPCamera.gd" id="4_huefa"]
 [ext_resource type="PackedScene" uid="uid://ctdhwjuqvh51r" path="res://models/weapons/guns/ak47/ak47.tscn" id="7_pq2a5"]
 [ext_resource type="PackedScene" uid="uid://cky0t1cuuuo5y" path="res://models/weapons/knifes/knife.tscn" id="8_qsa7b"]
 
@@ -643,7 +642,6 @@ shape = SubResource("BoxShape3D_efq5s")
 
 [node name="FPPCamera" type="Camera3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3, 0)
-script = ExtResource("4_huefa")
 
 [node name="FPPPistol" parent="FPPCamera" instance=ExtResource("3_w7dyo")]
 transform = Transform3D(1, 0, 0, 0, 0.898633, -0.4387, 0, 0.4387, 0.898633, 0.5, -0.25, -0.5)
@@ -713,7 +711,7 @@ process_material = SubResource("ParticleProcessMaterial_yy8r8")
 draw_pass_1 = SubResource("PlaneMesh_hkkgb")
 
 [node name="TPPKnife" parent="TPPCamera" instance=ExtResource("8_qsa7b")]
-transform = Transform3D(0.0295864, -0.0332169, 0.0895615, 0.0657414, -0.0609411, -0.0443196, 0.0693014, 0.0719917, 0.00380699, 0.214506, -0.228649, -3.51426)
+transform = Transform3D(0.029586, -0.0332173, 0.0895615, 0.0657414, -0.0609411, -0.0443196, 0.0693015, 0.0719915, 0.00380744, 0.214506, -0.228649, -3.51426)
 visible = false
 
 [node name="TPPRayCast3D" type="RayCast3D" parent="TPPCamera"]

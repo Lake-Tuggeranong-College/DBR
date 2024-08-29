@@ -41,19 +41,19 @@ enum DynamicCameraViewToggleAction {
 @export var zoom_in_position: Vector3 = Vector3(0, 3, -8)
 @export var zoom_out_position: Vector3 = Vector3(0, 3, 0)
 
-var health = 3
-var MAX_HEALTH = 10
-var max_ammo = 30
-var current_ammo = max_ammo
-var is_reloading = false
-var reload_time = 2.0  # Time in seconds to reload
+var health: int = 3
+var MAX_HEALTH: int = 10
+var max_ammo: int = 30
+var current_ammo: int = max_ammo
+var is_reloading: bool = false
+var reload_time: int = 2.0  # Time in seconds to reload
 
-const HEALTH_AMOUNTS = 2
-const SPEED = 13.0
-const JUMP_VELOCITY = 10.0
+const HEALTH_AMOUNTS: int = 2
+const SPEED: float = 13.0
+const JUMP_VELOCITY: float = 10.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 25.0
+var gravity: int = 25.0
 
 # Track different state of camera node to toggle either FPP or TPP.
 var is_fpp: bool = true
@@ -97,7 +97,7 @@ func _unhandled_input(event):
 			tpp_camera.rotation.x = clamp(tpp_camera.rotation.x, -PI/2, PI/2)
 
 	if Input.is_action_just_pressed("shoot"):
-		print("shoot")
+		#print("shoot")
 		current_ammo -= 1 
 		print("Bang! Ammo left: ", current_ammo)
 		ammo_changed.emit(current_ammo)
