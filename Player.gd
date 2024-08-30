@@ -127,7 +127,7 @@ func reload():
 
 func _physics_process(delta):
 	#print(health)
-	Global.ammo = max_ammo
+	Global.ammo = current_ammo
 	
 	if not is_multiplayer_authority(): return
 	
