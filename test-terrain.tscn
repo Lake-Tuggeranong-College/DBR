@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://doib4bftj5xte"]
-
-[ext_resource type="PackedScene" uid="uid://c6on0x8id2m5f" path="res://models/terrain-test.glb" id="1_ieqwp"]
-
-[node name="Node3D" type="Node3D"]
-
-[node name="terrain-test2" parent="." instance=ExtResource("1_ieqwp")]

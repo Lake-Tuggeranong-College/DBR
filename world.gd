@@ -5,18 +5,47 @@ extends Node
 @onready var hud = $CanvasLayer/HUD
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 
+##################################################################################################################
+######                          Documentation about using different type of characters                      ######
+##################################################################################################################
 
-## Documentation about using different type of characters
-##
 ## - This one down here is the original code to make that happens:
 ##		const Player = preload("res://player.tscn")
 ##
-## - For any new character models, inherance the 'normal_declan.tscn' file and change the 
-##   'Albedo' texture + adjust the animation in 'AnimationPlayer' node (if needed).
+## - For any new character models, inherance the 'normal_declan.tscn' file. Then, change the 
+##   'Albedo' texture: 
+
+##		(click on the model in 'Scene Tree' --> expand it out and find the 'MeshInstance3D' Node (the box-looking 
+##		symbol if you don't know the term for it) --> click on it -->  click on the 'Geometry' drop-down option
+##		--> click on 'Material Override' drop-down option --> choose 'New StandardMaterial3D' option --> expand 
+##		it out and find 'Albedo' drop-down option --> click on it and find 'Texture' option --> drag your .png 
+##		(or .jpg, or .jpeg [.webp won't work, you'll have to convert it using any online tools]) file that comes 
+##		with the .fbx file into this option --> (if the texture not loaded properly after you dragged it in, 
+##		enable the 'Texture Force sRGB' button. It should fix it. If not, try the 'Texture MSDF' button) --> 
+##		done!)  
+
+## - After you finish doing all of that, adjust the animation in 'AnimationPlayer' node (if the model does comes 
+##   with animation).
 ##
 ## - Then, preload that new model as below:
 ##		const Player = preload("res://models/characters/<model-name>.tscn")
+##
+##		**Applied the same concept for any new weapon models, right click on the .fbx file and click on the 'New 
+##		Inherited Scene' button. Then, re-name the 'Node' name in the 'Weapon Scene Tree' (the thing on your left 
+##		if you don't know the term for it) into the correct name that reflect the new model you added in this 
+##		project. After that, use 'Ctrl + S' combinantion key bind or right click on the '[unsaved]' scene (right 
+##		at the top of your eye view if you don't see it), and click 'Save Scene As...' button (for the 'right 
+##		click' method), or rename the .tscn file, which Godot given you when you try to save with the combination 
+##		key bind, into the correct naming that reflect the new weapon model you added in this project. Put them 
+##		into to somewhere that you think it's easy to navigate for you and everyone. Then, you can follow the 
+##		step to inherance the new weapon's .tscn file into the 'Chacracter Scene Tree' just right above this 
+##		comment. Although it's not directly for the character model, but it should relavantly the same setup that 
+##		you can follow through. At this point, you have successfully done this if you follow the step correctly. 
+##		Hooray!**
 
+##################################################################################################################
+######             End of the Documentation. You may freely to continue working on this now!                ######
+##################################################################################################################
 
 const Player = preload("res://models/characters/normal_declan.tscn")
 const PORT = 9999
@@ -24,6 +53,12 @@ var enet_peer = ENetMultiplayerPeer.new()
 
 #func _on_weapon_switched(gun_name):
 	
+
+func _physics_process(delta):
+	# Assuming Global.ammo is a valid global variable
+	var ammo_label = get_node("CanvasLayer/HUD/AmmoBox/Label")
+	ammo_label.text = str(Global.ammo)  # Convert to string if needed
+
 
 func _on_weapon_switched(gun_name):
 	if(gun_name == 'AK-47'):
