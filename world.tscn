@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="FontFile" uid="uid://bfdxoj3c567ro" path="res://star_jedi/starjedi/Starjedi.ttf" id="3_32xhs"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
-[ext_resource type="Texture2D" uid="uid://bmd5aeqhhboym" path="res://HealthbarInner.png" id="4_5s3we"]
+[ext_resource type="Texture2D" uid="uid://bmghxmf014m3h" path="res://HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
-[ext_resource type="Texture2D" uid="uid://dcrw6jc0obua8" path="res://HealthbarOutline.png" id="5_4ssen"]
-[ext_resource type="Texture2D" uid="uid://bwdl5ve6h2lhq" path="res://AK-47.png" id="6_i3kt7"]
+[ext_resource type="Texture2D" uid="uid://cceiqoifd6gm7" path="res://HealthbarOutline.png" id="5_4ssen"]
+[ext_resource type="Texture2D" uid="uid://7b8hhc7em6ta" path="res://AK-47.png" id="6_i3kt7"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="7_1iyd3"]
-[ext_resource type="Texture2D" uid="uid://cks0n3ujaawu2" path="res://CombatKnife.png" id="10_wolt1"]
-[ext_resource type="Texture2D" uid="uid://bj1gubm5iukf" path="res://AmmoBox.png" id="11_onbcg"]
-[ext_resource type="Texture2D" uid="uid://3nhp6srb6n1w" path="res://Glock-19-Active.png" id="11_ulqyl"]
+[ext_resource type="Texture2D" uid="uid://d4j5eexnvoviq" path="res://CombatKnife.png" id="10_wolt1"]
+[ext_resource type="Texture2D" uid="uid://b4va0csbfv8fv" path="res://AmmoBox.png" id="11_onbcg"]
+[ext_resource type="Texture2D" uid="uid://buxq7g28siida" path="res://Glock-19-Active.png" id="11_ulqyl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -121,9 +121,9 @@ offset_left = 5.0
 offset_top = 3.0
 offset_right = 513.0
 offset_bottom = 49.0
-max_value = 3.0
+max_value = 10.0
 step = 0.01
-value = 3.0
+value = 10.0
 nine_patch_stretch = true
 stretch_margin_left = 16
 stretch_margin_right = 16
