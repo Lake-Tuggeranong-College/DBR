@@ -170,7 +170,7 @@ func _physics_process(delta):
 				collision.get_collider().queue_free()
 			if "Health" in collision.get_collider().name:
 				print("I collided with ", collision.get_collider().name)
-				add_health(1)
+				add_health(5)
 				collision.get_collider().queue_free()
 
 
