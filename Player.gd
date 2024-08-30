@@ -170,7 +170,7 @@ func _physics_process(delta):
 				collision.get_collider().queue_free()
 			if "Health" in collision.get_collider().name:
 				print("I collided with ", collision.get_collider().name)
-				add_health(1)
+				add_health(5)
 				collision.get_collider().queue_free()
 
 
@@ -243,11 +243,6 @@ func _input(event):
 					#"Knife":
 						#tpp_knife.visible = true
 
-	# Check if the left mouse button is pressed
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		# Play the animation
-		anim_player.play("shoot")
-
 
 @rpc("call_local")
 func play_shoot_effects():
@@ -307,17 +302,19 @@ func add_ammo(additional_ammo):
 		#body.add_health(HEALTH_AMOUNTS)
 
 
-# Handle weapon switching bas	ed on the key inputs
+# Handle weapon switching based on the key inputs
 func _on_weapon_switched(weapon_name):
 	print("Switched to weapon: %s" % weapon_name)
 	current_weapon = weapon_name
 	update_weapon_model_visibility()
+
 
 # Handle diffrent state of player's camera view
 func toggle_different_camera_state():
 	is_fpp = not is_fpp
 	update_camera_visibility()
 	update_weapon_model_visibility()
+
 
 # Update player's camera view when player pressed the pre-defined key input
 func update_camera_visibility():
@@ -366,6 +363,7 @@ func update_camera_visibility():
 ##################################################################################################################
 ######             End of the Documentation. You may freely to continue working on this now!                ######
 ##################################################################################################################
+
 
 # Update the visibility of guns when player changed the camera view based on their preferrance
 func update_weapon_model_visibility():
