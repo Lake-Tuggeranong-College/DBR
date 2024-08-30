@@ -1,14 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctdhwjuqvh51r"]
 
-[ext_resource type="PackedScene" uid="uid://c4tp4auj602lb" path="res://models/weapons/guns/ak47/ak47.fbx" id="1_jqpvt"]
-[ext_resource type="Texture2D" uid="uid://csey4nlfqpavg" path="res://models/weapons/guns/ak47/texture_ak47.png" id="2_a2lhh"]
+[ext_resource type="PackedScene" uid="uid://bmk0p3mmd7vbb" path="res://models/weapons/guns/ak47/ak47.fbx" id="1_jqpvt"]
+[ext_resource type="Texture2D" uid="uid://djpjcaafmxqtu" path="res://models/weapons/guns/ak47/texture_ak47.png" id="2_a2lhh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ca5y"]
 albedo_texture = ExtResource("2_a2lhh")
 albedo_texture_force_srgb = true
 
 [node name="AK47" instance=ExtResource("1_jqpvt")]
-transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0.288576, -0.144444, -0.389253)
 
 [node name="ak" parent="RootNode" index="0"]
 material_override = SubResource("StandardMaterial3D_2ca5y")

@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://c6xxkytlbq8q2"]
+[gd_scene load_steps=21 format=3 uid="uid://c6xxkytlbq8q2"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ksfbt"]
-[ext_resource type="PackedScene" uid="uid://cvey477smqw71" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
-[ext_resource type="Texture2D" uid="uid://c06olyt7bapq1" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
+[ext_resource type="PackedScene" uid="uid://bjm31xolmq028" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
+[ext_resource type="Texture2D" uid="uid://bjwqt58v7cun0" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
 [ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://models/Pistol.glb" id="3_w7dyo"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="4_8wo5q"]
-[ext_resource type="Script" path="res://models/characters/FPPCamera.gd" id="4_huefa"]
 [ext_resource type="PackedScene" uid="uid://ctdhwjuqvh51r" path="res://models/weapons/guns/ak47/ak47.tscn" id="7_pq2a5"]
 [ext_resource type="PackedScene" uid="uid://cky0t1cuuuo5y" path="res://models/weapons/knifes/knife.tscn" id="8_qsa7b"]
 
@@ -93,6 +92,102 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector3(0.454152, 0, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FPPCamera/FPPAK47:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.289, -0.144, -0.389)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FPPCamera/FPPAK47:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0.139626)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TPPCamera/TPPAK47:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.289596, -0.0251141, -3.21415)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TPPCamera/TPPAK47:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0.584685)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FPPCamera/FPPKnife:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.23, -0.465, -0.63)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("FPPCamera/FPPKnife:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.312414, 1.03323, 1.76627)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TPPCamera/TPPKnife:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.214506, -0.228649, -3.51426)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TPPCamera/TPPKnife:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.459161, 1.52831, 2.31832)]
+}
 
 [sub_resource type="Animation" id="Animation_knepc"]
 resource_name = "idle"
@@ -145,6 +240,102 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector3(0.445059, 0, 0), Vector3(0.322886, 0, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FPPCamera/FPPAK47:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.289, -0.144, -0.389), Vector3(0.289, -0.147, -0.389)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FPPCamera/FPPAK47:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 1.5708, -0.122173)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TPPCamera/TPPAK47:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.289596, -0.0251141, -3.21415), Vector3(0.289596, -0.0251141, -3.21415)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TPPCamera/TPPAK47:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0.445059), Vector3(0, 1.5708, 0.322886)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FPPCamera/FPPKnife:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.23, -0.465, -0.63), Vector3(0.23, -0.465, -0.63)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("FPPCamera/FPPKnife:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.312414, 1.03323, 1.76627), Vector3(0.0349066, 1.0472, 1.74533)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TPPCamera/TPPKnife:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.214506, -0.228649, -3.51426), Vector3(0.214506, -0.228649, -3.51426)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TPPCamera/TPPKnife:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.459161, 1.52831, 2.31832), Vector3(0.181514, 1.54287, 2.29685)]
+}
 
 [sub_resource type="Animation" id="Animation_qcgne"]
 resource_name = "move"
@@ -172,6 +363,78 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(0.5, 2, 0.5, 2, 0.5),
 "update": 0,
 "values": [Vector3(0.499933, -0.0734346, -3.35847), Vector3(0.456, -0.038, -3.358), Vector3(0.5, -0.073, -3.358), Vector3(0.556, -0.042, -3.358), Vector3(0.5, -0.073, -3.358)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FPPCamera/FPPAK47:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2, 0.5),
+"update": 0,
+"values": [Vector3(0.289, -0.144, -0.389), Vector3(0.245, -0.1, -0.389), Vector3(0.289, -0.144, -0.389), Vector3(0.345, -0.11, -0.389), Vector3(0.289, -0.144, -0.389)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TPPCamera/TPPAK47:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(0.5, -2, 0.5, -2, 0.5),
+"update": 0,
+"values": [Vector3(0.289596, -0.0251141, -3.21415), Vector3(0.246, 0.025, -3.214), Vector3(0.289596, -0.0251141, -3.21415), Vector3(0.346, 0.015, -3.214), Vector3(0.289596, -0.0251141, -3.21415)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FPPCamera/FPPKnife:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(0.75, -1.5, 0.75, -1.5, 0.75),
+"update": 0,
+"values": [Vector3(0.23, -0.465, -0.63), Vector3(0.285, -0.345, -0.6), Vector3(0.23, -0.465, -0.63), Vector3(0.545, -0.285, -0.68), Vector3(0.23, -0.465, -0.63)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FPPCamera/FPPKnife:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(0.75, -1.5, 0.75, -1.5, 0.75),
+"update": 0,
+"values": [Vector3(0.312414, 1.03323, 1.76627), Vector3(0.698132, 0.733038, 2.00713), Vector3(0.312414, 1.03323, 1.76627), Vector3(1.0472, 0.20944, 2.0944), Vector3(0.312414, 1.03323, 1.76627)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TPPCamera/TPPKnife:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(0.75, -1.5, 0.75, -1.5, 0.75),
+"update": 0,
+"values": [Vector3(0.214506, -0.228649, -3.51426), Vector3(0.27, -0.109, -3.514), Vector3(0.214506, -0.228649, -3.51426), Vector3(0.53, -0.049, -3.564), Vector3(0.214506, -0.228649, -3.51426)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TPPCamera/TPPKnife:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(0.75, -1.5, 0.75, -1.5, 0.75),
+"update": 0,
+"values": [Vector3(0.459161, 1.52831, 2.31832), Vector3(0.495674, 1.22871, 2.57611), Vector3(0.459161, 1.52831, 2.31832), Vector3(1.19381, 0.705113, 2.64592), Vector3(0.459161, 1.52831, 2.31832)]
 }
 
 [sub_resource type="Animation" id="Animation_efeb8"]
@@ -252,26 +515,74 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("FPPCamera/FPPKnife:position")
+tracks/6/path = NodePath("TPPCamera/TPPAK47:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector3(0.23, -0.465, -0.63), Vector3(0.23, -0.465, -0.6)]
+"values": [Vector3(0.29, -0.025, -3.164), Vector3(0.29, -0.025, -3.214)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("FPPCamera/FPPKnife:rotation")
+tracks/7/path = NodePath("TPPCamera/TPPAK47:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector3(0.312414, 1.03323, 1.76627), Vector3(0.363028, 1.26711, 1.91986)]
+"values": [Vector3(0, 1.5708, 0.532325), Vector3(0, 1.5708, 0.445059)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FPPCamera/FPPKnife:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0.355, -0.465, -0.595), Vector3(0.495, -0.545, -0.605)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("FPPCamera/FPPKnife:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0.314159, 0.619592, 1.76278), Vector3(0.174533, -0.113446, 1.49226)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TPPCamera/TPPKnife:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0.34, -0.229, -3.474), Vector3(0.48, -0.309, -3.484)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TPPCamera/TPPKnife:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0.460767, 1.11527, 2.31431), Vector3(0.321141, 0.382227, 2.58483)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p6wdk"]
@@ -331,7 +642,6 @@ shape = SubResource("BoxShape3D_efq5s")
 
 [node name="FPPCamera" type="Camera3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3, 0)
-script = ExtResource("4_huefa")
 
 [node name="FPPPistol" parent="FPPCamera" instance=ExtResource("3_w7dyo")]
 transform = Transform3D(1, 0, 0, 0, 0.898633, -0.4387, 0, 0.4387, 0.898633, 0.5, -0.25, -0.5)
@@ -348,11 +658,21 @@ process_material = SubResource("ParticleProcessMaterial_yy8r8")
 draw_pass_1 = SubResource("PlaneMesh_hkkgb")
 
 [node name="FPPAK47" parent="FPPCamera" instance=ExtResource("7_pq2a5")]
-transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0.289, -0.144, -0.389)
+transform = Transform3D(-5.37713e-07, 7.55705e-08, 0.15, 0.0208759, 0.14854, 0, -0.14854, 0.0208759, -5.42999e-07, 0.289, -0.144, -0.389)
 visible = false
 
+[node name="MuzzleFlash" type="GPUParticles3D" parent="FPPCamera/FPPAK47"]
+transform = Transform3D(1, 0, -3.90799e-14, 0, 1, 0, 3.90799e-14, 0, 1, 3.35, 0.019, 0.002)
+emitting = false
+amount = 1
+lifetime = 0.25
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_yy8r8")
+draw_pass_1 = SubResource("PlaneMesh_hkkgb")
+
 [node name="FPPKnife" parent="FPPCamera" instance=ExtResource("8_qsa7b")]
-transform = Transform3D(0.0216144, -0.0396902, 0.0892048, 0.0878449, -0.0319729, -0.0355107, 0.0426157, 0.0860373, 0.0279551, 0.23, -0.465, -0.6)
+transform = Transform3D(0.0159523, -0.0553573, 0.0817379, 0.0933473, -0.0184829, -0.0307357, 0.0321221, 0.081203, 0.0487261, 0.23, -0.465, -0.63)
 visible = false
 
 [node name="FPPRayCast3D" type="RayCast3D" parent="FPPCamera"]
@@ -377,10 +697,21 @@ process_material = SubResource("ParticleProcessMaterial_yy8r8")
 draw_pass_1 = SubResource("PlaneMesh_hkkgb")
 
 [node name="TPPAK47" parent="TPPCamera" instance=ExtResource("7_pq2a5")]
+transform = Transform3D(-4.52799e-07, 2.99701e-07, 0.15, 0.0827906, 0.125083, 0, -0.125083, 0.0827906, -5.42999e-07, 0.289596, -0.0251141, -3.21415)
 visible = false
 
+[node name="MuzzleFlash" type="GPUParticles3D" parent="TPPCamera/TPPAK47"]
+transform = Transform3D(1, 0, -3.90799e-14, 0, 1, 0, 3.90799e-14, 0, 1, 3.35, 0.019, 0.002)
+emitting = false
+amount = 1
+lifetime = 0.25
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_yy8r8")
+draw_pass_1 = SubResource("PlaneMesh_hkkgb")
+
 [node name="TPPKnife" parent="TPPCamera" instance=ExtResource("8_qsa7b")]
-transform = Transform3D(0.076727, -0.0459946, 0.044693, 0.064132, 0.0547739, -0.05373, 0.000232849, 0.0698879, 0.0715236, 0.495, -0.465, -0.665)
+transform = Transform3D(0.029586, -0.0332173, 0.0895615, 0.0657414, -0.0609411, -0.0443196, 0.0693015, 0.0719915, 0.00380744, 0.214506, -0.228649, -3.51426)
 visible = false
 
 [node name="TPPRayCast3D" type="RayCast3D" parent="TPPCamera"]

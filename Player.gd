@@ -11,40 +11,49 @@ enum DynamicCameraViewToggleAction {
 
 # First Player View (FPP)
 @onready var fpp_camera: Camera3D = $FPPCamera
-@onready var fpp_muzzle_flash: GPUParticles3D = $FPPCamera/FPPPistol/MuzzleFlash
 @onready var fpp_raycast: RayCast3D = $FPPCamera/FPPRayCast3D
 
 @onready var fpp_pistol: Node3D = $FPPCamera/FPPPistol
 @onready var fpp_ak47: Node3D = $FPPCamera/FPPAK47
 @onready var fpp_knife: Node3D = $FPPCamera/FPPKnife
 
+@onready var fpp_pistol_muzzle_flash: GPUParticles3D = $FPPCamera/FPPPistol/MuzzleFlash
+@onready var fpp_ak47_muzzle_flash: GPUParticles3D = $FPPCamera/FPPAK47/MuzzleFlash
+
 # Third Player View (TPP)
 @onready var tpp_camera: Camera3D = $TPPCamera
-@onready var tpp_muzzle_flash: GPUParticles3D = $TPPCamera/TPPPistol/MuzzleFlash
 @onready var tpp_raycast: RayCast3D = $TPPCamera/TPPRayCast3D
 
 @onready var tpp_pistol: Node3D = $TPPCamera/TPPPistol
 @onready var tpp_ak47: Node3D = $TPPCamera/TPPAK47
 @onready var tpp_knife: Node3D = $TPPCamera/TPPKnife
 
+@onready var tpp_pistol_muzzle_flash: GPUParticles3D = $TPPCamera/TPPPistol/MuzzleFlash
+@onready var tpp_ak47_muzzle_flash: GPUParticles3D = $TPPCamera/TPPAK47/MuzzleFlash
+
 # Animations
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 # Set player's current camera view state in the editor
 @export var camera_player_state: DynamicCameraViewToggleAction = DynamicCameraViewToggleAction.FIRST_PERSON_VIEW
-var health = 3
-var MAX_HEALTH = 10
-var max_ammo = 30
-var current_ammo = max_ammo
-var is_reloading = false
-var reload_time = 2.0  # Time in seconds to reload
 
-const HEALTH_AMOUNTS = 2
-const SPEED = 13.0
-const JUMP_VELOCITY = 10.0
+# Set positon for the camera when zoomed in or out
+@export var zoom_in_position: Vector3 = Vector3(0, 3, -8)
+@export var zoom_out_position: Vector3 = Vector3(0, 3, 0)
+
+var health: int = 3
+var MAX_HEALTH: int = 10
+var max_ammo: int = 30
+var current_ammo: int = max_ammo
+var is_reloading: bool = false
+var reload_time: int = 2.0  # Time in seconds to reload
+
+const HEALTH_AMOUNTS: int = 2
+const SPEED: float = 13.0
+const JUMP_VELOCITY: float = 10.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 25.0
+var gravity: int = 25.0
 
 # Track different state of camera node to toggle either FPP or TPP.
 var is_fpp: bool = true
@@ -88,16 +97,16 @@ func _unhandled_input(event):
 			tpp_camera.rotation.x = clamp(tpp_camera.rotation.x, -PI/2, PI/2)
 
 	if Input.is_action_just_pressed("shoot"):
-		print("shoot")
+		#print("shoot")
 		current_ammo -= 1 
 		print("Bang! Ammo left: ", current_ammo)
 		ammo_changed.emit(current_ammo)
-		if is_reloading: 
-			return 
-			if current_ammo < 0:
+		if is_reloading:
+			return
+			if current_ammo <= 0:
 				print("Out of ammo! Reload needed.")
 				return #is needed otherwise can shoot without Ammo 
-		#play_shoot_effects.rpc()
+		play_shoot_effects.rpc()
 		if is_fpp and fpp_raycast.is_colliding():
 			var hit_player = fpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
@@ -106,6 +115,7 @@ func _unhandled_input(event):
 			var hit_player = tpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
+
 func reload():
 	var is_reloading = true 
 	print("Reloading...")
@@ -113,6 +123,7 @@ func reload():
 	current_ammo = max_ammo
 	is_reloading = false
 	print("Reloaded! Ammo refilled to: ", current_ammo)
+
 
 func _physics_process(delta):
 	#print(health)
@@ -177,24 +188,85 @@ func _input(event):
 	if event.is_action_pressed("dynamic_camera_view"):
 		toggle_different_camera_state();
 
-	if Input.is_action_just_pressed("reload"):
+# Reload weapon's ammo according to the key inputs set for it 
+	if event.is_action_pressed("reload"):
 		reload()
+
+# Change player's camera positon according to the key inputs set for it 
+	if event.is_action_pressed("zoom"):
+		if is_multiplayer_authority():
+			#print("Zoom key clicked")
+			fpp_camera.position = zoom_in_position
+			
+			# Hide weapon models when zoomed in based on what view mode is choosen
+			if is_fpp:
+				match current_weapon:
+					"Glock-19":
+						fpp_pistol.visible = false
+					"AK-47":
+						fpp_ak47.visible = false
+					"Knife":
+						fpp_knife.visible = false
+		
+			## Just leave it here 'cause we don't do zoom in in TPP. Might need in future anyways.
+			#else:
+				#match current_weapon:
+					#"Glock-19":
+						#tpp_pistol.visible = false
+					#"AK-47":
+						#tpp_ak47.visible = false
+					#"Knife":
+						#tpp_knife.visible = false
+			
+	elif event.is_action_released("zoom"):
+		if is_multiplayer_authority():
+			#print("Zoom key released")
+			fpp_camera.position = zoom_out_position
+			
+			# Show weapon models when zoomed out based on what view mode is choosen	
+			if is_fpp:
+				match current_weapon:
+					"Glock-19":
+						fpp_pistol.visible = true
+					"AK-47":
+						fpp_ak47.visible = true
+					"Knife":
+						fpp_knife.visible = true
+		
+			## Just leave it here 'cause we don't do zoom out in TPP. Might need in future anyways.
+			#else:
+				#match current_weapon:
+					#"Glock-19":
+						#tpp_pistol.visible = true
+					#"AK-47":
+						#tpp_ak47.visible = true
+					#"Knife":
+						#tpp_knife.visible = true
 
 	# Check if the left mouse button is pressed
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		# Play the animation
 		anim_player.play("shoot")
 
+
 @rpc("call_local")
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
 	if is_fpp:
-		fpp_muzzle_flash.restart()
-		fpp_muzzle_flash.emitting = true
+		if current_weapon == "Glock-19":
+			fpp_pistol_muzzle_flash.restart()
+			fpp_pistol_muzzle_flash.emitting = true
+		elif current_weapon == "AK-47":
+			fpp_ak47_muzzle_flash.restart()
+			fpp_ak47_muzzle_flash.emitting = true
 	else:
-		tpp_muzzle_flash.restart()
-		tpp_muzzle_flash.emitting = true
+		if current_weapon == "Glock-19":
+			tpp_pistol_muzzle_flash.restart()
+			tpp_pistol_muzzle_flash.emitting = true
+		elif current_weapon == "AK-47":
+			tpp_ak47_muzzle_flash.restart()
+			tpp_ak47_muzzle_flash.emitting = true
 
 
 @rpc("any_peer")
@@ -280,10 +352,13 @@ func update_camera_visibility():
 ##
 ##		+ After you clicked the button, it'll pop-up and show you the 'Player Scene Tree'. Don't be panic about 
 ##		  all of the stuff in there yet, this documentation is where your life'll be easier. Clicks on your new 
-##		  weapon model (both TPP and FPP view mode, do it one by one because Godot won't let you to be a 'I'm ##		  fast as fuck boiz').
+##		  weapon model (both TPP and FPP view mode, do it one by one because Godot won't let you to be a 'I'm 
+##		  fast as fuck boiz').
 ##
-##		+ After you clicked the new weapon model respectively, it'll pop-up and show you all the options that you ##		  can choose to synchronise across all player. It's alright if you don't get wtf it's happening in 
-##		  there, just mindlessly follow this upcoming step to have a happy dev life (you can test out the other ##		  options on your own if you wanted to). Clicks on the 'visible' property (it's under the 'Node3D' 
+##		+ After you clicked the new weapon model respectively, it'll pop-up and show you all the options that you 
+##		  can choose to synchronise across all player. It's alright if you don't get wtf it's happening in 
+##		  there, just mindlessly follow this upcoming step to have a happy dev life (you can test out the other 
+##		  options on your own if you wanted to). Clicks on the 'visible' property (it's under the 'Node3D' 
 ##		  section if you don't see it), and do the same for your new weapon models in both view mode.
 ##
 ##		+ You have officially made it if you followed the step correctly up to this point. Hooray!
