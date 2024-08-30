@@ -41,7 +41,7 @@ enum DynamicCameraViewToggleAction {
 @export var zoom_in_position: Vector3 = Vector3(0, 3, -8)
 @export var zoom_out_position: Vector3 = Vector3(0, 3, 0)
 
-var health: int = 3
+var health: int = 10
 var MAX_HEALTH: int = 10
 var max_ammo: int = 30
 var current_ammo: int = max_ammo
@@ -276,7 +276,7 @@ func receive_damage():
 	if health <= 0:
 		print("Game Over!")
 		# Reset the player's health and position
-		health = 3
+		health = MAX_HEALTH
 		position = Vector3.ZERO
 		# Emit the health_changed signal with the reset health value
 		health_changed.emit(health)
