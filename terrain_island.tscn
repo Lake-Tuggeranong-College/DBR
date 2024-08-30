@@ -1,20 +1,20 @@
 [gd_scene load_steps=31 format=3 uid="uid://bdn5gj57p8e1o"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_cveli"]
-[ext_resource type="PackedScene" uid="uid://dm4ppbxal6xq8" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
-[ext_resource type="Texture2D" uid="uid://b3r26fi054v40" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2_Tree_Texture.png" id="3_13kr4"]
+[ext_resource type="PackedScene" uid="uid://77px7ohtmuqj" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
+[ext_resource type="Texture2D" uid="uid://bw2rhh3u2ky7y" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2_Tree_Texture.png" id="3_13kr4"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_qxeon"]
-[ext_resource type="Texture2D" uid="uid://b7aqwtut887jl" path="res://HealthbarInner.png" id="4_kqlcj"]
+[ext_resource type="Texture2D" uid="uid://bmghxmf014m3h" path="res://HealthbarInner.png" id="4_kqlcj"]
 [ext_resource type="FontFile" uid="uid://bfdxoj3c567ro" path="res://star_jedi/starjedi/Starjedi.ttf" id="4_sl3st"]
-[ext_resource type="Texture2D" uid="uid://d4a5yb03ammnh" path="res://HealthbarOutline.png" id="5_tpprc"]
-[ext_resource type="Texture2D" uid="uid://bax37stpne1uh" path="res://AK-47.png" id="6_n5iwn"]
-[ext_resource type="Texture2D" uid="uid://bncuk2ddvucf7" path="res://Glock-19-Active.png" id="7_om2bf"]
+[ext_resource type="Texture2D" uid="uid://cceiqoifd6gm7" path="res://HealthbarOutline.png" id="5_tpprc"]
+[ext_resource type="Texture2D" uid="uid://7b8hhc7em6ta" path="res://AK-47.png" id="6_n5iwn"]
+[ext_resource type="Texture2D" uid="uid://buxq7g28siida" path="res://Glock-19-Active.png" id="7_om2bf"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="8_3fra7"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="9_buoau"]
-[ext_resource type="Texture2D" uid="uid://cumbqxgewifid" path="res://CombatKnife.png" id="9_llsdb"]
-[ext_resource type="Texture2D" uid="uid://e6nnn31m6tth" path="res://AmmoBox.png" id="10_meggo"]
-[ext_resource type="PackedScene" uid="uid://bpfnk54e4bsi1" path="res://models/sun/death_star_-_star_wars.glb" id="13_bx7yv"]
-[ext_resource type="PackedScene" uid="uid://brvjkb5rhrfp8" path="res://models/characters/templateCharaterModel.glb" id="13_evf2j"]
+[ext_resource type="Texture2D" uid="uid://d4j5eexnvoviq" path="res://CombatKnife.png" id="9_llsdb"]
+[ext_resource type="Texture2D" uid="uid://b4va0csbfv8fv" path="res://AmmoBox.png" id="10_meggo"]
+[ext_resource type="PackedScene" uid="uid://c4f6heit4oy2f" path="res://models/sun/death_star_-_star_wars.glb" id="13_bx7yv"]
+[ext_resource type="PackedScene" uid="uid://cuaw8m5kpcuw0" path="res://models/characters/templateCharaterModel.glb" id="13_evf2j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0d57v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -170,9 +170,10 @@ font = ExtResource("4_sl3st")
 font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_yibrn"]
-font_size = 34
+line_spacing = 0.0
+font_size = 200
 font_color = Color(0.758192, 0.758192, 0.758192, 1)
-outline_size = 14
+outline_size = 50
 outline_color = Color(0, 0, 0, 1)
 
 [node name="terrain-island" type="Node"]
@@ -358,15 +359,15 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("9_llsdb")
 
 [node name="AmmoBox" type="Sprite2D" parent="CanvasLayer/HUD"]
-position = Vector2(1057, 595.8)
-scale = Vector2(0.4, 0.17)
+position = Vector2(1056, 595)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_meggo")
 
 [node name="Label" type="Label" parent="CanvasLayer/HUD/AmmoBox"]
-offset_left = -47.5
-offset_top = -140.0
-offset_right = -9.5
-offset_bottom = -93.0
+offset_left = -105.0
+offset_top = -135.0
+offset_right = 123.0
+offset_bottom = 138.0
 text = "50"
 label_settings = SubResource("LabelSettings_yibrn")
 
