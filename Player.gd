@@ -263,6 +263,9 @@ func _input(event):
 					teleport_point.global_position = teleport_final_destination				
 					print("Teleport destination: ", teleport_final_destination)
 				
+			else:
+				print("You are not allowed to do this in TPP!")
+
 	elif event.is_action_released("teleport"):
 		if is_multiplayer_authority():
 			if is_fpp:
