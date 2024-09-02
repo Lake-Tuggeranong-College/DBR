@@ -3,7 +3,8 @@ extends Node
 @onready var main_menu = $CanvasLayer/MainMenu
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
 @onready var hud = $CanvasLayer/HUD
-@onready var ipLabel = $CanvasLayer/HUD/ip
+@onready var ipLabel = $CanvasLayer/HUD/IP/Label
+@onready var ipSprite = $CanvasLayer/HUD/IP
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 var ip_adress
 ##################################################################################################################
@@ -105,6 +106,9 @@ func _on_host_button_pressed():
 	main_menu.hide()
 	hud.show()
 	#get_node("CanvasLayer/HUD/ip").text = "test"
+	#ipLabel = $CanvasLayer/HUD/IP/Label
+	ipSprite.visible = true
+	#print(ipLabel)
 	ipLabel.text = ip_adress
 	
 	
