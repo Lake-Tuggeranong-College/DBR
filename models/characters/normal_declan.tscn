@@ -1,15 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://c6xxkytlbq8q2"]
+[gd_scene load_steps=22 format=3 uid="uid://c6xxkytlbq8q2"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ksfbt"]
-[ext_resource type="PackedScene" uid="uid://2jgvfudx02pw" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
-[ext_resource type="Texture2D" uid="uid://gp1kldb20hva" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
 [ext_resource type="PackedScene" uid="uid://bjm31xolmq028" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
 [ext_resource type="Texture2D" uid="uid://bjwqt58v7cun0" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
-[ext_resource type="PackedScene" uid="uid://cvey477smqw71" path="res://models/characters/templateCharaterModel.glb" id="2_u05fy"]
-[ext_resource type="Texture2D" uid="uid://c06olyt7bapq1" path="res://addons/kenney_animated_characters/Skins/skaterMaleA.png" id="3_rtgxh"]
 [ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://models/Pistol.glb" id="3_w7dyo"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="4_8wo5q"]
 [ext_resource type="PackedScene" uid="uid://ctdhwjuqvh51r" path="res://models/weapons/guns/ak47/ak47.tscn" id="7_pq2a5"]
+[ext_resource type="PackedScene" uid="uid://bvr2qm0463onf" path="res://models/abilities/teleport.tscn" id="8_2goto"]
 [ext_resource type="PackedScene" uid="uid://cky0t1cuuuo5y" path="res://models/weapons/knifes/knife.tscn" id="8_qsa7b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6l0xm"]
@@ -677,6 +674,10 @@ draw_pass_1 = SubResource("PlaneMesh_hkkgb")
 
 [node name="FPPKnife" parent="FPPCamera" instance=ExtResource("8_qsa7b")]
 transform = Transform3D(0.0159523, -0.0553573, 0.0817379, 0.0933473, -0.0184829, -0.0307357, 0.0321221, 0.081203, 0.0487261, 0.23, -0.465, -0.63)
+visible = false
+
+[node name="TelePoint" parent="FPPCamera" instance=ExtResource("8_2goto")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.045, -4)
 visible = false
 
 [node name="FPPRayCast3D" type="RayCast3D" parent="FPPCamera"]

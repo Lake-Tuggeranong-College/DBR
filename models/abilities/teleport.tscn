@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvr2qm0463onf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fby3l"]
+albedo_color = Color(0.27451, 0.509804, 0.705882, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ycjbd"]
+
+[node name="TelePoint" type="Node3D"]
+
+[node name="TeleModel" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_fby3l")
+mesh = SubResource("CapsuleMesh_ycjbd")
