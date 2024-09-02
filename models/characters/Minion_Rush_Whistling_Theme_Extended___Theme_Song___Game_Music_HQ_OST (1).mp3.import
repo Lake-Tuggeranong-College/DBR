@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xmv8ix8k8sre"
+path="res://.godot/imported/Minion_Rush_Whistling_Theme_Extended___Theme_Song___Game_Music_HQ_OST (1).mp3-13e09bd549b30f0f344bbf28298dc7dc.mp3str"
+
+[deps]
+
+source_file="res://models/characters/Minion_Rush_Whistling_Theme_Extended___Theme_Song___Game_Music_HQ_OST (1).mp3"
+dest_files=["res://.godot/imported/Minion_Rush_Whistling_Theme_Extended___Theme_Song___Game_Music_HQ_OST (1).mp3-13e09bd549b30f0f344bbf28298dc7dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
