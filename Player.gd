@@ -323,6 +323,19 @@ func update_camera_visibility():
 		tpp_camera.current = not is_fpp
 
 
+# Default and reduced range values
+var default_range = 10.0
+var knife_range = 2.0
+
+func _process(delta):
+	if fpp_knife.mesh != null:
+		fpp_raycast.target_position = Vector3(0, 0, knife_range)
+	else:
+		fpp_raycast.target_position = Vector3(0, 0, default_range)
+	
+	# Update the raycast to apply the new range
+	fpp_raycast.force_raycast_update()
+
 ##################################################################################################################
 ######      Documentation about synchronising weapon models into multiplayer game in a correct way          ######
 ##################################################################################################################
