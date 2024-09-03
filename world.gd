@@ -6,7 +6,7 @@ extends Node
 @onready var ipLabel = $CanvasLayer/HUD/IP/Label
 @onready var ipSprite = $CanvasLayer/HUD/IP
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
-var ip_adress
+var ip_address
 ##################################################################################################################
 ######                          Documentation about using different type of characters                      ######
 ##################################################################################################################
@@ -91,7 +91,7 @@ func _ready():
 	Global.connect("weapon_switched", callable_gun_signal)
 	#print(callable_gun_signal)
 	
-	ip_adress = get_local_ip()
+	ip_address = get_local_ip()
 
 	if OS.get_name()=="macOS":
 		DisplayServer.window_set_size(Vector2i(1920, 1080))
@@ -109,7 +109,7 @@ func _on_host_button_pressed():
 	#ipLabel = $CanvasLayer/HUD/IP/Label
 	ipSprite.visible = true
 	#print(ipLabel)
-	ipLabel.text = ip_adress
+	ipLabel.text = ip_address
 	
 	
 	enet_peer.create_server(PORT)
