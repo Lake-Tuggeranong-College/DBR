@@ -303,9 +303,11 @@ func add_ammo(additional_ammo):
 
 
 # Handle weapon switching based on the key inputs
+var weaponStatus = null
 func _on_weapon_switched(weapon_name):
 	print("Switched to weapon: %s" % weapon_name)
 	current_weapon = weapon_name
+	weaponStatus = weapon_name
 	update_weapon_model_visibility()
 
 
@@ -324,11 +326,11 @@ func update_camera_visibility():
 
 
 # Default and reduced range values
-var default_range = 10.0
-var knife_range = 2.0
+var default_range = -50.0
+var knife_range = -10.0
 
 func _process(delta):
-	if fpp_knife.mesh != null:
+	if weaponStatus == 'Knife':
 		fpp_raycast.target_position = Vector3(0, 0, knife_range)
 	else:
 		fpp_raycast.target_position = Vector3(0, 0, default_range)
