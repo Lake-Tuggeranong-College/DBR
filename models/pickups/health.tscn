@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c1qsyptu8q84p"]
 
-[ext_resource type="Texture2D" uid="uid://cd6gmqsj2mn83" path="res://images/textures/heartBeatTexture.jpg" id="1_qij7q"]
+[ext_resource type="Texture2D" uid="uid://copa8yxuse731" path="res://images/textures/heartBeatTexture.jpg" id="1_qij7q"]
 [ext_resource type="PackedScene" uid="uid://b0g3ransxpdu3" path="res://medpackblend_3.tscn" id="2_8g1gf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vaigb"]
@@ -11,7 +11,7 @@ albedo_texture = ExtResource("1_qij7q")
 [node name="Health" type="StaticBody3D" groups=["pickup"]]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1.4, 0, 0, 0, 1.29939, 0, 0, 0, 1.43, 0, 0, 0)
+transform = Transform3D(2.11913, 0, 0, 0, 1.30746, 0, 0, 0, 2.08244, 0, 0, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_vaigb")
 size = Vector3(1, 0.5, 1)

@@ -1,23 +1,21 @@
 [gd_scene load_steps=27 format=3 uid="uid://bdn5gj57p8e1o"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_cveli"]
-[ext_resource type="PackedScene" uid="uid://bl3s3ujvbkj24" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
-[ext_resource type="Texture2D" uid="uid://cypc20k8u211f" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2_Tree_Texture.png" id="3_13kr4"]
+[ext_resource type="PackedScene" uid="uid://dbo33rnbrugaf" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
+[ext_resource type="Texture2D" uid="uid://bulkyg8u8r6cw" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2_Tree_Texture.png" id="3_13kr4"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_qxeon"]
-
-[ext_resource type="Texture2D" uid="uid://chrkqw8od0a4y" path="res://images/3NaWG1Oy_400x400.jpg" id="4_k3q4w"]
-[ext_resource type="Texture2D" uid="uid://bmghxmf014m3h" path="res://images/HealthbarInner.png" id="4_kqlcj"]
+[ext_resource type="Texture2D" uid="uid://4uutrlt1mgux" path="res://images/3NaWG1Oy_400x400.jpg" id="4_k3q4w"]
+[ext_resource type="Texture2D" uid="uid://blyq5v2p063nt" path="res://images/HealthbarInner.png" id="4_kqlcj"]
 [ext_resource type="FontFile" uid="uid://bfdxoj3c567ro" path="res://star_jedi/starjedi/Starjedi.ttf" id="4_sl3st"]
-[ext_resource type="Texture2D" uid="uid://cceiqoifd6gm7" path="res://images/HealthbarOutline.png" id="5_tpprc"]
-[ext_resource type="Texture2D" uid="uid://7b8hhc7em6ta" path="res://images/AK-47.png" id="6_n5iwn"]
+[ext_resource type="Texture2D" uid="uid://c6jwxincti0nc" path="res://images/HealthbarOutline.png" id="5_tpprc"]
+[ext_resource type="Texture2D" uid="uid://12ttk4pvajid" path="res://images/AK-47.png" id="6_n5iwn"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="8_3fra7"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="9_buoau"]
-[ext_resource type="Texture2D" uid="uid://d4j5eexnvoviq" path="res://images/CombatKnife.png" id="9_llsdb"]
-[ext_resource type="Texture2D" uid="uid://o5or0ekh0lka" path="res://images/Glock-19.png" id="10_ih32w"]
-[ext_resource type="Texture2D" uid="uid://b4va0csbfv8fv" path="res://images/AmmoBox.png" id="10_meggo"]
-[ext_resource type="PackedScene" uid="uid://c4f6heit4oy2f" path="res://models/sun/death_star_-_star_wars.glb" id="13_bx7yv"]
-[ext_resource type="PackedScene" uid="uid://cuaw8m5kpcuw0" path="res://models/characters/templateCharaterModel.glb" id="13_evf2j"]
-
+[ext_resource type="Texture2D" uid="uid://b0qvh8upg0n6v" path="res://images/CombatKnife.png" id="9_llsdb"]
+[ext_resource type="Texture2D" uid="uid://dj1h6un3xwo0b" path="res://images/Glock-19.png" id="10_ih32w"]
+[ext_resource type="Texture2D" uid="uid://c7k1pljwuarc6" path="res://images/AmmoBox.png" id="10_meggo"]
+[ext_resource type="PackedScene" uid="uid://d01ld4f4ggi7d" path="res://models/sun/death_star_-_star_wars.glb" id="13_bx7yv"]
+[ext_resource type="PackedScene" uid="uid://btninxe1snx5x" path="res://models/characters/templateCharaterModel.glb" id="13_evf2j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0d57v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -192,7 +190,6 @@ skeleton = NodePath("")
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/Tree_009/Tree_003"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_5i8to")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
