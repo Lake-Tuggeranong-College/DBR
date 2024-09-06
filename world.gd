@@ -3,8 +3,10 @@ extends Node
 @onready var main_menu = $CanvasLayer/MainMenu
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
 @onready var hud = $CanvasLayer/HUD
+@onready var ipLabel = $CanvasLayer/HUD/IP/Label
+@onready var ipSprite = $CanvasLayer/HUD/IP
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
-
+var ip_address
 ##################################################################################################################
 ######                          Documentation about using different type of characters                      ######
 ##################################################################################################################
@@ -62,23 +64,34 @@ func _physics_process(delta):
 
 func _on_weapon_switched(gun_name):
 	if(gun_name == 'AK-47'):
-		get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47-Active.png')
-		get_node('CanvasLayer/HUD/Glock-19').texture = load('res://Glock-19.png')
-		get_node('CanvasLayer/HUD/CombatKnife').texture = load('res://CombatKnife.png')
+		get_node('CanvasLayer/HUD/AK-47').texture = load('res://images/AK-47-Active.png')
+		get_node('CanvasLayer/HUD/Glock-19').texture = load('res://images/Glock-19.png')
+		get_node('CanvasLayer/HUD/CombatKnife').texture = load('res://images/CombatKnife.png')
 	elif(gun_name == 'Glock-19'):
-		get_node('CanvasLayer/HUD/Glock-19').texture = load('res://Glock-19-Active.png')
-		get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47.png')
-		get_node('CanvasLayer/HUD/CombatKnife').texture = load('res://CombatKnife.png')
+		get_node('CanvasLayer/HUD/Glock-19').texture = load('res://images/Glock-19-Active.png')
+		get_node('CanvasLayer/HUD/AK-47').texture = load('res://images/AK-47.png')
+		get_node('CanvasLayer/HUD/CombatKnife').texture = load('res://images/CombatKnife.png')
 	elif(gun_name == 'Knife'):
-		get_node('CanvasLayer/HUD/Glock-19').texture = load('res://Glock-19.png')
-		get_node('CanvasLayer/HUD/AK-47').texture = load('res://AK-47.png')
-		get_node('CanvasLayer/HUD/CombatKnife').texture = load('res://CombatKnife-Active.png')
+		get_node('CanvasLayer/HUD/Glock-19').texture = load('res://images/Glock-19.png')
+		get_node('CanvasLayer/HUD/AK-47').texture = load('res://images/AK-47.png')
+		get_node('CanvasLayer/HUD/CombatKnife').texture = load('res://images/CombatKnife-Active.png')
 	#print("Switched to gun: %s" % gun_name)
+
+func get_local_ip() -> String:
+	var ip = ""
+	for address in IP.get_local_addresses():
+		if "." in address and not address.begins_with("127.") and not address.begins_with("169.254.") and not address.begins_with("192.168."):
+			if address.begins_with("10.") or (address.begins_with("172.") and int(address.split(".")[1]) >= 16 and int(address.split(".")[1]) <= 31):
+				ip = address
+				break
+	return ip
 
 func _ready():
 	var callable_gun_signal = Callable(self, "_on_weapon_switched")
 	Global.connect("weapon_switched", callable_gun_signal)
 	#print(callable_gun_signal)
+	
+	ip_address = get_local_ip()
 
 	if OS.get_name()=="macOS":
 		DisplayServer.window_set_size(Vector2i(1920, 1080))
@@ -92,6 +105,12 @@ func _unhandled_input(event):
 func _on_host_button_pressed():
 	main_menu.hide()
 	hud.show()
+	#get_node("CanvasLayer/HUD/ip").text = "test"
+	#ipLabel = $CanvasLayer/HUD/IP/Label
+	ipSprite.visible = true
+	#print(ipLabel)
+	ipLabel.text = ip_address
+	
 	
 	enet_peer.create_server(PORT)
 	multiplayer.multiplayer_peer = enet_peer
