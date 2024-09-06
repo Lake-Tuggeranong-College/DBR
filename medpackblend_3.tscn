@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b0g3ransxpdu3"]
 
-[ext_resource type="PackedScene" uid="uid://besjnys60ek78" path="res://models/pickups/medpack/medpackblend3.fbx" id="1_eebo2"]
+[ext_resource type="PackedScene" uid="uid://besjnys60ek78" path="res://models/pickups/medpackblend3.fbx" id="1_eebo2"]
 [ext_resource type="Texture2D" uid="uid://w5fuokiup0wi" path="res://models/pickups/medpack/Material.001_Base_color.png" id="2_vpkib"]
 [ext_resource type="Texture2D" uid="uid://7s2onj0o68dq" path="res://models/pickups/medpack/Material.001_Height.png" id="3_6vddv"]
 [ext_resource type="Texture2D" uid="uid://c30oyk14whyq" path="res://models/pickups/medpack/Material.001_Metallic.png" id="4_cbfo0"]
