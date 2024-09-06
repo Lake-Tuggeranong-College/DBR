@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 signal health_changed(health_value)
 signal ammo_changed(spare_ammo)
+signal ammo_Changed(current_ammo)
 
 # Set enumuration values reflect player's current camera view state
 enum DynamicCameraViewToggleAction {
@@ -106,14 +107,16 @@ func _unhandled_input(event):
 
 	if Input.is_action_just_pressed("shoot"):
 		#print("shoot")
-		current_ammo -= 1 
+		if current_ammo<= 0:
+			print("Out of ammo! Reload needed.")
+			return #is needed otherwise can shoot without Ammo
+		else:
+			current_ammo -= 1 
 		print("Bang! Ammo left: ", current_ammo)
 		print("Bang! Spare_Ammo left:", spare_ammo)
-		ammo_changed.emit(current_ammo)
+		ammo_Changed.emit(current_ammo)
 		if is_reloading:
-			if current_ammo<= 0:
-				print("Out of ammo! Reload needed.")
-				return #is needed otherwise can shoot without Ammo 
+			pass
 		play_shoot_effects.rpc()
 		if is_fpp and fpp_raycast.is_colliding():
 			var hit_player = fpp_raycast.get_collider()
@@ -130,7 +133,7 @@ func reload():
 	await get_tree().create_timer(reload_time).timeout
 	current_ammo = spare_ammo 
 	spare_ammo -= spare_ammo
-	await get_tree().create_timer(reload_delay).timeout
+	#await get_tree().create_timer(reload_delay).timeout
 	is_reloading = false
 	print("Reloaded! Ammo refilled to: ", current_ammo)
 
