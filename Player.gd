@@ -49,7 +49,7 @@ var health: int = 10
 var MAX_HEALTH: int = 10
 var max_ammo: int = 30
 var current_ammo: int = max_ammo
-var spare_ammo: int = 10
+var spare_ammo: int = 90
 var is_reloading: bool = false
 
 var reload_time: float = 2.0  # Time in seconds to reload
