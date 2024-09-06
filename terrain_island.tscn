@@ -1,6 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://bdn5gj57p8e1o"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_cveli"]
+
 [ext_resource type="PackedScene" uid="uid://bdf1ls108smx" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
 [ext_resource type="Texture2D" uid="uid://n3kjgpl8c2yt" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2_Tree_Texture.png" id="3_13kr4"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_qxeon"]
@@ -16,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://d0gn3h4brq7pi" path="res://images/AmmoBox.png" id="10_meggo"]
 [ext_resource type="PackedScene" uid="uid://bn3bkf1x2at7m" path="res://models/sun/death_star_-_star_wars.glb" id="13_bx7yv"]
 [ext_resource type="PackedScene" uid="uid://bi0vrqawpe00s" path="res://models/characters/templateCharaterModel.glb" id="13_evf2j"]
+
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0d57v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

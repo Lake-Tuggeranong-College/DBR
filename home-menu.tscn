@@ -4,8 +4,10 @@
 [ext_resource type="FontFile" uid="uid://0cdxflkd3ynj" path="res://star_jedi/stjelogo/Strjmono.ttf" id="2_jwbhb"]
 [ext_resource type="FontFile" uid="uid://dd3p861ljnqr0" path="res://star_jedi/starjedi/Starjhol.ttf" id="3_nf841"]
 
+
 [ext_resource type="Texture2D" uid="uid://cuv7hfvruelc4" path="res://images/main-photo.jpg" id="4_nbire"]
 [ext_resource type="Texture2D" uid="uid://twl5ls84x0bv" path="res://images/island-image.jpg" id="5_x3ugr"]
+
 
 
 [node name="Node2D" type="Node2D"]
