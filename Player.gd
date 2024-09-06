@@ -34,6 +34,9 @@ enum DynamicCameraViewToggleAction {
 # Animations
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
+# Teleport
+@onready var teleport_point: Node3D = $FPPCamera/TelePoint
+
 # Set player's current camera view state in the editor
 @export var camera_player_state: DynamicCameraViewToggleAction = DynamicCameraViewToggleAction.FIRST_PERSON_VIEW
 
@@ -46,14 +49,14 @@ var MAX_HEALTH: int = 10
 var max_ammo: int = 30
 var current_ammo: int = max_ammo
 var is_reloading: bool = false
-var reload_time: int = 2.0  # Time in seconds to reload
+var reload_time: float = 2.0  # Time in seconds to reload
 
 const HEALTH_AMOUNTS: int = 2
 const SPEED: float = 13.0
 const JUMP_VELOCITY: float = 10.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity: int = 25.0
+var gravity: float = 25.0
 
 # Track different state of camera node to toggle either FPP or TPP.
 var is_fpp: bool = true
@@ -61,6 +64,8 @@ var is_fpp: bool = true
 # Track the current weapon
 var current_weapon: String = ""
 
+# Set the coordination value that teleportation feature will use to make it happens
+var teleport_final_destination: Vector3
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -102,8 +107,7 @@ func _unhandled_input(event):
 		print("Bang! Ammo left: ", current_ammo)
 		ammo_changed.emit(current_ammo)
 		if is_reloading:
-			return
-			if current_ammo <= 0:
+			if current_ammo<= 0:
 				print("Out of ammo! Reload needed.")
 				return #is needed otherwise can shoot without Ammo 
 		play_shoot_effects.rpc()
@@ -117,7 +121,7 @@ func _unhandled_input(event):
 
 
 func reload():
-	var is_reloading = true 
+	var _is_reloading = true
 	print("Reloading...")
 	await get_tree().create_timer(reload_time).timeout
 	current_ammo = max_ammo
@@ -242,6 +246,39 @@ func _input(event):
 						#tpp_ak47.visible = true
 					#"Knife":
 						#tpp_knife.visible = true
+	
+	if event.is_action_pressed("teleport"):
+		if is_multiplayer_authority():
+			if is_fpp:
+				#print("Teleport button worked!")
+				teleport_point.visible = true
+
+				# Perform a raycast to find the teleportation destination
+				if fpp_raycast.is_colliding():
+					# Set the teleportation destination to the hit position
+					teleport_final_destination = fpp_raycast.get_collision_point()
+					print("Raycast hit position: ", fpp_raycast.get_collision_point())
+
+					# Move the teleportation destination model to the hit position
+					teleport_point.global_position = teleport_final_destination				
+					print("Teleport destination: ", teleport_final_destination)
+				
+			else:
+				print("You are not allowed to do this in TPP!")
+
+	elif event.is_action_released("teleport"):
+		if is_multiplayer_authority():
+			if is_fpp:
+				#print("Teleport button got released!")
+				teleport_point.visible = false
+		
+				# Call the teleportation function with the destination position
+				teleport_to_position(teleport_final_destination)
+				print("Current player position: ", teleport_to_position(teleport_final_destination))
+			
+			else:
+				# Block the feature to run in TPP view mode
+				print("You are not allowed to do this in TPP!")
 
 
 @rpc("call_local")
@@ -418,3 +455,11 @@ func update_weapon_model_visibility():
 	#print("TPP Pistol Visible: ", tpp_pistol.visible)
 	#print("TPP AK47 Visible: ", tpp_ak47.visible)
 	#print("TPP Knife Visible: ", tpp_knife.visible)
+
+
+func teleport_to_position(final_destination_position):
+	# Set the player's position to the destination position
+	position = final_destination_position
+
+	# Hide the teleportation destination model
+	teleport_point.visible = false
