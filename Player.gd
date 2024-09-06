@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 signal health_changed(health_value)
-signal ammo_changed(current_ammo)
+signal ammo_changed(spare_ammo)
 
 # Set enumuration values reflect player's current camera view state
 enum DynamicCameraViewToggleAction {
@@ -48,8 +48,11 @@ var health: int = 10
 var MAX_HEALTH: int = 10
 var max_ammo: int = 30
 var current_ammo: int = max_ammo
+var spare_ammo: int = 10
 var is_reloading: bool = false
+
 var reload_time: float = 2.0  # Time in seconds to reload
+
 
 const HEALTH_AMOUNTS: int = 2
 const SPEED: float = 13.0
@@ -105,6 +108,7 @@ func _unhandled_input(event):
 		#print("shoot")
 		current_ammo -= 1 
 		print("Bang! Ammo left: ", current_ammo)
+		print("Bang! Spare_Ammo left:", spare_ammo)
 		ammo_changed.emit(current_ammo)
 		if is_reloading:
 			if current_ammo<= 0:
@@ -124,7 +128,9 @@ func reload():
 	var _is_reloading = true
 	print("Reloading...")
 	await get_tree().create_timer(reload_time).timeout
-	current_ammo = max_ammo
+	current_ammo = spare_ammo 
+	spare_ammo -= spare_ammo
+	await get_tree().create_timer(reload_delay).timeout
 	is_reloading = false
 	print("Reloaded! Ammo refilled to: ", current_ammo)
 
@@ -329,7 +335,7 @@ func add_health(additional_health):
 
 func add_ammo(additional_ammo):
 	current_ammo += additional_ammo
-	ammo_changed.emit(current_ammo)
+	ammo_changed.emit(spare_ammo)
 
 
 #func t_body_entered(body):
