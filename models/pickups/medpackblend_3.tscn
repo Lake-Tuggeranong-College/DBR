@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpyl3blbtaxuj"]
+
+[ext_resource type="Texture2D" uid="uid://w5fuokiup0wi" path="res://models/pickups/medpack/Material.001_Base_color.png" id="2_o7r6d"]
+[ext_resource type="Texture2D" uid="uid://7s2onj0o68dq" path="res://models/pickups/medpack/Material.001_Height.png" id="3_7v2rn"]
+[ext_resource type="Texture2D" uid="uid://c30oyk14whyq" path="res://models/pickups/medpack/Material.001_Metallic.png" id="4_r6xsc"]
+[ext_resource type="Texture2D" uid="uid://doi80ed6g73t2" path="res://models/pickups/medpack/Material.001_Normal_OpenGL.png" id="5_2ac1b"]
+[ext_resource type="Texture2D" uid="uid://8064x0rxiqy2" path="res://models/pickups/medpack/Material.001_Roughness.png" id="6_8o40f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dkwm"]
+albedo_texture = ExtResource("2_o7r6d")
+metallic = 1.0
+metallic_specular = 0.45
+metallic_texture = ExtResource("4_r6xsc")
+roughness_texture = ExtResource("6_8o40f")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_2ac1b")
+heightmap_texture = ExtResource("3_7v2rn")
+
+[node name="medpackblend3"]
+
+[node name="Cube_002" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_7dkwm")
