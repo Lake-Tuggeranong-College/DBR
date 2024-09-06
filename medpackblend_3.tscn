@@ -1,27 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0g3ransxpdu3"]
+[gd_scene load_steps=7 format=3 uid="uid://b0g3ransxpdu3"]
 
-[ext_resource type="PackedScene" uid="uid://besjnys60ek78" path="res://models/pickups/medpack/medpackblend3.fbx" id="1_eebo2"]
-[ext_resource type="Texture2D" uid="uid://w5fuokiup0wi" path="res://models/pickups/medpack/Material.001_Base_color.png" id="2_vpkib"]
-[ext_resource type="Texture2D" uid="uid://7s2onj0o68dq" path="res://models/pickups/medpack/Material.001_Height.png" id="3_6vddv"]
-[ext_resource type="Texture2D" uid="uid://c30oyk14whyq" path="res://models/pickups/medpack/Material.001_Metallic.png" id="4_cbfo0"]
-[ext_resource type="Texture2D" uid="uid://doi80ed6g73t2" path="res://models/pickups/medpack/Material.001_Normal_OpenGL.png" id="5_ugtk2"]
-[ext_resource type="Texture2D" uid="uid://8064x0rxiqy2" path="res://models/pickups/medpack/Material.001_Roughness.png" id="6_gxlgj"]
+[ext_resource type="PackedScene" uid="uid://db75dxc4mc83o" path="res://models/pickups/medpackblend3.fbx" id="1_eebo2"]
+[ext_resource type="Texture2D" uid="uid://c2vs04rfpc7ih" path="res://models/pickups/medpack/Material.001_Base_color.png" id="2_vpkib"]
+[ext_resource type="Texture2D" uid="uid://dn7wcur1mxos3" path="res://models/pickups/medpack/Material.001_Metallic.png" id="4_cbfo0"]
+[ext_resource type="Texture2D" uid="uid://drsfarb2em0ve" path="res://models/pickups/medpack/Material.001_Normal_OpenGL.png" id="5_ugtk2"]
+[ext_resource type="Texture2D" uid="uid://bxerq6fbw6ie2" path="res://models/pickups/medpack/Material.001_Roughness.png" id="6_gxlgj"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88h43"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xeri"]
 albedo_texture = ExtResource("2_vpkib")
 metallic = 1.0
 metallic_texture = ExtResource("4_cbfo0")
 roughness_texture = ExtResource("6_gxlgj")
 normal_enabled = true
 normal_texture = ExtResource("5_ugtk2")
-rim_enabled = true
-rim_tint = 0.98
-rim_texture = ExtResource("4_cbfo0")
-heightmap_enabled = true
-heightmap_scale = 0.0
-heightmap_texture = ExtResource("3_6vddv")
 
 [node name="medpackblend3" instance=ExtResource("1_eebo2")]
 
-[node name="Cube_002" parent="." index="0"]
-material_override = SubResource("StandardMaterial3D_88h43")
+[node name="Cube_002" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3xeri")

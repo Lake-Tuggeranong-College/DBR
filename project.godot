@@ -27,6 +27,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Declan Battle Royale"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 up={
