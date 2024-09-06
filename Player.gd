@@ -373,7 +373,7 @@ func update_camera_visibility():
 
 # Default and reduced range values
 var default_range = -50.0
-var knife_range = -10.0
+var knife_range = -2.0
 
 func _process(delta):
 	if weaponStatus == 'Knife':
