@@ -80,8 +80,8 @@ func _on_weapon_switched(gun_name):
 func get_local_ip() -> String:
 	var ip = ""
 	for address in IP.get_local_addresses():
-		if "." in address and not address.begins_with("127.") and not address.begins_with("169.254."):
-			if address.begins_with("192.168.") or address.begins_with("10.") or (address.begins_with("172.") and int(address.split(".")[1]) >= 16 and int(address.split(".")[1]) <= 31):
+		if "." in address and not address.begins_with("127.") and not address.begins_with("169.254.") and not address.begins_with("192.168."):
+			if address.begins_with("10.") or (address.begins_with("172.") and int(address.split(".")[1]) >= 16 and int(address.split(".")[1]) <= 31):
 				ip = address
 				break
 	return ip
