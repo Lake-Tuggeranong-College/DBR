@@ -131,8 +131,10 @@ func reload():
 	var _is_reloading = true
 	print("Reloading...")
 	await get_tree().create_timer(reload_time).timeout
-	current_ammo = spare_ammo 
-	spare_ammo -= spare_ammo
+	current_ammo = 30 
+	spare_ammo -= 30
+	if spare_ammo < 0:
+		current_ammo = 0
 	#await get_tree().create_timer(reload_delay).timeout
 	is_reloading = false
 	print("Reloaded! Ammo refilled to: ", current_ammo)
