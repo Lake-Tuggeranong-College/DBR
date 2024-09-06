@@ -11,9 +11,10 @@ albedo_texture = ExtResource("1_qij7q")
 [node name="Health" type="StaticBody3D" groups=["pickup"]]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1.4, 0, 0, 0, 1.89, 0, 0, 0, 1.43, 0, 0, 0)
+transform = Transform3D(1.4, 0, 0, 0, 1.29939, 0, 0, 0, 1.43, 0, 0, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_vaigb")
+size = Vector3(1, 0.5, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 visible = false
