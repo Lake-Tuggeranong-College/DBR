@@ -49,7 +49,7 @@ var health: int = 10
 var MAX_HEALTH: int = 10
 var max_ammo: int = 30
 var current_ammo: int = max_ammo
-var spare_ammo: int = 10
+var spare_ammo: int = 90
 var is_reloading: bool = false
 
 var reload_time: float = 2.0  # Time in seconds to reload
@@ -128,13 +128,15 @@ func _unhandled_input(event):
 
 var _is_reloading = false
 func reload():
-	print(_is_reloading)
-	if !_is_reloading:
-		_is_reloading = true
-		print("Reloading...")
-		await get_tree().create_timer(reload_time).timeout
-		current_ammo = spare_ammo 
-		spare_ammo -= spare_ammo
+
+	var _is_reloading = true
+	print("Reloading...")
+	await get_tree().create_timer(reload_time).timeout
+	current_ammo = 30 
+	spare_ammo -= 30
+	if spare_ammo < 0:
+		current_ammo = 0
+
 	#await get_tree().create_timer(reload_delay).timeout
 		_is_reloading = false
 		print("Reloaded! Ammo refilled to: ", current_ammo)
