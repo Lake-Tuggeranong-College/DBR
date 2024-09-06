@@ -126,17 +126,33 @@ func _unhandled_input(event):
 			var hit_player = tpp_raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
-
+var _is_reloading = false
 func reload():
-	var _is_reloading = true
-	print("Reloading...")
-	await get_tree().create_timer(reload_time).timeout
-	current_ammo = spare_ammo 
-	spare_ammo -= spare_ammo
+	print(_is_reloading)
+	if !_is_reloading:
+		_is_reloading = true
+		print("Reloading...")
+		await get_tree().create_timer(reload_time).timeout
+		current_ammo = spare_ammo 
+		spare_ammo -= spare_ammo
 	#await get_tree().create_timer(reload_delay).timeout
-	is_reloading = false
-	print("Reloaded! Ammo refilled to: ", current_ammo)
-
+		_is_reloading = false
+		print("Reloaded! Ammo refilled to: ", current_ammo)
+	else:
+		print('already reloading')
+#var _is_reloading = false
+#func reload():
+	#print(_is_reloading)
+	#if !_is_reloading:
+		#_is_reloading = true
+		#print("Reloading...")
+		#await get_tree().create_timer(reload_time).timeout
+		#current_ammo = spare_ammo 
+		#spare_ammo -= spare_ammo
+		#_is_reloading = false
+		#print("Reloaded! Ammo refilled to: ", current_ammo)
+	#else:
+		#print("Already reloading")
 
 func _physics_process(delta):
 	#print(health)
