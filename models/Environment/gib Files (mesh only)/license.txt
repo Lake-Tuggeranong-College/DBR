@@ -1,0 +1,11 @@
+Model Information:
+* title:	Tornado made in blender
+* source:	https://sketchfab.com/3d-models/tornado-made-in-blender-cd110bcbd7d046e48cc2f833e65698b0
+* author:	vasilemuntean1301 (https://sketchfab.com/vasilemuntean1301)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Tornado made in blender" (https://sketchfab.com/3d-models/tornado-made-in-blender-cd110bcbd7d046e48cc2f833e65698b0) by vasilemuntean1301 (https://sketchfab.com/vasilemuntean1301) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
