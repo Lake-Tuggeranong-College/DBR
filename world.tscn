@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cceiqoifd6gm7" path="res://images/HealthbarOutline.png" id="5_4ssen"]
 [ext_resource type="Texture2D" uid="uid://7b8hhc7em6ta" path="res://images/AK-47.png" id="6_i3kt7"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="7_1iyd3"]
+[ext_resource type="Texture2D" uid="uid://b4va0csbfv8fv" path="res://images/AmmoBox.png" id="10_ddh8l"]
 [ext_resource type="Texture2D" uid="uid://d4j5eexnvoviq" path="res://images/CombatKnife.png" id="10_wolt1"]
-[ext_resource type="Texture2D" uid="uid://d4k7xbqe7pajy" path="res://images/textures/ammo/Tex_0009_1.jpg" id="11_onbcg"]
 [ext_resource type="Texture2D" uid="uid://o5or0ekh0lka" path="res://images/Glock-19.png" id="11_ulqyl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
@@ -160,13 +160,21 @@ texture = ExtResource("10_wolt1")
 [node name="AmmoBox" type="Sprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(1056, 595)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("11_onbcg")
+texture = ExtResource("10_ddh8l")
 
-[node name="Label" type="Label" parent="CanvasLayer/HUD/AmmoBox"]
-offset_left = -117.0
-offset_top = -141.0
-offset_right = 111.0
-offset_bottom = 132.0
+[node name="CurrentAmmo" type="Label" parent="CanvasLayer/HUD/AmmoBox"]
+offset_left = -285.0
+offset_top = -130.0
+offset_right = -56.9999
+offset_bottom = 143.0
+text = "50"
+label_settings = SubResource("LabelSettings_w3qcc")
+
+[node name="SpareAmmo" type="Label" parent="CanvasLayer/HUD/AmmoBox"]
+offset_left = 60.0
+offset_top = -125.0
+offset_right = 288.0
+offset_bottom = 148.0
 text = "50"
 label_settings = SubResource("LabelSettings_w3qcc")
 
