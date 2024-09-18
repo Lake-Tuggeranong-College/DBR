@@ -6,7 +6,8 @@ signal weapon_switched(weapon_name)
 # Inventory slots
 var guns = ["Glock-19", "AK-47"]
 var melees = ["Knife"]
-var ammo
+var current_ammo
+var spare_ammo
 
 var player
 # Add weapons to the inventory
