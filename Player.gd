@@ -49,9 +49,10 @@ var health: int = 10
 var MAX_HEALTH: int = 10
 var max_ammo: int = 30
 var current_ammo: int = max_ammo
-var spare_ammo: int = 90
+var current_spare_ammo: int = 90
+var needed_spare_ammo: int = 90
 var is_reloading: bool = false
-
+var reloaded_ammo: int = clamp(0, 0, 0,)
 var reload_time: float = 2.0  # Time in seconds to reload
 
 
@@ -113,7 +114,7 @@ func _unhandled_input(event):
 		else:
 			current_ammo -= 1 
 		print("Bang! Ammo left: ", current_ammo)
-		print("Bang! Spare_Ammo left:", spare_ammo)
+		print("Bang! Spare_Ammo left:", current_spare_ammo)
 		ammo_Changed.emit(current_ammo)
 		if is_reloading:
 			pass
@@ -132,14 +133,15 @@ func reload():
 	var _is_reloading = true
 	print("Reloading...")
 	await get_tree().create_timer(reload_time).timeout
-	current_ammo = 30 
-	spare_ammo -= 30
-	if spare_ammo < 0:
-		current_ammo = 0
-
+	needed_spare_ammo = max_ammo - current_ammo
+	reloaded_ammo = clamp(needed_spare_ammo, 0, current_spare_ammo)
+	current_ammo += reloaded_ammo
+	current_spare_ammo = current_spare_ammo - reloaded_ammo
+	print("Reloaded! Ammo refilled to: ", current_ammo)
+	
+	if current_spare_ammo <= 0:
 	#await get_tree().create_timer(reload_delay).timeout
 		_is_reloading = false
-		print("Reloaded! Ammo refilled to: ", current_ammo)
 	else:
 		print('already reloading')
 #var _is_reloading = false
@@ -158,7 +160,8 @@ func reload():
 
 func _physics_process(delta):
 	#print(health)
-	Global.ammo = current_ammo
+	Global.current_ammo = current_ammo
+	Global.spare_ammo = current_spare_ammo
 	
 	if not is_multiplayer_authority(): return
 	
@@ -356,7 +359,7 @@ func add_health(additional_health):
 
 func add_ammo(additional_ammo):
 	current_ammo += additional_ammo
-	ammo_changed.emit(spare_ammo)
+	ammo_changed.emit(current_spare_ammo)
 
 
 #func t_body_entered(body):
