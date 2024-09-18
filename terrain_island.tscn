@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bdn5gj57p8e1o"]
+[gd_scene load_steps=28 format=3 uid="uid://bdn5gj57p8e1o"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_cveli"]
 [ext_resource type="PackedScene" uid="uid://77px7ohtmuqj" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
@@ -82,6 +82,11 @@ line_spacing = 0.0
 font_size = 100
 font_color = Color(0.758192, 0.758192, 0.758192, 1)
 outline_size = 50
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_urvc3"]
+font_size = 300
+outline_size = 100
 outline_color = Color(0, 0, 0, 1)
 
 [node name="terrain-island" type="Node"]
@@ -237,7 +242,6 @@ placeholder_text = "Enter Address to Join Here"
 alignment = 1
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -306,20 +310,28 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_meggo")
 
 [node name="CurrentAmmo" type="Label" parent="CanvasLayer/HUD/AmmoBox"]
-offset_left = -200.0
-offset_top = -75.0
-offset_right = 28.0
-offset_bottom = 198.0
+offset_left = -230.0
+offset_top = -60.0
+offset_right = -2.0
+offset_bottom = 213.0
 text = "50"
 label_settings = SubResource("LabelSettings_yibrn")
 
 [node name="SpareAmmo" type="Label" parent="CanvasLayer/HUD/AmmoBox"]
-offset_left = 105.0
-offset_top = -70.0
-offset_right = 333.0
-offset_bottom = 203.0
+offset_left = 85.0
+offset_top = -60.0
+offset_right = 313.0
+offset_bottom = 213.0
 text = "50"
 label_settings = SubResource("LabelSettings_yibrn")
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/AmmoBox"]
+offset_left = -80.0
+offset_top = -205.0
+offset_right = 37.0
+offset_bottom = 204.0
+text = "/"
+label_settings = SubResource("LabelSettings_urvc3")
 
 [node name="IP" type="Sprite2D" parent="CanvasLayer/HUD"]
 visible = false

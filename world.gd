@@ -58,10 +58,10 @@ var enet_peer = ENetMultiplayerPeer.new()
 
 func _physics_process(delta):
 	# Assuming Global.ammo is a valid global variable
-	var currentammo_label = get_node("CanvasLayer/HUD/AmmoBox/CurrentAmmo")
-	currentammo_label.text = str(Global.current_ammo)  # Convert to string if needed
-	var spareammo_label = get_node("CanvasLayer/HUD/AmmoBox/SpareAmmo")
-	spareammo_label.text = str(Global.spare_ammo)
+	var current_ammo_label = get_node("CanvasLayer/HUD/AmmoBox/CurrentAmmo")
+	current_ammo_label.text = str(Global.current_ammo)  # Convert to string if needed
+	var spare_ammo_label = get_node("CanvasLayer/HUD/AmmoBox/SpareAmmo")
+	spare_ammo_label.text = str(Global.spare_ammo)
 
 
 func _on_weapon_switched(gun_name):
