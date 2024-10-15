@@ -1,17 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://c8oqxmm2w2wvv"]
+[gd_scene load_steps=17 format=3 uid="uid://c8oqxmm2w2wvv"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
-[ext_resource type="FontFile" uid="uid://bfdxoj3c567ro" path="res://star_jedi/starjedi/Starjedi.ttf" id="3_32xhs"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
-[ext_resource type="Texture2D" uid="uid://bmghxmf014m3h" path="res://images/HealthbarInner.png" id="4_5s3we"]
+[ext_resource type="Texture2D" uid="uid://dk44e0vhtwbra" path="res://images/HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
-[ext_resource type="Texture2D" uid="uid://cceiqoifd6gm7" path="res://images/HealthbarOutline.png" id="5_4ssen"]
-[ext_resource type="Texture2D" uid="uid://7b8hhc7em6ta" path="res://images/AK-47.png" id="6_i3kt7"]
+[ext_resource type="Texture2D" uid="uid://c44v8ym5l6tk4" path="res://images/HealthbarOutline.png" id="5_4ssen"]
+[ext_resource type="Texture2D" uid="uid://rfhmo7ptmfyy" path="res://images/AK-47.png" id="6_i3kt7"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="7_1iyd3"]
-[ext_resource type="Texture2D" uid="uid://b4va0csbfv8fv" path="res://images/AmmoBox.png" id="10_ddh8l"]
-[ext_resource type="Texture2D" uid="uid://d4j5eexnvoviq" path="res://images/CombatKnife.png" id="10_wolt1"]
-[ext_resource type="Texture2D" uid="uid://o5or0ekh0lka" path="res://images/Glock-19.png" id="11_ulqyl"]
+[ext_resource type="Texture2D" uid="uid://6hxh6512n71v" path="res://images/AmmoBox.png" id="10_ddh8l"]
+[ext_resource type="Texture2D" uid="uid://k6yxy2so3sxc" path="res://images/CombatKnife.png" id="10_wolt1"]
+[ext_resource type="Texture2D" uid="uid://dd6adla8x20fx" path="res://images/Glock-19.png" id="11_ulqyl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -27,8 +26,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_sp4x1"]
-font = ExtResource("3_32xhs")
-font_size = 20
+font_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_w3qcc"]
 line_spacing = 0.0
@@ -55,10 +53,10 @@ environment = SubResource("Environment_6knbf")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 423.0
-offset_top = 227.0
-offset_right = -423.0
-offset_bottom = -227.0
+offset_left = 119.0
+offset_top = 30.0
+offset_right = -115.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -73,25 +71,34 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Declan Battle Royale"
 label_settings = SubResource("LabelSettings_sp4x1")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AddressEntry" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+placeholder_text = "*insert host IP address*"
+alignment = 1
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Join"
+
 [node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Host"
 
-[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+[node name="Host info" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Join"
-
-[node name="AddressEntry" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-placeholder_text = "Enter Address to Join Here"
-alignment = 1
+text = "(one host per game)"
+label_settings = SubResource("LabelSettings_sp4x1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
 visible = false
@@ -190,6 +197,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0498, 2.60137, 0)
 [node name="AmmoBox" parent="Pickups" instance=ExtResource("7_1iyd3")]
 transform = Transform3D(4.88148, 1.0822, 0, -1.0822, 4.88148, 0, 0, 0, 5, -14, 0.85, 12.1)
 
-[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]

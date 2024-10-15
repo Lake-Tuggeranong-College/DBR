@@ -1,21 +1,21 @@
-[gd_scene load_steps=28 format=3 uid="uid://bdn5gj57p8e1o"]
+[gd_scene load_steps=29 format=3 uid="uid://bdn5gj57p8e1o"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_cveli"]
-[ext_resource type="PackedScene" uid="uid://77px7ohtmuqj" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
-[ext_resource type="Texture2D" uid="uid://bw2rhh3u2ky7y" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2_Tree_Texture.png" id="3_13kr4"]
+[ext_resource type="PackedScene" uid="uid://ge60lwdrem36" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
+[ext_resource type="Texture2D" uid="uid://biv2pjoxug8le" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2_Tree_Texture.png" id="3_13kr4"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_qxeon"]
-[ext_resource type="Texture2D" uid="uid://chrkqw8od0a4y" path="res://images/3NaWG1Oy_400x400.jpg" id="4_k3q4w"]
-[ext_resource type="Texture2D" uid="uid://bmghxmf014m3h" path="res://images/HealthbarInner.png" id="4_kqlcj"]
+[ext_resource type="Texture2D" uid="uid://cpiy31xuwv8il" path="res://images/3NaWG1Oy_400x400.jpg" id="4_k3q4w"]
+[ext_resource type="Texture2D" uid="uid://dk44e0vhtwbra" path="res://images/HealthbarInner.png" id="4_kqlcj"]
 [ext_resource type="FontFile" uid="uid://bfdxoj3c567ro" path="res://star_jedi/starjedi/Starjedi.ttf" id="4_sl3st"]
-[ext_resource type="Texture2D" uid="uid://cceiqoifd6gm7" path="res://images/HealthbarOutline.png" id="5_tpprc"]
-[ext_resource type="Texture2D" uid="uid://7b8hhc7em6ta" path="res://images/AK-47.png" id="6_n5iwn"]
+[ext_resource type="Texture2D" uid="uid://c44v8ym5l6tk4" path="res://images/HealthbarOutline.png" id="5_tpprc"]
+[ext_resource type="Texture2D" uid="uid://rfhmo7ptmfyy" path="res://images/AK-47.png" id="6_n5iwn"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="8_3fra7"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="9_buoau"]
-[ext_resource type="Texture2D" uid="uid://d4j5eexnvoviq" path="res://images/CombatKnife.png" id="9_llsdb"]
-[ext_resource type="Texture2D" uid="uid://o5or0ekh0lka" path="res://images/Glock-19.png" id="10_ih32w"]
-[ext_resource type="Texture2D" uid="uid://b4va0csbfv8fv" path="res://images/AmmoBox.png" id="10_meggo"]
-[ext_resource type="PackedScene" uid="uid://c4f6heit4oy2f" path="res://models/sun/death_star_-_star_wars.glb" id="13_bx7yv"]
-[ext_resource type="PackedScene" uid="uid://cuaw8m5kpcuw0" path="res://models/characters/templateCharaterModel.glb" id="13_evf2j"]
+[ext_resource type="Texture2D" uid="uid://k6yxy2so3sxc" path="res://images/CombatKnife.png" id="9_llsdb"]
+[ext_resource type="Texture2D" uid="uid://dd6adla8x20fx" path="res://images/Glock-19.png" id="10_ih32w"]
+[ext_resource type="Texture2D" uid="uid://6hxh6512n71v" path="res://images/AmmoBox.png" id="10_meggo"]
+[ext_resource type="PackedScene" uid="uid://cfb3p5wpnmfr6" path="res://models/sun/death_star_-_star_wars.glb" id="13_bx7yv"]
+[ext_resource type="PackedScene" uid="uid://bbjke0bfb7is1" path="res://models/characters/templateCharaterModel.glb" id="13_evf2j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0d57v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -75,7 +75,10 @@ data = PackedVector3Array(0.786882, 2.82926, -1.29208, 2.28499, 4.93522, -1.7895
 
 [sub_resource type="LabelSettings" id="LabelSettings_g0aac"]
 font = ExtResource("4_sl3st")
-font_size = 20
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_qtdf5"]
+font_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_yibrn"]
 line_spacing = 0.0
@@ -203,10 +206,10 @@ shape = SubResource("ConcavePolygonShape3D_5i8to")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 423.0
-offset_top = 227.0
-offset_right = -423.0
-offset_bottom = -227.0
+offset_left = 119.0
+offset_top = 30.0
+offset_right = -115.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -221,27 +224,37 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Declan Battle Royale"
 label_settings = SubResource("LabelSettings_g0aac")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AddressEntry" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+placeholder_text = "*insert host IP address*"
+alignment = 1
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Join"
+
 [node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Host"
 
-[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+[node name="Host info" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Join"
-
-[node name="AddressEntry" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-placeholder_text = "Enter Address to Join Here"
-alignment = 1
+text = "(one host per game)"
+label_settings = SubResource("LabelSettings_qtdf5")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -403,8 +416,8 @@ transform = Transform3D(2.68552, -4.21372, -0.180332, 0.510625, 0.537054, -4.944
 transform = Transform3D(0.240415, -0.942001, -0.234169, -0.225929, 0.180313, -0.95731, 0.944011, 0.283057, -0.169475, 275.349, 764.292, -348.257)
 light_color = Color(0.341176, 1, 0, 1)
 
-[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]
 
 [editable path="Base_terrain + Colur Trees with Coloistion osc_V2"]
