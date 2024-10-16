@@ -358,7 +358,7 @@ func add_health(additional_health):
 
 
 func add_ammo(additional_ammo):
-	current_ammo += additional_ammo
+	current_spare_ammo += additional_ammo
 	ammo_changed.emit(current_spare_ammo)
 
 
