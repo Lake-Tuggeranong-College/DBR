@@ -3,8 +3,13 @@
 [ext_resource type="Script" path="res://home-menu.gd" id="1_mimik"]
 [ext_resource type="FontFile" uid="uid://0cdxflkd3ynj" path="res://star_jedi/stjelogo/Strjmono.ttf" id="2_jwbhb"]
 [ext_resource type="FontFile" uid="uid://dd3p861ljnqr0" path="res://star_jedi/starjedi/Starjhol.ttf" id="3_nf841"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://bnqbcbtc2spue" path="res://images/main-photo.jpg" id="4_nbire"]
 [ext_resource type="Texture2D" uid="uid://5rqx2udoxo4h" path="res://images/island-image.jpg" id="5_x3ugr"]
+=======
+[ext_resource type="Texture2D" uid="uid://bmuhcuksbavr2" path="res://images/Godot arrow.png" id="5_khad5"]
+[ext_resource type="Texture2D" uid="uid://dkms38ce2mgxj" path="res://images/island-image.jpg" id="5_x3ugr"]
+>>>>>>> Stashed changes
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_mimik")
@@ -26,47 +31,71 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Island" type="Button" parent="."]
-offset_left = 678.0
-offset_top = 142.0
-offset_right = 786.0
-offset_bottom = 350.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 355.0
+offset_top = 132.0
+offset_right = 463.0
+offset_bottom = 329.0
+grow_horizontal = 2
 scale = Vector2(3.647, 1.96)
 
+[node name="island image" type="Sprite2D" parent="Island"]
+position = Vector2(54.5654, 96.9388)
+scale = Vector2(0.0959693, 0.178571)
+texture = ExtResource("5_x3ugr")
+
 [node name="main" type="Button" parent="."]
-offset_left = 105.0
-offset_top = 142.0
-offset_right = 214.0
-offset_bottom = 351.0
+offset_left = 1.0
+offset_top = 532.0
+offset_right = 317.0
+offset_bottom = 591.0
 scale = Vector2(3.647, 1.96)
 
 [node name="Island lable" type="Label" parent="."]
-offset_left = 767.0
-offset_top = 443.0
-offset_right = 1017.0
-offset_bottom = 539.0
+offset_left = 847.0
+offset_top = 11.0
+offset_right = 1097.0
+offset_bottom = 107.0
 theme_override_fonts/font = ExtResource("3_nf841")
 theme_override_font_sizes/font_size = 60
 text = "is<>>l>>a>n>d"
 
 [node name="main label" type="Label" parent="."]
-offset_left = 219.0
-offset_top = 446.0
-offset_right = 372.0
-offset_bottom = 542.0
+offset_left = 15.0
+offset_top = 542.0
+offset_right = 168.0
+offset_bottom = 638.0
 theme_override_fonts/font = ExtResource("3_nf841")
 theme_override_font_sizes/font_size = 60
-text = ">M>a>i>n"
+text = "test"
 
-[node name="main image" type="Sprite2D" parent="."]
-position = Vector2(303, 318)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("4_nbire")
+[node name="main label2" type="Label" parent="."]
+offset_left = 189.0
+offset_top = 573.0
+offset_right = 969.0
+offset_bottom = 669.0
+theme_override_font_sizes/font_size = 39
+text = "In progress."
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(864, 234)
+rotation = 1.5708
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_khad5")
 flip_h = true
-
-[node name="island image" type="Sprite2D" parent="."]
-position = Vector2(875, 318)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("5_x3ugr")
 
 [connection signal="pressed" from="Island" to="." method="_on_island_pressed"]
 [connection signal="pressed" from="main" to="." method="_on_main_pressed"]
