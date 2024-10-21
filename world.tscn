@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
 [ext_resource type="FontFile" uid="uid://bfdxoj3c567ro" path="res://star_jedi/starjedi/Starjedi.ttf" id="3_32xhs"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://dk44e0vhtwbra" path="res://images/HealthbarInner.png" id="4_5s3we"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
 [ext_resource type="Texture2D" uid="uid://c44v8ym5l6tk4" path="res://images/HealthbarOutline.png" id="5_4ssen"]
@@ -12,6 +13,16 @@
 [ext_resource type="Texture2D" uid="uid://6hxh6512n71v" path="res://images/AmmoBox.png" id="10_ddh8l"]
 [ext_resource type="Texture2D" uid="uid://k6yxy2so3sxc" path="res://images/CombatKnife.png" id="10_wolt1"]
 [ext_resource type="Texture2D" uid="uid://dd6adla8x20fx" path="res://images/Glock-19.png" id="11_ulqyl"]
+=======
+[ext_resource type="Texture2D" uid="uid://c5fngalwcn7u8" path="res://images/HealthbarInner.png" id="4_5s3we"]
+[ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="4_x7hoj"]
+[ext_resource type="Texture2D" uid="uid://ctlshrsjvki7" path="res://images/HealthbarOutline.png" id="5_4ssen"]
+[ext_resource type="Texture2D" uid="uid://b58rbqsn80yqv" path="res://images/AK-47.png" id="6_i3kt7"]
+[ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="7_1iyd3"]
+[ext_resource type="Texture2D" uid="uid://nde1qfyis815" path="res://images/AmmoBox.png" id="10_ddh8l"]
+[ext_resource type="Texture2D" uid="uid://br2tdv2amywox" path="res://images/CombatKnife.png" id="10_wolt1"]
+[ext_resource type="Texture2D" uid="uid://ie0es8j2gol1" path="res://images/Glock-19.png" id="11_ulqyl"]
+>>>>>>> Stashed changes
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
