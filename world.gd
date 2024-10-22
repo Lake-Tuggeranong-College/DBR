@@ -1,5 +1,5 @@
 extends Node3D
-@onready var marker : Marker3D = $"Base_terrain + Colur Trees with Coloistion osc_V2/Tree/Marker3D"
+@onready var marker : Marker3D = $Base_terrain_Main/Tree/Marker3D
 @onready var main_menu = $CanvasLayer/MainMenu
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
 @onready var hud = $CanvasLayer/HUD
