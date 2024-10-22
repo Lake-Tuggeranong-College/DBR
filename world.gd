@@ -1,5 +1,5 @@
-extends Node
-
+extends Node3D
+@onready var marker : Marker3D = $"Base_terrain + Colur Trees with Coloistion osc_V2/Tree/Marker3D"
 @onready var main_menu = $CanvasLayer/MainMenu
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
 @onready var hud = $CanvasLayer/HUD
@@ -94,6 +94,8 @@ func _ready():
 	#print(callable_gun_signal)
 	
 	ip_address = get_local_ip()
+	global_position = marker.global_position
+	print(global_position)
 
 	if OS.get_name()=="macOS":
 		DisplayServer.window_set_size(Vector2i(1920, 1080))
@@ -135,9 +137,11 @@ func _on_join_button_pressed():
 func add_player(peer_id):
 	var player = Player.instantiate()
 	player.name = str(peer_id)
+	player.global_position = global_position
 	add_child(player)
 	if player.is_multiplayer_authority():
 		player.health_changed.connect(update_health_bar)
+		
 
 func remove_player(peer_id):
 	var player = get_node_or_null(str(peer_id))

@@ -1,21 +1,21 @@
 [gd_scene load_steps=29 format=3 uid="uid://bdn5gj57p8e1o"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_cveli"]
-[ext_resource type="PackedScene" uid="uid://ge60lwdrem36" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
-[ext_resource type="Texture2D" uid="uid://biv2pjoxug8le" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2_Tree_Texture.png" id="3_13kr4"]
+[ext_resource type="PackedScene" uid="uid://bl3s3ujvbkj24" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2.glb" id="2_2ohk6"]
+[ext_resource type="Texture2D" uid="uid://cypc20k8u211f" path="res://models/Terrain/island Versions/Oscar Versions/Base_terrain + Colur Trees with Coloistion osc_V2_Tree_Texture.png" id="3_13kr4"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_qxeon"]
-[ext_resource type="Texture2D" uid="uid://cpiy31xuwv8il" path="res://images/3NaWG1Oy_400x400.jpg" id="4_k3q4w"]
-[ext_resource type="Texture2D" uid="uid://dk44e0vhtwbra" path="res://images/HealthbarInner.png" id="4_kqlcj"]
+[ext_resource type="Texture2D" uid="uid://cb6efav48popa" path="res://images/3NaWG1Oy_400x400.jpg" id="4_k3q4w"]
+[ext_resource type="Texture2D" uid="uid://bcfj8xvudirpe" path="res://images/HealthbarInner.png" id="4_kqlcj"]
 [ext_resource type="FontFile" uid="uid://bfdxoj3c567ro" path="res://star_jedi/starjedi/Starjedi.ttf" id="4_sl3st"]
-[ext_resource type="Texture2D" uid="uid://c44v8ym5l6tk4" path="res://images/HealthbarOutline.png" id="5_tpprc"]
-[ext_resource type="Texture2D" uid="uid://rfhmo7ptmfyy" path="res://images/AK-47.png" id="6_n5iwn"]
+[ext_resource type="Texture2D" uid="uid://dsfw2dkck2o4e" path="res://images/HealthbarOutline.png" id="5_tpprc"]
+[ext_resource type="Texture2D" uid="uid://cp6hjlh8l1ssx" path="res://images/AK-47.png" id="6_n5iwn"]
 [ext_resource type="PackedScene" uid="uid://c1qsyptu8q84p" path="res://models/pickups/health.tscn" id="8_3fra7"]
 [ext_resource type="PackedScene" uid="uid://qruaik0d22gq" path="res://models/pickups/AmmoBox.tscn" id="9_buoau"]
-[ext_resource type="Texture2D" uid="uid://k6yxy2so3sxc" path="res://images/CombatKnife.png" id="9_llsdb"]
-[ext_resource type="Texture2D" uid="uid://dd6adla8x20fx" path="res://images/Glock-19.png" id="10_ih32w"]
-[ext_resource type="Texture2D" uid="uid://6hxh6512n71v" path="res://images/AmmoBox.png" id="10_meggo"]
-[ext_resource type="PackedScene" uid="uid://cfb3p5wpnmfr6" path="res://models/sun/death_star_-_star_wars.glb" id="13_bx7yv"]
-[ext_resource type="PackedScene" uid="uid://bbjke0bfb7is1" path="res://models/characters/templateCharaterModel.glb" id="13_evf2j"]
+[ext_resource type="Texture2D" uid="uid://01wm1lbi2o07" path="res://images/CombatKnife.png" id="9_llsdb"]
+[ext_resource type="Texture2D" uid="uid://qollj11um382" path="res://images/Glock-19.png" id="10_ih32w"]
+[ext_resource type="Texture2D" uid="uid://c3x4ovxbsxjhg" path="res://images/AmmoBox.png" id="10_meggo"]
+[ext_resource type="PackedScene" uid="uid://c4b470588ussr" path="res://models/sun/death_star_-_star_wars.glb" id="13_bx7yv"]
+[ext_resource type="PackedScene" uid="uid://dys08r5wqxsbs" path="res://models/characters/templateCharaterModel.glb" id="13_evf2j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0d57v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -92,7 +92,7 @@ font_size = 300
 outline_size = 100
 outline_color = Color(0, 0, 0, 1)
 
-[node name="terrain-island" type="Node"]
+[node name="terrain-island" type="Node3D"]
 script = ExtResource("1_cveli")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -103,101 +103,104 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_urwws")
 
-[node name="Base_terrain + Colur Trees with Coloistion osc_V2" parent="." instance=ExtResource("2_2ohk6")]
+[node name="Base_terrain_Main" parent="." instance=ExtResource("2_2ohk6")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -28.7128, 0)
 
-[node name="Tree" parent="Base_terrain + Colur Trees with Coloistion osc_V2" index="1"]
+[node name="Tree" parent="Base_terrain_Main" index="1"]
 transform = Transform3D(0.353553, 0, 0.353553, 0, 0.5, 0, -0.353553, 0, 0.353553, -67.0287, 10.0571, 16.6062)
 
-[node name="Tree_001" parent="Base_terrain + Colur Trees with Coloistion osc_V2" index="2"]
+[node name="Marker3D" type="Marker3D" parent="Base_terrain_Main/Tree" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 1000, 100)
+
+[node name="Tree_001" parent="Base_terrain_Main" index="2"]
 transform = Transform3D(-0.187303, 0, 0.463592, 0, 0.5, 0, -0.463592, 0, -0.187303, -50.4166, 13.1511, 33.8163)
 
-[node name="Tree_002" parent="Base_terrain + Colur Trees with Coloistion osc_V2" index="3"]
+[node name="Tree_002" parent="Base_terrain_Main" index="3"]
 transform = Transform3D(-0.46592, 0, 0.181435, 0, 0.5, 0, -0.181435, 0, -0.46592, -23.9081, 14.1215, 39.7332)
 
-[node name="Tree_003" parent="Base_terrain + Colur Trees with Coloistion osc_V2" index="4"]
+[node name="Tree_003" parent="Base_terrain_Main" index="4"]
 transform = Transform3D(0.187303, 0, -0.463592, 0, 0.5, 0, 0.463592, 0, 0.187303, -40.5202, 14.1215, 22.5232)
 
-[node name="Tree_004" parent="Base_terrain + Colur Trees with Coloistion osc_V2" index="5"]
+[node name="Tree_004" parent="Base_terrain_Main" index="5"]
 transform = Transform3D(-0.187303, 0, 0.463592, 0, 0.5, 0, -0.463592, 0, -0.187303, -40.5399, 9.79627, 56.857)
 visible = false
 
-[node name="Tree_005" parent="Base_terrain + Colur Trees with Coloistion osc_V2" index="6"]
+[node name="Tree_005" parent="Base_terrain_Main" index="6"]
 transform = Transform3D(-0.469846, 0, 0.17101, 0, 0.5, 0, -0.17101, 0, -0.469846, 28.2626, 13.7318, 28.5532)
 visible = false
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Base_terrain_Main"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Base_terrain_Main/StaticBody3D"]
 transform = Transform3D(10.043, 0, 0, 0, 1, 0, 0, 0, 10.049, 0, 0.000499725, 0)
 shape = SubResource("WorldBoundaryShape3D_3i2m6")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Base_terrain_Main/StaticBody3D"]
 transform = Transform3D(-10.043, -8.74228e-08, 3.8401e-14, 0, -4.37114e-08, -10.049, 8.77987e-07, -1, 4.39256e-07, 0, 0.000499725, 101.108)
 shape = SubResource("WorldBoundaryShape3D_3i2m6")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/StaticBody3D"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Base_terrain_Main/StaticBody3D"]
 transform = Transform3D(10.043, 0, 0, 0, -4.37114e-08, -10.049, 0, 1, -4.39256e-07, 0, 0.000499725, -99.2416)
 shape = SubResource("WorldBoundaryShape3D_3i2m6")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/StaticBody3D"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Base_terrain_Main/StaticBody3D"]
 transform = Transform3D(1.19762e-07, -1, 4.39256e-07, 0, -4.37114e-08, -10.049, 10.043, 1.19249e-08, -5.23807e-15, 98.187, 0.000499725, 3.8769)
 shape = SubResource("WorldBoundaryShape3D_3i2m6")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/StaticBody3D"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Base_terrain_Main/StaticBody3D"]
 transform = Transform3D(-4.38993e-07, 1, -4.39256e-07, 0, -4.37114e-08, -10.049, -10.043, -4.37114e-08, 1.92005e-14, -96.4717, 0.000499725, 3.8769)
 shape = SubResource("WorldBoundaryShape3D_3i2m6")
 
-[node name="Sprite3D" type="Sprite3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2"]
+[node name="Sprite3D" type="Sprite3D" parent="Base_terrain_Main"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8281, 8.61434, -29.3944)
 pixel_size = 0.05
 billboard = 1
 texture = ExtResource("4_k3q4w")
 
-[node name="Tree_006" type="MeshInstance3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2"]
+[node name="Tree_006" type="MeshInstance3D" parent="Base_terrain_Main"]
 transform = Transform3D(0.424665, 0, -0.26393, 0, 0.5, 0, 0.26393, 0, 0.424665, 10.0697, 14.1215, 22.5232)
 mesh = SubResource("ArrayMesh_lkdcv")
 skeleton = NodePath("")
 
-[node name="Tree_003" type="StaticBody3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/Tree_006"]
+[node name="Tree_003" type="StaticBody3D" parent="Base_terrain_Main/Tree_006"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/Tree_006/Tree_003"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Base_terrain_Main/Tree_006/Tree_003"]
 shape = SubResource("ConcavePolygonShape3D_5i8to")
 
-[node name="Tree_007" type="MeshInstance3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2"]
+[node name="Tree_007" type="MeshInstance3D" parent="Base_terrain_Main"]
 transform = Transform3D(-0.490505, 0, -0.0969799, 0, 0.5, 0, 0.0969799, 0, -0.490505, 11.143, 13.5817, 48.5767)
 mesh = SubResource("ArrayMesh_lkdcv")
 skeleton = NodePath("")
 
-[node name="Tree_003" type="StaticBody3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/Tree_007"]
+[node name="Tree_003" type="StaticBody3D" parent="Base_terrain_Main/Tree_007"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/Tree_007/Tree_003"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Base_terrain_Main/Tree_007/Tree_003"]
 transform = Transform3D(1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, 0, -0.00485939, 0)
 shape = SubResource("ConcavePolygonShape3D_5i8to")
 
-[node name="Tree_008" type="MeshInstance3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2"]
+[node name="Tree_008" type="MeshInstance3D" parent="Base_terrain_Main"]
 transform = Transform3D(-0.219672, 0, -0.449159, 0, 0.5, 0, 0.449159, 0, -0.219672, -37.5025, 13.5944, 46.3208)
 mesh = SubResource("ArrayMesh_lkdcv")
 skeleton = NodePath("")
 
-[node name="Tree_003" type="StaticBody3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/Tree_008"]
+[node name="Tree_003" type="StaticBody3D" parent="Base_terrain_Main/Tree_008"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/Tree_008/Tree_003"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Base_terrain_Main/Tree_008/Tree_003"]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, -0.0750053, 0)
 shape = SubResource("ConcavePolygonShape3D_5i8to")
 
-[node name="Tree_009" type="MeshInstance3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2"]
+[node name="Tree_009" type="MeshInstance3D" parent="Base_terrain_Main"]
 transform = Transform3D(-0.217128, 0, 0.450395, 0, 0.5, 0, -0.450395, 0, -0.217128, 38.4245, 13.1935, 22.5232)
 mesh = SubResource("ArrayMesh_lkdcv")
 skeleton = NodePath("")
 
-[node name="Tree_003" type="StaticBody3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/Tree_009"]
+[node name="Tree_003" type="StaticBody3D" parent="Base_terrain_Main/Tree_009"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Base_terrain + Colur Trees with Coloistion osc_V2/Tree_009/Tree_003"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Base_terrain_Main/Tree_009/Tree_003"]
 shape = SubResource("ConcavePolygonShape3D_5i8to")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -420,4 +423,4 @@ light_color = Color(0.341176, 1, 0, 1)
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]
 
-[editable path="Base_terrain + Colur Trees with Coloistion osc_V2"]
+[editable path="Base_terrain_Main"]
