@@ -9,7 +9,7 @@ extends Node3D
 @onready var ipSprite = $CanvasLayer/HUD/IP
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 var ip_address
-var spawn = spawnpoint1
+var spawn : Marker3D = spawnpoint1
 ##################################################################################################################
 ######                          Documentation about using different type of characters                      ######
 ##################################################################################################################
@@ -99,15 +99,14 @@ func _ready():
 	#print(callable_gun_signal)
 	
 	ip_address = get_local_ip()
-	var spawn
-	global_position = spawn.global_position
-	print(global_position)
+	global_position = spawnpoint1.global_position
+
 
 func UpdateSpawn():
-	var spawnArray : Array[ Node ] = [ spawnpoint1, spawnpoint2, spawnpoint3]
-	var randSpawn = randf_range(0,3)
+	var spawnArray : Array[ Marker3D ] = [ spawnpoint1, spawnpoint2, spawnpoint3]
+	var randSpawn = randf_range(0,2)
 	spawn = spawnArray[randSpawn]
-	
+	global_position = spawn.global_position
 
 	if OS.get_name()=="macOS":
 		DisplayServer.window_set_size(Vector2i(1920, 1080))
