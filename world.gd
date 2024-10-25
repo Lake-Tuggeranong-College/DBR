@@ -104,9 +104,11 @@ func _ready():
 
 func UpdateSpawn():
 	var spawnArray : Array[ Marker3D ] = [ spawnpoint1, spawnpoint2, spawnpoint3]
-	var randSpawn = randf_range(0,2)
+	var randSpawn = round(randf_range(0,2))
+	print(randSpawn)
 	spawn = spawnArray[randSpawn]
 	global_position = spawn.global_position
+	print(spawn)
 
 	if OS.get_name()=="macOS":
 		DisplayServer.window_set_size(Vector2i(1920, 1080))
