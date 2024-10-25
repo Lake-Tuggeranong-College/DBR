@@ -1,5 +1,7 @@
 extends Node3D
-@onready var marker : Marker3D = $Base_terrain_Main/Tree/Marker3D
+@onready var spawnpoint1 : Marker3D = $"spawn-point/spawnpoint1"
+@onready var spawnpoint2 : Marker3D = $"spawn-point/spawnpoint2"
+@onready var spawnpoint3 : Marker3D = $"spawn-point/spawnpoint3"
 @onready var main_menu = $CanvasLayer/MainMenu
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
 @onready var hud = $CanvasLayer/HUD
@@ -7,6 +9,7 @@ extends Node3D
 @onready var ipSprite = $CanvasLayer/HUD/IP
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 var ip_address
+var spawn = spawnpoint1
 ##################################################################################################################
 ######                          Documentation about using different type of characters                      ######
 ##################################################################################################################
@@ -56,6 +59,8 @@ var enet_peer = ENetMultiplayerPeer.new()
 #func _on_weapon_switched(gun_name):
 	
 
+
+
 func _physics_process(delta):
 	# Assuming Global.ammo is a valid global variable
 	var current_ammo_label = get_node("CanvasLayer/HUD/AmmoBox/CurrentAmmo")
@@ -94,8 +99,15 @@ func _ready():
 	#print(callable_gun_signal)
 	
 	ip_address = get_local_ip()
-	global_position = marker.global_position
+	var spawn
+	global_position = spawn.global_position
 	print(global_position)
+
+func UpdateSpawn():
+	var spawnArray : Array[ Node ] = [ spawnpoint1, spawnpoint2, spawnpoint3]
+	var randSpawn = randf_range(0,3)
+	spawn = spawnArray[randSpawn]
+	
 
 	if OS.get_name()=="macOS":
 		DisplayServer.window_set_size(Vector2i(1920, 1080))
@@ -130,9 +142,10 @@ func _on_host_button_pressed():
 func _on_join_button_pressed():
 	main_menu.hide()
 	hud.show()
-	
 	enet_peer.create_client(address_entry.text, PORT)
 	multiplayer.multiplayer_peer = enet_peer
+	UpdateSpawn()
+	add_player(multiplayer.get_unique_id())
 
 func add_player(peer_id):
 	var player = Player.instantiate()
