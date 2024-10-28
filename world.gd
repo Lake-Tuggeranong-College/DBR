@@ -99,9 +99,10 @@ func _ready():
 	#print(callable_gun_signal)
 	
 	ip_address = get_local_ip()
+	#sets host to spawn one
 	global_position = spawnpoint1.global_position
 
-
+#updates the spawnpoint to be between a random set of spawns
 func UpdateSpawn():
 	var spawnArray : Array[ Marker3D ] = [ spawnpoint1, spawnpoint2, spawnpoint3]
 	var randSpawn = round(randf_range(0,2))
@@ -145,6 +146,8 @@ func _on_join_button_pressed():
 	hud.show()
 	enet_peer.create_client(address_entry.text, PORT)
 	multiplayer.multiplayer_peer = enet_peer
+	
+	#updates the spawnpoint for each player
 	UpdateSpawn()
 	add_player(multiplayer.get_unique_id())
 
