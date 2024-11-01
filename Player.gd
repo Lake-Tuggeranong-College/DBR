@@ -200,7 +200,6 @@ func _physics_process(delta):
 				add_ammo(10)
 				# Add to Ammo instead.
 				print("I collided with ", collision.get_collider().name)
-				add_health(1)
 				collision.get_collider().queue_free()
 			if "Health" in collision.get_collider().name:
 				print("I collided with ", collision.get_collider().name)
