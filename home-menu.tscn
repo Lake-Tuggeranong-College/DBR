@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://home-menu.gd" id="1_mimik"]
 [ext_resource type="FontFile" uid="uid://0cdxflkd3ynj" path="res://star_jedi/stjelogo/Strjmono.ttf" id="2_jwbhb"]
 [ext_resource type="FontFile" uid="uid://dd3p861ljnqr0" path="res://star_jedi/starjedi/Starjhol.ttf" id="3_nf841"]
-[ext_resource type="Texture2D" uid="uid://dbqml6ss5nl21" path="res://images/Godot arrow.png" id="5_khad5"]
-[ext_resource type="Texture2D" uid="uid://b2l5s3tfd6577" path="res://images/island-image.jpg" id="5_x3ugr"]
+[ext_resource type="Texture2D" uid="uid://dptx61jtsndmf" path="res://images/Godot arrow.png" id="5_khad5"]
+[ext_resource type="Texture2D" uid="uid://bql470n73h8b5" path="res://images/island-image.jpg" id="5_x3ugr"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_mimik")
